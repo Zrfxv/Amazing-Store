@@ -5,6 +5,8 @@
  */
 package main;
 
+import java.awt.Color;
+
 /**
  *
  * @author muham
@@ -27,33 +29,120 @@ public class CashierPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        PanelMenu = new javax.swing.JPanel();
+        jlprofile = new javax.swing.JLabel();
+        jlTransaction = new javax.swing.JLabel();
+        jlInputBarang = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        MainPanel = new javax.swing.JPanel();
+        TransactionPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        InputPanel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        WelcomePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
+        getContentPane().setLayout(null);
 
-        jLabel1.setText("cashier panel");
+        PanelMenu.setBackground(new java.awt.Color(0, 51, 255));
+        PanelMenu.setOpaque(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+        jlprofile.setText("Profile");
+        jlprofile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlprofileMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlprofileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlprofileMouseExited(evt);
+            }
+        });
+
+        jlTransaction.setText("Transaksi");
+
+        jlInputBarang.setText("Input Barang");
+
+        jLabel7.setText("About");
+
+        javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
+        PanelMenu.setLayout(PanelMenuLayout);
+        PanelMenuLayout.setHorizontalGroup(
+            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jlprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jlTransaction)
+                .addGap(57, 57, 57)
+                .addComponent(jlInputBarang)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+        PanelMenuLayout.setVerticalGroup(
+            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlprofile)
+                    .addComponent(jlTransaction)
+                    .addComponent(jlInputBarang)
+                    .addComponent(jLabel7))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        getContentPane().add(PanelMenu);
+        PanelMenu.setBounds(420, 0, 430, 70);
+
+        MainPanel.setBackground(new java.awt.Color(255, 51, 51));
+        MainPanel.setLayout(new java.awt.CardLayout());
+
+        TransactionPanel.setBackground(new java.awt.Color(255, 51, 255));
+        TransactionPanel.setLayout(null);
+
+        jLabel6.setText("jLabel6");
+        TransactionPanel.add(jLabel6);
+        jLabel6.setBounds(50, 30, 34, 14);
+
+        MainPanel.add(TransactionPanel, "card3");
+
+        InputPanel.setBackground(new java.awt.Color(204, 102, 0));
+
+        jLabel8.setText("jLabel8");
+
+        javax.swing.GroupLayout InputPanelLayout = new javax.swing.GroupLayout(InputPanel);
+        InputPanel.setLayout(InputPanelLayout);
+        InputPanelLayout.setHorizontalGroup(
+            InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InputPanelLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel8)
+                .addContainerGap(1057, Short.MAX_VALUE))
+        );
+        InputPanelLayout.setVerticalGroup(
+            InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InputPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel8)
+                .addContainerGap(665, Short.MAX_VALUE))
+        );
+
+        MainPanel.add(InputPanel, "card4");
+
+        WelcomePanel.setBackground(new java.awt.Color(0, 153, 153));
+        WelcomePanel.setLayout(null);
+        MainPanel.add(WelcomePanel, "card2");
+
+        getContentPane().add(MainPanel);
+        MainPanel.setBounds(0, 0, 1150, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -63,6 +152,31 @@ public class CashierPanel extends javax.swing.JFrame {
         Login.summonLoginPanel();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jlprofileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlprofileMouseExited
+        jlprofile.setForeground(Color.black);
+    }//GEN-LAST:event_jlprofileMouseExited
+
+    private void jlprofileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlprofileMouseEntered
+        jlprofile. setForeground(Color.orange);
+    }//GEN-LAST:event_jlprofileMouseEntered
+
+    private void jlprofileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlprofileMouseClicked
+       MainPanel.removeAll();
+       MainPanel.repaint();
+       MainPanel.revalidate();
+        
+       MainPanel.add(TransactionPanel);
+//       MainPanel.add(MenuPanel);
+       MainPanel.repaint();
+       MainPanel.revalidate();
+       
+       
+//       MenuPanel.repaint();
+////       MenuPanel.revalidate();
+    }//GEN-LAST:event_jlprofileMouseClicked
+       
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -94,12 +208,25 @@ public class CashierPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CashierPanel().setVisible(true);
+                CashierPanel cashier = new CashierPanel();
+                cashier.setSize(1155,716);
+                cashier.setLocationRelativeTo(null);
+                cashier.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel InputPanel;
+    private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel PanelMenu;
+    private javax.swing.JPanel TransactionPanel;
+    private javax.swing.JPanel WelcomePanel;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jlInputBarang;
+    private javax.swing.JLabel jlTransaction;
+    private javax.swing.JLabel jlprofile;
     // End of variables declaration//GEN-END:variables
 }

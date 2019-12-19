@@ -2,7 +2,9 @@ package main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class AppDatabase {
 
@@ -27,4 +29,17 @@ public class AppDatabase {
         return connection;
     }
 
+    public static void main(String[] args) {
+        try {
+            getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from employee where "
+                    + "username = 'Heathcliff' and "
+                    + "password = 'suprax125'");
+            
+            System.out.println("Level = " + resultSet.getString("level"));
+        } catch (Exception e) {
+        }
+
+    }
 }
