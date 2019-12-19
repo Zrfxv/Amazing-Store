@@ -6,18 +6,35 @@
 package main;
 
 import java.awt.Color;
+import java.awt.color.ColorSpace;
 
 /**
  *
  * @author muham
  */
 public class CashierPanel extends javax.swing.JFrame {
-
+           Color klik;
+            Color utama;
     /**
      * Creates new form CashierPanel
      */
     public CashierPanel() {
         initComponents();
+        
+         klik = Color.BLUE;
+         utama = Color.BLACK;
+
+        jlProfile.setForeground(utama);
+        jlTransaksi.setForeground(utama);
+        jlMember.setForeground(utama);
+        jlInput.setForeground(utama);
+        
+      
+        
+        
+      
+        
+       
     }
 
     /**
@@ -29,17 +46,22 @@ public class CashierPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelMenu = new javax.swing.JPanel();
-        jlprofile = new javax.swing.JLabel();
-        jlTransaction = new javax.swing.JLabel();
-        jlInputBarang = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        MenuPanel = new javax.swing.JPanel();
+        jlProfile = new javax.swing.JLabel();
+        jlTransaksi = new javax.swing.JLabel();
+        jlMember = new javax.swing.JLabel();
+        jlInput = new javax.swing.JLabel();
+        jlAbaout = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
-        TransactionPanel = new javax.swing.JPanel();
+        WelcomePanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        ProfilePanel = new javax.swing.JPanel();
+        transactionPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        MemberRegisterPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         InputPanel = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        WelcomePanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -48,101 +70,131 @@ public class CashierPanel extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelMenu.setBackground(new java.awt.Color(0, 51, 255));
-        PanelMenu.setOpaque(false);
+        MenuPanel.setBackground(new java.awt.Color(204, 51, 0));
 
-        jlprofile.setText("Profile");
-        jlprofile.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlProfile.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jlProfile.setText("Profile");
+        jlProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlprofileMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jlprofileMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jlprofileMouseExited(evt);
+                jlProfileMouseClicked(evt);
             }
         });
 
-        jlTransaction.setText("Transaksi");
+        jlTransaksi.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jlTransaksi.setText(" transaction");
+        jlTransaksi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlTransaksiMouseClicked(evt);
+            }
+        });
 
-        jlInputBarang.setText("Input Barang");
+        jlMember.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jlMember.setText("Member Register");
+        jlMember.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlMember.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlMemberMouseClicked(evt);
+            }
+        });
 
-        jLabel7.setText("About");
+        jlInput.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jlInput.setText("Input ");
+        jlInput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlInput.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlInputMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
-        PanelMenu.setLayout(PanelMenuLayout);
-        PanelMenuLayout.setHorizontalGroup(
-            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jlprofile, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jlTransaction)
-                .addGap(57, 57, 57)
-                .addComponent(jlInputBarang)
+        jlAbaout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jlAbaout.setText("Abaout");
+        jlAbaout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlAbaout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlAbaoutMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MenuPanelLayout = new javax.swing.GroupLayout(MenuPanel);
+        MenuPanel.setLayout(MenuPanelLayout);
+        MenuPanelLayout.setHorizontalGroup(
+            MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jlProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlMember)
+                .addGap(18, 18, 18)
+                .addComponent(jlInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jlAbaout)
+                .addContainerGap(238, Short.MAX_VALUE))
         );
-        PanelMenuLayout.setVerticalGroup(
-            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlprofile)
-                    .addComponent(jlTransaction)
-                    .addComponent(jlInputBarang)
-                    .addComponent(jLabel7))
-                .addContainerGap(29, Short.MAX_VALUE))
+        MenuPanelLayout.setVerticalGroup(
+            MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlMember, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlInput, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlAbaout, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PanelMenu);
-        PanelMenu.setBounds(420, 0, 430, 70);
+        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 710, 110));
 
-        MainPanel.setBackground(new java.awt.Color(255, 51, 51));
+        MainPanel.setBackground(new java.awt.Color(102, 255, 102));
         MainPanel.setLayout(new java.awt.CardLayout());
 
-        TransactionPanel.setBackground(new java.awt.Color(255, 51, 255));
-        TransactionPanel.setLayout(null);
-
-        jLabel6.setText("jLabel6");
-        TransactionPanel.add(jLabel6);
-        jLabel6.setBounds(50, 30, 34, 14);
-
-        MainPanel.add(TransactionPanel, "card3");
-
-        InputPanel.setBackground(new java.awt.Color(204, 102, 0));
-
-        jLabel8.setText("jLabel8");
-
-        javax.swing.GroupLayout InputPanelLayout = new javax.swing.GroupLayout(InputPanel);
-        InputPanel.setLayout(InputPanelLayout);
-        InputPanelLayout.setHorizontalGroup(
-            InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InputPanelLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel8)
-                .addContainerGap(1057, Short.MAX_VALUE))
-        );
-        InputPanelLayout.setVerticalGroup(
-            InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InputPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel8)
-                .addContainerGap(665, Short.MAX_VALUE))
-        );
-
-        MainPanel.add(InputPanel, "card4");
-
-        WelcomePanel.setBackground(new java.awt.Color(0, 153, 153));
+        WelcomePanel.setBackground(new java.awt.Color(153, 153, 0));
         WelcomePanel.setLayout(null);
-        MainPanel.add(WelcomePanel, "card2");
 
-        getContentPane().add(MainPanel);
-        MainPanel.setBounds(0, 0, 1150, 710);
+        jLabel3.setText("Welcome");
+        WelcomePanel.add(jLabel3);
+        jLabel3.setBounds(516, 237, 43, 14);
+
+        MainPanel.add(WelcomePanel, "card4");
+
+        ProfilePanel.setBackground(new java.awt.Color(0, 153, 153));
+        ProfilePanel.setLayout(null);
+        MainPanel.add(ProfilePanel, "card2");
+
+        transactionPanel.setBackground(new java.awt.Color(153, 153, 255));
+        transactionPanel.setLayout(null);
+
+        jLabel5.setText("Transaksi");
+        transactionPanel.add(jLabel5);
+        jLabel5.setBounds(467, 279, 45, 14);
+
+        MainPanel.add(transactionPanel, "card3");
+
+        MemberRegisterPanel.setBackground(new java.awt.Color(0, 204, 204));
+        MemberRegisterPanel.setLayout(null);
+
+        jLabel6.setText("member ");
+        MemberRegisterPanel.add(jLabel6);
+        jLabel6.setBounds(492, 296, 41, 14);
+
+        MainPanel.add(MemberRegisterPanel, "card5");
+
+        InputPanel.setBackground(new java.awt.Color(255, 255, 255));
+        InputPanel.setLayout(null);
+
+        jLabel7.setText("InputPanel");
+        InputPanel.add(jLabel7);
+        jLabel7.setBounds(400, 310, 52, 14);
+
+        MainPanel.add(InputPanel, "card6");
+
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,30 +204,89 @@ public class CashierPanel extends javax.swing.JFrame {
         Login.summonLoginPanel();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jlprofileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlprofileMouseExited
-        jlprofile.setForeground(Color.black);
-    }//GEN-LAST:event_jlprofileMouseExited
-
-    private void jlprofileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlprofileMouseEntered
-        jlprofile. setForeground(Color.orange);
-    }//GEN-LAST:event_jlprofileMouseEntered
-
-    private void jlprofileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlprofileMouseClicked
-       MainPanel.removeAll();
-       MainPanel.repaint();
-       MainPanel.revalidate();
+    private void jlProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlProfileMouseClicked
         
-       MainPanel.add(TransactionPanel);
-//       MainPanel.add(MenuPanel);
-       MainPanel.repaint();
-       MainPanel.revalidate();
+        removePanel();
+        ProfilePanel.setVisible(true);
+        MenuPanel.setVisible(true);
+        jlProfile.setForeground(klik);
+        jlTransaksi.setForeground(utama);
+        jlMember.setForeground(utama);
+        jlInput.setForeground(utama);
+        jlAbaout.setForeground(utama);
+        
        
+      
+        
+    }//GEN-LAST:event_jlProfileMouseClicked
+
+    private void jlTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlTransaksiMouseClicked
+         removePanel();
+         transactionPanel.setVisible(true);
+         MenuPanel.setVisible(true);
+          jlProfile.setForeground(utama);
+        jlTransaksi.setForeground(klik);
+          jlMember.setForeground(utama);
+        jlInput.setForeground(utama);
+        jlAbaout.setForeground(utama);
+        
+        
+         
+         
+    }//GEN-LAST:event_jlTransaksiMouseClicked
+
+    private void jlMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMemberMouseClicked
+        removePanel();
+        MemberRegisterPanel.setVisible(true);
+        MenuPanel.setVisible(true);
+         jlProfile.setForeground(utama);
+        jlTransaksi.setForeground(utama);
+          jlMember.setForeground(klik);
+        jlInput.setForeground(utama);
+        jlAbaout.setForeground(utama);
+        
+    }//GEN-LAST:event_jlMemberMouseClicked
+
+    private void jlInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlInputMouseClicked
+       removePanel();
+       InputPanel.setVisible(true);
+       MenuPanel.setVisible(true);
        
-//       MenuPanel.repaint();
-////       MenuPanel.revalidate();
-    }//GEN-LAST:event_jlprofileMouseClicked
-       
+        jlProfile.setForeground(utama);
+        jlTransaksi.setForeground(utama);
+          jlMember.setForeground(utama);
+        jlInput.setForeground(klik);
+        jlAbaout.setForeground(utama);
+    }//GEN-LAST:event_jlInputMouseClicked
+
+    private void jlAbaoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlAbaoutMouseClicked
+        jlProfile.setForeground(utama);
+        jlTransaksi.setForeground(utama);
+          jlMember.setForeground(utama);
+        jlInput.setForeground(utama);
+        jlAbaout.setForeground(klik);
+        
+    }//GEN-LAST:event_jlAbaoutMouseClicked
+     
     
+    private void removePanel(){
+        MenuPanel.setVisible(false);
+        WelcomePanel.setVisible(false);
+        ProfilePanel.setVisible(false);
+        transactionPanel.setVisible(false);
+        InputPanel.setVisible(false);
+        MemberRegisterPanel.setVisible(false);
+        
+        
+    }
+    
+//    private void recolor(){
+//        jlProfile.setForeground(Color.BLACK);
+//        jlInput.setForeground(Color.BLACK);
+//        jlMember.setForeground(Color.BLACK);
+//        jlTransaksi.setForeground(Color.BLACK);
+//          
+//    }
     
     /**
      * @param args the command line arguments
@@ -219,14 +330,19 @@ public class CashierPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InputPanel;
     private javax.swing.JPanel MainPanel;
-    private javax.swing.JPanel PanelMenu;
-    private javax.swing.JPanel TransactionPanel;
+    private javax.swing.JPanel MemberRegisterPanel;
+    private javax.swing.JPanel MenuPanel;
+    private javax.swing.JPanel ProfilePanel;
     private javax.swing.JPanel WelcomePanel;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jlInputBarang;
-    private javax.swing.JLabel jlTransaction;
-    private javax.swing.JLabel jlprofile;
+    private javax.swing.JLabel jlAbaout;
+    private javax.swing.JLabel jlInput;
+    private javax.swing.JLabel jlMember;
+    private javax.swing.JLabel jlProfile;
+    private javax.swing.JLabel jlTransaksi;
+    private javax.swing.JPanel transactionPanel;
     // End of variables declaration//GEN-END:variables
 }

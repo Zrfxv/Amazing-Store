@@ -46,7 +46,7 @@ public class Login extends javax.swing.JFrame {
         tfUsername.setText("heathcliff");
         tfUsername.setBorder(null);
         getContentPane().add(tfUsername);
-        tfUsername.setBounds(450, 170, 280, 50);
+        tfUsername.setBounds(450, 180, 280, 40);
 
         tfPassword.setText("suprax125");
         getContentPane().add(tfPassword);
@@ -76,10 +76,8 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(tvRegister);
         tvRegister.setBounds(690, 460, 110, 40);
-
-        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/login Form.png"))); // NOI18N
         getContentPane().add(imgLogin);
-        imgLogin.setBounds(0, -2, 818, 518);
+        imgLogin.setBounds(0, -2, 0, 0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
