@@ -7,35 +7,34 @@ package main;
 
 import java.awt.Color;
 import java.awt.color.ColorSpace;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author muham
  */
 public class CashierPanel extends javax.swing.JFrame {
-           Color klik;
-            Color utama;
+
+    Color klik;
+    Color utama;
+
     /**
      * Creates new form CashierPanel
      */
     public CashierPanel() {
         initComponents();
-        
-         klik = Color.BLUE;
-         utama = Color.BLACK;
+
+        klik = Color.BLUE;
+        utama = Color.BLACK;
 
         jlProfile.setForeground(utama);
         jlTransaksi.setForeground(utama);
         jlMember.setForeground(utama);
         jlInput.setForeground(utama);
-        
-      
-        
-        
-      
-        
-       
+
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +45,8 @@ public class CashierPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         MenuPanel = new javax.swing.JPanel();
         jlProfile = new javax.swing.JLabel();
         jlTransaksi = new javax.swing.JLabel();
@@ -54,10 +55,31 @@ public class CashierPanel extends javax.swing.JFrame {
         jlAbaout = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         WelcomePanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        imgWelcome = new javax.swing.JLabel();
         ProfilePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jtNoTelp = new javax.swing.JTextField();
+        jtPassword = new javax.swing.JPasswordField();
+        jtUsername = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
+        jtNama = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtAlamat = new javax.swing.JTextArea();
+        btnSaveProfile = new javax.swing.JButton();
+        brnBatalProfile = new javax.swing.JButton();
         transactionPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jlTanggal = new javax.swing.JLabel();
         MemberRegisterPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         InputPanel = new javax.swing.JPanel();
@@ -73,6 +95,7 @@ public class CashierPanel extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MenuPanel.setBackground(new java.awt.Color(204, 51, 0));
+        MenuPanel.setOpaque(false);
 
         jlProfile.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jlProfile.setText("Profile");
@@ -134,7 +157,7 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addComponent(jlInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jlAbaout)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,30 +172,151 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 710, 110));
+        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 630, 110));
 
         MainPanel.setBackground(new java.awt.Color(102, 255, 102));
         MainPanel.setLayout(new java.awt.CardLayout());
 
-        WelcomePanel.setBackground(new java.awt.Color(153, 153, 0));
+        WelcomePanel.setBackground(new java.awt.Color(255, 255, 255));
         WelcomePanel.setLayout(null);
 
-        jLabel3.setText("Welcome");
-        WelcomePanel.add(jLabel3);
-        jLabel3.setBounds(516, 237, 43, 14);
+        imgWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/WelcomePanel.png"))); // NOI18N
+        WelcomePanel.add(imgWelcome);
+        imgWelcome.setBounds(0, -10, 1155, 720);
 
         MainPanel.add(WelcomePanel, "card4");
 
         ProfilePanel.setBackground(new java.awt.Color(0, 153, 153));
         ProfilePanel.setLayout(null);
+
+        jLabel1.setText("Username");
+        ProfilePanel.add(jLabel1);
+        jLabel1.setBounds(220, 200, 70, 14);
+
+        jLabel2.setText("No Telp");
+        ProfilePanel.add(jLabel2);
+        jLabel2.setBounds(220, 480, 60, 14);
+
+        jtNoTelp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNoTelpKeyTyped(evt);
+            }
+        });
+        ProfilePanel.add(jtNoTelp);
+        jtNoTelp.setBounds(300, 470, 230, 30);
+
+        jtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPasswordKeyTyped(evt);
+            }
+        });
+        ProfilePanel.add(jtPassword);
+        jtPassword.setBounds(300, 230, 230, 30);
+
+        jtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtUsernameKeyTyped(evt);
+            }
+        });
+        ProfilePanel.add(jtUsername);
+        jtUsername.setBounds(300, 190, 230, 30);
+
+        jLabel3.setText("Password");
+        ProfilePanel.add(jLabel3);
+        jLabel3.setBounds(220, 240, 60, 14);
+
+        jLabel4.setText("Nama");
+        ProfilePanel.add(jLabel4);
+        jLabel4.setBounds(220, 280, 60, 14);
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Perempuan");
+        ProfilePanel.add(jRadioButton1);
+        jRadioButton1.setBounds(410, 310, 120, 30);
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Laki Laki");
+        ProfilePanel.add(jRadioButton2);
+        jRadioButton2.setBounds(300, 310, 100, 30);
+
+        jLabel8.setText("Gender");
+        ProfilePanel.add(jLabel8);
+        jLabel8.setBounds(220, 320, 60, 14);
+
+        jtNama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNamaKeyTyped(evt);
+            }
+        });
+        ProfilePanel.add(jtNama);
+        jtNama.setBounds(300, 270, 230, 30);
+
+        jLabel9.setText("Alamat");
+        ProfilePanel.add(jLabel9);
+        jLabel9.setBounds(220, 360, 60, 14);
+
+        jtAlamat.setColumns(20);
+        jtAlamat.setRows(5);
+        jtAlamat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtAlamatKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtAlamat);
+
+        ProfilePanel.add(jScrollPane1);
+        jScrollPane1.setBounds(300, 350, 230, 110);
+
+        btnSaveProfile.setText("Save");
+        btnSaveProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveProfileActionPerformed(evt);
+            }
+        });
+        ProfilePanel.add(btnSaveProfile);
+        btnSaveProfile.setBounds(410, 520, 110, 40);
+
+        brnBatalProfile.setText("Batal");
+        brnBatalProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brnBatalProfileActionPerformed(evt);
+            }
+        });
+        ProfilePanel.add(brnBatalProfile);
+        brnBatalProfile.setBounds(300, 520, 90, 40);
+
         MainPanel.add(ProfilePanel, "card2");
 
         transactionPanel.setBackground(new java.awt.Color(153, 153, 255));
         transactionPanel.setLayout(null);
 
-        jLabel5.setText("Transaksi");
+        jLabel5.setText("Hallo, ");
         transactionPanel.add(jLabel5);
-        jLabel5.setBounds(467, 279, 45, 14);
+        jLabel5.setBounds(450, 140, 40, 14);
+
+        jLabel10.setText("jLabel10");
+        transactionPanel.add(jLabel10);
+        jLabel10.setBounds(490, 140, 40, 14);
+
+        jSpinner1.setModel(new javax.swing.SpinnerDateModel());
+        jSpinner1.setOpaque(false);
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
+        transactionPanel.add(jSpinner1);
+        jSpinner1.setBounds(570, 110, 200, 30);
+
+        jLabel11.setText("Tanggal / Jam");
+        transactionPanel.add(jLabel11);
+        jLabel11.setBounds(780, 120, 90, 14);
+
+        jLabel12.setText(":");
+        transactionPanel.add(jLabel12);
+        jLabel12.setBounds(870, 120, 20, 14);
+        transactionPanel.add(jlTanggal);
+        jlTanggal.setBounds(890, 120, 150, 0);
 
         MainPanel.add(transactionPanel, "card3");
 
@@ -205,7 +349,7 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jlProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlProfileMouseClicked
-        
+
         removePanel();
         ProfilePanel.setVisible(true);
         MenuPanel.setVisible(true);
@@ -214,47 +358,41 @@ public class CashierPanel extends javax.swing.JFrame {
         jlMember.setForeground(utama);
         jlInput.setForeground(utama);
         jlAbaout.setForeground(utama);
-        
-       
-      
-        
+
     }//GEN-LAST:event_jlProfileMouseClicked
 
     private void jlTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlTransaksiMouseClicked
-         removePanel();
-         transactionPanel.setVisible(true);
-         MenuPanel.setVisible(true);
-          jlProfile.setForeground(utama);
+        removePanel();
+        transactionPanel.setVisible(true);
+        MenuPanel.setVisible(true);
+        jlProfile.setForeground(utama);
         jlTransaksi.setForeground(klik);
-          jlMember.setForeground(utama);
+        jlMember.setForeground(utama);
         jlInput.setForeground(utama);
         jlAbaout.setForeground(utama);
-        
-        
-         
-         
+
     }//GEN-LAST:event_jlTransaksiMouseClicked
 
     private void jlMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMemberMouseClicked
         removePanel();
         MemberRegisterPanel.setVisible(true);
         MenuPanel.setVisible(true);
-         jlProfile.setForeground(utama);
+        jlProfile.setForeground(utama);
         jlTransaksi.setForeground(utama);
-          jlMember.setForeground(klik);
+        jlMember.setForeground(klik);
         jlInput.setForeground(utama);
         jlAbaout.setForeground(utama);
-        
+
     }//GEN-LAST:event_jlMemberMouseClicked
 
     private void jlInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlInputMouseClicked
-       removePanel();
-       InputPanel.setVisible(true);
-       MenuPanel.setVisible(true);
-       
+        removePanel();
+        InputPanel.setVisible(true);
+        MenuPanel.setVisible(true);
+
         jlProfile.setForeground(utama);
         jlTransaksi.setForeground(utama);
-          jlMember.setForeground(utama);
+        jlMember.setForeground(utama);
         jlInput.setForeground(klik);
         jlAbaout.setForeground(utama);
     }//GEN-LAST:event_jlInputMouseClicked
@@ -262,24 +400,126 @@ public class CashierPanel extends javax.swing.JFrame {
     private void jlAbaoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlAbaoutMouseClicked
         jlProfile.setForeground(utama);
         jlTransaksi.setForeground(utama);
-          jlMember.setForeground(utama);
+        jlMember.setForeground(utama);
         jlInput.setForeground(utama);
         jlAbaout.setForeground(klik);
-        
+
     }//GEN-LAST:event_jlAbaoutMouseClicked
+
+    private void jtUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtUsernameKeyTyped
+       if(jtUsername.getText().length()==29){
+           evt.consume(); //ketika  karakter di nyatakan salah 
+           
+           JOptionPane.showMessageDialog(this,"Maksimal 30 Karakter" , "Informasi", JOptionPane.WARNING_MESSAGE);
+           
+       }
+    }//GEN-LAST:event_jtUsernameKeyTyped
+
+    private void jtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPasswordKeyTyped
      
+       if (jtPassword.getText().length()==19){
+           evt.consume();
+           
+             JOptionPane.showMessageDialog(this,"Maksimal 30 Karakter" , "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+          
+      
+    }//GEN-LAST:event_jtPasswordKeyTyped
+
+    private void jtNamaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNamaKeyTyped
+            if (jtNama.getText().length()==29){
+                evt.consume();
+                
+                  JOptionPane.showMessageDialog(this,"Maksimal 30 Karakter" , "Informasi", JOptionPane.WARNING_MESSAGE);
+                
+                
+            }
+    }//GEN-LAST:event_jtNamaKeyTyped
+
+    private void jtNoTelpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNoTelpKeyTyped
+       if (jtNoTelp.getText().length() == 14){
+           evt.consume();
+           
+            JOptionPane.showMessageDialog(this,"Maksimal 13 Karakter" , "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+        
+    }//GEN-LAST:event_jtNoTelpKeyTyped
+
+    private void jtAlamatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtAlamatKeyTyped
+            if (jtAlamat.getText().length() == 149){
+           evt.consume();
+           
+            JOptionPane.showMessageDialog(this,"Maksimal 150 Karakter" , "Informasi", JOptionPane.WARNING_MESSAGE);
+            }
+    }//GEN-LAST:event_jtAlamatKeyTyped
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+        
+    }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void brnBatalProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnBatalProfileActionPerformed
+         bersihka();
+    }//GEN-LAST:event_brnBatalProfileActionPerformed
+
+    private void btnSaveProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveProfileActionPerformed
+           
+            if (jtUsername.getText().equals("")){
+                JOptionPane.showMessageDialog(this,"Username Tidak Boleh Kosong" , "Infromasi",JOptionPane.WARNING_MESSAGE );
+                jtUsername.requestFocus();
+            }     
+                
+            else if(jtPassword.getPassword().equals("")){
+                JOptionPane.showMessageDialog(this,"Password  Tidak Boleh Kosong" , "Infromasi",JOptionPane.WARNING_MESSAGE );
+                jtPassword.requestFocus();
+            } 
+            
+            //buat perkondisian di bagian radio button agar bisa menampilkan pesan ketika radio tidk di isi
+            
+            else if(jtNama.getText().equals("")){
+                 JOptionPane.showMessageDialog(this,"Nama Tidak Boleh Kosong" , "Infromasi",JOptionPane.WARNING_MESSAGE );
+                jtNama.requestFocus();
+            }
+            
+            else if(jtAlamat.getText().equals("")){
+                 JOptionPane.showMessageDialog(this,"Alamat Tidak Boleh Kosong" , "Infromasi",JOptionPane.WARNING_MESSAGE );
+                jtAlamat.requestFocus();
+            }
+            
+            else if(jtNoTelp.getText().equals("")){
+                 JOptionPane.showMessageDialog(this,"No Telp Tidak Boleh Kosong" , "Infromasi",JOptionPane.WARNING_MESSAGE );
+                jtNoTelp.requestFocus();
+            }else {
+                try {
+                    
+                    //query nya 
+                    
+                    
+                } catch (Exception e) {
+                }
+            }
+            
+                
+            
+    }//GEN-LAST:event_btnSaveProfileActionPerformed
+
+    private void bersihka(){
+       jtUsername.setText("");
+       jtNama.setText("");
+       jtNoTelp.setText("");
+       jtAlamat.setText("");
+       jtPassword.setText("");
+    }
     
-    private void removePanel(){
+    private void removePanel() {
         MenuPanel.setVisible(false);
         WelcomePanel.setVisible(false);
         ProfilePanel.setVisible(false);
         transactionPanel.setVisible(false);
         InputPanel.setVisible(false);
         MemberRegisterPanel.setVisible(false);
-        
-        
+
     }
-    
+
 //    private void recolor(){
 //        jlProfile.setForeground(Color.BLACK);
 //        jlInput.setForeground(Color.BLACK);
@@ -287,7 +527,6 @@ public class CashierPanel extends javax.swing.JFrame {
 //        jlTransaksi.setForeground(Color.BLACK);
 //          
 //    }
-    
     /**
      * @param args the command line arguments
      */
@@ -320,7 +559,7 @@ public class CashierPanel extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 CashierPanel cashier = new CashierPanel();
-                cashier.setSize(1155,716);
+                cashier.setSize(1155, 716);
                 cashier.setLocationRelativeTo(null);
                 cashier.setVisible(true);
             }
@@ -334,15 +573,38 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JPanel MenuPanel;
     private javax.swing.JPanel ProfilePanel;
     private javax.swing.JPanel WelcomePanel;
+    private javax.swing.JButton brnBatalProfile;
+    private javax.swing.JButton btnSaveProfile;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel imgWelcome;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel jlAbaout;
     private javax.swing.JLabel jlInput;
     private javax.swing.JLabel jlMember;
     private javax.swing.JLabel jlProfile;
+    private javax.swing.JLabel jlTanggal;
     private javax.swing.JLabel jlTransaksi;
+    private javax.swing.JTextArea jtAlamat;
+    private javax.swing.JTextField jtNama;
+    private javax.swing.JTextField jtNoTelp;
+    private javax.swing.JPasswordField jtPassword;
+    private javax.swing.JTextField jtUsername;
     private javax.swing.JPanel transactionPanel;
     // End of variables declaration//GEN-END:variables
 }

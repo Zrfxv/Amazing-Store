@@ -76,8 +76,11 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(tvRegister);
         tvRegister.setBounds(690, 460, 110, 40);
+
+        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/login Form.png"))); // NOI18N
+        imgLogin.setText("jLabel1");
         getContentPane().add(imgLogin);
-        imgLogin.setBounds(0, -2, 0, 0);
+        imgLogin.setBounds(0, 0, 820, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

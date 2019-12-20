@@ -36,7 +36,7 @@ public class AppDatabase {
             ResultSet resultSet = statement.executeQuery("select * from employee where "
                     + "username = 'Heathcliff' and "
                     + "password = 'suprax125'");
-            
+
             System.out.println("Level = " + resultSet.getString("level"));
         } catch (Exception e) {
         }
