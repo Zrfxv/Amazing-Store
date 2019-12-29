@@ -43,14 +43,15 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        tfUsername.setText("heathcliff");
+        tfUsername.setText("zrfxv");
         tfUsername.setBorder(null);
         getContentPane().add(tfUsername);
-        tfUsername.setBounds(450, 180, 280, 40);
+        tfUsername.setBounds(440, 390, 320, 50);
 
-        tfPassword.setText("suprax125");
+        tfPassword.setText("kucing123");
+        tfPassword.setBorder(null);
         getContentPane().add(tfPassword);
-        tfPassword.setBounds(450, 240, 280, 40);
+        tfPassword.setBounds(440, 460, 320, 50);
 
         btnLogin.setBackground(new java.awt.Color(0, 212, 109));
         btnLogin.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -62,7 +63,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(510, 330, 150, 50);
+        btnLogin.setBounds(510, 550, 150, 50);
 
         tvRegister.setForeground(java.awt.Color.gray);
         tvRegister.setText("Lupa Password?");
@@ -75,12 +76,11 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tvRegister);
-        tvRegister.setBounds(690, 460, 110, 40);
+        tvRegister.setBounds(690, 610, 110, 40);
 
-        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/login Form.png"))); // NOI18N
-        imgLogin.setText("jLabel1");
+        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/login.png"))); // NOI18N
         getContentPane().add(imgLogin);
-        imgLogin.setBounds(0, 0, 820, 520);
+        imgLogin.setBounds(0, -10, 1155, 716);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,19 +102,20 @@ public class Login extends javax.swing.JFrame {
                 adminPanel.setVisible(true);
             } else if (resultSet.getString("level").equals("cashier")) {
                 dispose();
-                CashierPanel cashierPanel = new CashierPanel();
-                cashierPanel.setLocationRelativeTo(null);
-                cashierPanel.setVisible(true);
+                CashierPanel.summonCashierPanel();
             }
-            System.out.println("Level = " + resultSet.getString("level"));
+
+            Encapsulation.setUsername(resultSet.getString("username"));
+            Encapsulation.setName(resultSet.getString("name"));
+            System.out.println(Encapsulation.getUsername());
 
         } catch (SQLException e) {
             System.err.println("Query login gagal");
             JOptionPane.showMessageDialog(this, "Maaf Password atau Username Anda Salah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
 
         }
-        
-        
+
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void tvRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvRegisterMouseEntered
@@ -127,7 +128,7 @@ public class Login extends javax.swing.JFrame {
 
     public static void summonLoginPanel() {
         Login loginPanel = new Login();
-        loginPanel.setSize(817, 555);
+        loginPanel.setSize(1155, 716);
         loginPanel.setLocationRelativeTo(null);
         loginPanel.setVisible(true);
     }

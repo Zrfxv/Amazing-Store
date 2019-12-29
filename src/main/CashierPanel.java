@@ -27,14 +27,12 @@ public class CashierPanel extends javax.swing.JFrame {
         klik = Color.BLUE;
         utama = Color.BLACK;
 
-        jlProfile.setForeground(utama);
-        jlTransaksi.setForeground(utama);
-        jlMember.setForeground(utama);
-        jlInput.setForeground(utama);
+        tvUser.setForeground(utama);
+        tvTransaction.setForeground(utama);
+        tvMember.setForeground(utama);
+        tvInput.setForeground(utama);
 
     }
-    
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,14 +46,15 @@ public class CashierPanel extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         MenuPanel = new javax.swing.JPanel();
-        jlProfile = new javax.swing.JLabel();
-        jlTransaksi = new javax.swing.JLabel();
-        jlMember = new javax.swing.JLabel();
-        jlInput = new javax.swing.JLabel();
-        jlAbaout = new javax.swing.JLabel();
+        tvUser = new javax.swing.JLabel();
+        tvTransaction = new javax.swing.JLabel();
+        tvMember = new javax.swing.JLabel();
+        tvInput = new javax.swing.JLabel();
+        tvAbout = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         welcomePanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        tvWelcome = new javax.swing.JLabel();
+        imgWelcome = new javax.swing.JLabel();
         ProfilePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -103,8 +102,6 @@ public class CashierPanel extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         memberRegisterPanel = new javax.swing.JPanel();
         InputPanel = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        y = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -112,54 +109,62 @@ public class CashierPanel extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MenuPanel.setBackground(new java.awt.Color(153, 153, 255));
-        MenuPanel.setOpaque(false);
+        MenuPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jlProfile.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jlProfile.setText("Profile");
-        jlProfile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvUser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        tvUser.setText("Hi, User");
+        tvUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlProfileMouseClicked(evt);
+                tvUserMouseClicked(evt);
             }
         });
 
-        jlTransaksi.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jlTransaksi.setText(" transaction");
-        jlTransaksi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvTransaction.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        tvTransaction.setText(" Transaction");
+        tvTransaction.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlTransaksiMouseClicked(evt);
+                tvTransactionMouseClicked(evt);
             }
         });
 
-        jlMember.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jlMember.setText("Member Register");
-        jlMember.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlMember.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvMember.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        tvMember.setText("Register Member");
+        tvMember.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvMember.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlMemberMouseClicked(evt);
+                tvMemberMouseClicked(evt);
             }
         });
 
-        jlInput.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jlInput.setText("Input ");
-        jlInput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlInput.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvInput.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        tvInput.setText("Input ");
+        tvInput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlInputMouseClicked(evt);
+                tvInputMouseClicked(evt);
             }
         });
 
-        jlAbaout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jlAbaout.setText("Abaout");
-        jlAbaout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlAbaout.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvAbout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        tvAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logo.png"))); // NOI18N
+        tvAbout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlAbaoutMouseClicked(evt);
+                tvAboutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tvAboutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tvAboutMouseExited(evt);
             }
         });
 
@@ -168,61 +173,51 @@ public class CashierPanel extends javax.swing.JFrame {
         MenuPanelLayout.setHorizontalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuPanelLayout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(jlProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jlTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlMember)
-                .addGap(26, 26, 26)
-                .addComponent(jlInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jlAbaout)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(tvAbout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
+                .addComponent(tvTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(tvInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(tvMember)
+                .addGap(249, 249, 249)
+                .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuPanelLayout.createSequentialGroup()
                 .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tvMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tvInput, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tvTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuPanelLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jlProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MenuPanelLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlMember, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(MenuPanelLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jlInput, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MenuPanelLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jlAbaout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
+                        .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tvAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
-        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 1150, 80));
+        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 60));
 
         mainPanel.setBackground(new java.awt.Color(51, 255, 153));
         mainPanel.setLayout(new java.awt.CardLayout());
 
         welcomePanel.setBackground(new java.awt.Color(255, 255, 255));
+        welcomePanel.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/WelcomePanel.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        tvWelcome.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
+        tvWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        tvWelcome.setText("Your Name");
+        welcomePanel.add(tvWelcome);
+        tvWelcome.setBounds(40, 280, 430, 60);
 
-        javax.swing.GroupLayout welcomePanelLayout = new javax.swing.GroupLayout(welcomePanel);
-        welcomePanel.setLayout(welcomePanelLayout);
-        welcomePanelLayout.setHorizontalGroup(
-            welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, Short.MAX_VALUE)
-        );
-        welcomePanelLayout.setVerticalGroup(
-            welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(welcomePanelLayout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
+        imgWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/welcome.png"))); // NOI18N
+        welcomePanel.add(imgWelcome);
+        imgWelcome.setBounds(0, 0, 1150, 650);
 
         mainPanel.add(welcomePanel, "card2");
 
@@ -372,7 +367,7 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addGroup(ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         mainPanel.add(ProfilePanel, "card3");
@@ -572,7 +567,7 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addGroup(transaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         mainPanel.add(transaksiPanel, "card4");
@@ -607,13 +602,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         mainPanel.add(InputPanel, "card6");
 
-        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1150, 720));
-
-        jLabel11.setText("Hi , ");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-
-        y.setText("Label");
-        getContentPane().add(y, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 60, 20));
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1150, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -623,138 +612,115 @@ public class CashierPanel extends javax.swing.JFrame {
         Login.summonLoginPanel();
     }//GEN-LAST:event_formWindowClosing
 
-    
-    
-    
-    private void jlAbaoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlAbaoutMouseClicked
-        
-        
-        jlProfile.setForeground(utama);
-        jlTransaksi.setForeground(utama);
-        jlMember.setForeground(utama);
-        jlInput.setForeground(utama);
-        jlAbaout.setForeground(klik);
-    }//GEN-LAST:event_jlAbaoutMouseClicked
 
-    private void jlInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlInputMouseClicked
-      
-         mainPanel.removeAll();
+    private void tvInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvInputMouseClicked
+
+        mainPanel.removeAll();
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
+
         mainPanel.add(InputPanel);
         mainPanel.repaint();
         mainPanel.revalidate();
 
-        jlProfile.setForeground(utama);
-        jlTransaksi.setForeground(utama);
-        jlMember.setForeground(utama);
-        jlInput.setForeground(klik);
-        jlAbaout.setForeground(utama);
-    }//GEN-LAST:event_jlInputMouseClicked
+        tvUser.setForeground(utama);
+        tvTransaction.setForeground(utama);
+        tvMember.setForeground(utama);
+        tvInput.setForeground(klik);
+        tvAbout.setForeground(utama);
+    }//GEN-LAST:event_tvInputMouseClicked
 
-    private void jlMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMemberMouseClicked
+    private void tvMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvMemberMouseClicked
         mainPanel.removeAll();
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
+
         mainPanel.add(memberRegisterPanel);
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
-       
-        jlProfile.setForeground(utama);
-        jlTransaksi.setForeground(utama);
-        jlMember.setForeground(klik);
-        jlInput.setForeground(utama);
-        jlAbaout.setForeground(utama);
-    }//GEN-LAST:event_jlMemberMouseClicked
 
-    private void jlTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlTransaksiMouseClicked
-         mainPanel.removeAll();
+        tvUser.setForeground(utama);
+        tvTransaction.setForeground(utama);
+        tvMember.setForeground(klik);
+        tvInput.setForeground(utama);
+        tvAbout.setForeground(utama);
+    }//GEN-LAST:event_tvMemberMouseClicked
+
+    private void tvTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvTransactionMouseClicked
+        mainPanel.removeAll();
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
+
         mainPanel.add(transaksiPanel);
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
-       
-        jlProfile.setForeground(utama);
-        jlTransaksi.setForeground(klik);
-        jlMember.setForeground(utama);
-        jlInput.setForeground(utama);
-        jlAbaout.setForeground(utama);
-    }//GEN-LAST:event_jlTransaksiMouseClicked
 
-    private void jlProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlProfileMouseClicked
+        tvUser.setForeground(utama);
+        tvTransaction.setForeground(klik);
+        tvMember.setForeground(utama);
+        tvInput.setForeground(utama);
+        tvAbout.setForeground(utama);
+    }//GEN-LAST:event_tvTransactionMouseClicked
+
+    private void tvUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvUserMouseClicked
 
         mainPanel.removeAll();
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
+
         mainPanel.add(ProfilePanel);
         mainPanel.repaint();
         mainPanel.revalidate();
-        
-        
-       
+
         ProfilePanel.setVisible(true);
         MenuPanel.setVisible(true);
-        jlProfile.setForeground(klik);
-        jlTransaksi.setForeground(utama);
-        jlMember.setForeground(utama);
-        jlInput.setForeground(utama);
-        jlAbaout.setForeground(utama);
-    }//GEN-LAST:event_jlProfileMouseClicked
+        tvUser.setForeground(klik);
+        tvTransaction.setForeground(utama);
+        tvMember.setForeground(utama);
+        tvInput.setForeground(utama);
+        tvAbout.setForeground(utama);
+    }//GEN-LAST:event_tvUserMouseClicked
 
     private void jtUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtUsernameKeyTyped
-        
-        
-        if (jtUsername.getText().length()>20){
+
+        if (jtUsername.getText().length() > 20) {
             evt.consume();
-            JOptionPane.showMessageDialog(this,"Username Melebihi 20 karakter","Informasi",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Username Melebihi 20 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jtUsernameKeyTyped
 
     private void jpPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpPasswordKeyTyped
-        if ( String.valueOf(jpPassword.getPassword()).length()==20){
+        if (String.valueOf(jpPassword.getPassword()).length() == 20) {
             evt.consume();
-            JOptionPane.showMessageDialog(this,"Password Melebihi 20 karakter","Informasi",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Password Melebihi 20 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jpPasswordKeyTyped
 
     private void jtNamaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNamaKeyTyped
-         if (jtNama.getText().length()>30){
-             evt.consume();
-            JOptionPane.showMessageDialog(this,"Nama Melebihi 30 karakter","Informasi",JOptionPane.WARNING_MESSAGE);
-         }
+        if (jtNama.getText().length() > 30) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Nama Melebihi 30 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jtNamaKeyTyped
 
     private void jaAlamatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jaAlamatKeyTyped
-         if (jaAlamat.getText().length()>150){
-             evt.consume();
-            JOptionPane.showMessageDialog(this,"Alamat Melebihi 150 karakter","Informasi",JOptionPane.WARNING_MESSAGE);
-         }
+        if (jaAlamat.getText().length() > 150) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Alamat Melebihi 150 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jaAlamatKeyTyped
 
     private void jtNoTelpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNoTelpKeyTyped
-       if (jtNoTelp.getText().length()>13){
-           evt.consume();
-            JOptionPane.showMessageDialog(this,"No Telp Melebihi 13 karakter","Informasi",JOptionPane.WARNING_MESSAGE);
-            
+        if (jtNoTelp.getText().length() > 13) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "No Telp Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+
             //buat perkondisian yang busa di inputkan angka ini kan masih bebas angka dan huruf
-       }
+        }
     }//GEN-LAST:event_jtNoTelpKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
+
         if (jtUsername.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Username Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
             jtUsername.requestFocus();
@@ -766,37 +732,57 @@ public class CashierPanel extends javax.swing.JFrame {
         } else if (jtNama.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Nama Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
             jtNama.requestFocus();
-        
-     //perkondisian gender
-     
-        }else if (jaAlamat.getText().equals("")){
-             JOptionPane.showMessageDialog(this, "Alamat Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+
+            //perkondisian gender
+        } else if (jaAlamat.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Alamat Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
             jaAlamat.requestFocus();
-          
-        }else if (jtNoTelp.getText().equals("")){
-             JOptionPane.showMessageDialog(this, "N0 Telp Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+
+        } else if (jtNoTelp.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "N0 Telp Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
             jtNoTelp.requestFocus();
-        
-        }else {
-            
+
+        } else {
+
         }
-        
-        
 
 
-        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
-       bersihkan();
+        bersihkan();
     }//GEN-LAST:event_btnBatalActionPerformed
-        
-    private void bersihkan () {
+
+    private void tvAboutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvAboutMouseEntered
+        tvAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logoGlow.png")));
+    }//GEN-LAST:event_tvAboutMouseEntered
+
+    private void tvAboutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvAboutMouseExited
+        tvAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logo.png")));
+    }//GEN-LAST:event_tvAboutMouseExited
+
+    private void tvAboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvAboutMouseClicked
+        AboutPanel.summonAboutPanel();
+    }//GEN-LAST:event_tvAboutMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        tvUser.setText("Hi, " + Encapsulation.getUsername());
+        tvWelcome.setText(Encapsulation.getName());
+    }//GEN-LAST:event_formWindowOpened
+
+    private void bersihkan() {
         jtUsername.setText("");
         jpPassword.setText("");
         jtNama.setText("");
         jaAlamat.setText("");
         jtNoTelp.setText("");
+    }
+
+    public static void summonCashierPanel() {
+        CashierPanel cashier = new CashierPanel();
+        cashier.setSize(1155, 716);
+        cashier.setLocationRelativeTo(null);
+        cashier.setVisible(true);
     }
 
 //    private void recolor(){
@@ -837,10 +823,7 @@ public class CashierPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CashierPanel cashier = new CashierPanel();
-                cashier.setSize(1155, 716);
-                cashier.setLocationRelativeTo(null);
-                cashier.setVisible(true);
+                summonCashierPanel();
             }
         });
     }
@@ -853,13 +836,12 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel imgWelcome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -890,11 +872,6 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextArea jaAlamat;
-    private javax.swing.JLabel jlAbaout;
-    private javax.swing.JLabel jlInput;
-    private javax.swing.JLabel jlMember;
-    private javax.swing.JLabel jlProfile;
-    private javax.swing.JLabel jlTransaksi;
     private javax.swing.JPasswordField jpPassword;
     private javax.swing.JComboBox<String> jsGender;
     private javax.swing.JTextField jtNama;
@@ -904,7 +881,12 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel memberRegisterPanel;
     private javax.swing.JPanel transaksiPanel;
+    private javax.swing.JLabel tvAbout;
+    private javax.swing.JLabel tvInput;
+    private javax.swing.JLabel tvMember;
+    private javax.swing.JLabel tvTransaction;
+    private javax.swing.JLabel tvUser;
+    private javax.swing.JLabel tvWelcome;
     private javax.swing.JPanel welcomePanel;
-    private javax.swing.JLabel y;
     // End of variables declaration//GEN-END:variables
 }
