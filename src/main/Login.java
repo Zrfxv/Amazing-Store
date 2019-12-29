@@ -115,7 +115,6 @@ public class Login extends javax.swing.JFrame {
 
         }
 
-
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void tvRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvRegisterMouseEntered
