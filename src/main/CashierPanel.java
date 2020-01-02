@@ -25,7 +25,7 @@ public class CashierPanel extends javax.swing.JFrame {
         initComponents();
 
         klik = Color.BLUE;
-        utama = Color.BLACK;
+        utama = new Color(250,128,114);
 
         tvUser.setForeground(utama);
         tvTransaction.setForeground(utama);
@@ -812,11 +812,11 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel28)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE))
+                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
