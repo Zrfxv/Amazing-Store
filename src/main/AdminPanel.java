@@ -5,17 +5,22 @@
  */
 package main;
 
+import java.awt.Color;
+
 /**
  *
  * @author muham
  */
 public class AdminPanel extends javax.swing.JFrame {
+    
+        Color klik;
+        Color utama;
 
-    /**
-     * Creates new form AdminPanel
-     */
     public AdminPanel() {
         initComponents();
+
+        klik = Color.BLUE;
+        utama = new Color(250, 128, 114);
     }
 
     /**
@@ -31,11 +36,15 @@ public class AdminPanel extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         WelcomePanel = new javax.swing.JPanel();
         DataPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -53,6 +62,7 @@ public class AdminPanel extends javax.swing.JFrame {
         MenuPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(250, 128, 114));
         jLabel1.setText("Data");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -61,6 +71,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(250, 128, 114));
         jLabel2.setText("jLabel2");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,11 +80,30 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(250, 128, 114));
         jLabel3.setText("jLabel3");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
+            }
+        });
+
+        jLabel4.setForeground(new java.awt.Color(250, 128, 114));
+        jLabel4.setText("jLabel4");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+
+        jLabel5.setForeground(new java.awt.Color(250, 128, 114));
+        jLabel5.setText("jLabel5");
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
             }
         });
 
@@ -88,7 +118,11 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(37, 37, 37)
                 .addComponent(jLabel3)
-                .addContainerGap(546, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel4)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel5)
+                .addContainerGap(419, Short.MAX_VALUE))
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +131,9 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -166,6 +202,35 @@ public class AdminPanel extends javax.swing.JFrame {
 
         MainPanel.add(jPanel2, "card5");
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1160, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
+
+        MainPanel.add(jPanel3, "card6");
+
+        jPanel4.setForeground(new java.awt.Color(250, 128, 114));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1160, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
+
+        MainPanel.add(jPanel4, "card7");
+
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1160, 620));
 
         pack();
@@ -189,6 +254,15 @@ public class AdminPanel extends javax.swing.JFrame {
         MainPanel.add(DataPanel);
         MainPanel.repaint();
         MainPanel.revalidate();
+        
+        jLabel1.setForeground(klik);
+        jLabel2.setForeground(utama);
+        jLabel3.setForeground(utama);
+        jLabel4.setForeground(utama);
+        jLabel5.setForeground(utama);
+        
+        
+        
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -200,6 +274,14 @@ public class AdminPanel extends javax.swing.JFrame {
         MainPanel.add(jPanel1);
         MainPanel.repaint();
         MainPanel.revalidate();
+        
+         jLabel2.setForeground(klik);
+        jLabel1.setForeground(utama);
+        
+        jLabel3.setForeground(utama);
+        jLabel4.setForeground(utama);
+        jLabel5.setForeground(utama);
+        
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -211,7 +293,53 @@ public class AdminPanel extends javax.swing.JFrame {
         MainPanel.add(jPanel2);
         MainPanel.repaint();
         MainPanel.revalidate();
+        
+        jLabel2.setForeground(utama);
+        jLabel1.setForeground(utama);
+        
+        jLabel3.setForeground(klik);
+        jLabel4.setForeground(utama);
+        jLabel5.setForeground(utama);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        MainPanel.removeAll();
+        MainPanel.repaint();
+        MainPanel.revalidate();
+        
+        
+        MainPanel.add(jPanel4);
+        MainPanel.repaint();
+        MainPanel.revalidate();
+        
+        jLabel4.setForeground(klik);
+        jLabel2.setForeground(utama);
+        jLabel1.setForeground(utama);
+        jLabel3.setForeground(utama);
+        jLabel5.setForeground(utama);
+        
+        
+        
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+         MainPanel.removeAll();
+        MainPanel.repaint();
+        MainPanel.revalidate();
+        
+        
+        MainPanel.add(jPanel3);
+        MainPanel.repaint();
+        MainPanel.revalidate();
+        
+        
+         jLabel2.setForeground(utama);
+        jLabel1.setForeground(utama);
+        
+        jLabel3.setForeground(utama);
+        jLabel4.setForeground(utama);
+        jLabel5.setForeground(klik);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
         public static void summonAdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
@@ -264,7 +392,11 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
