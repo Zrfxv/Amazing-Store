@@ -7,6 +7,7 @@ package main;
 
 import java.awt.Color;
 import java.awt.color.ColorSpace;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,10 +76,10 @@ public class CashierPanel extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jtCustomerId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tfInvoiceNumber = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -105,11 +106,20 @@ public class CashierPanel extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        inputMain = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        PanelInput = new javax.swing.JPanel();
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jTextField14 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         InputPanel = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -143,6 +153,7 @@ public class CashierPanel extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -217,15 +228,15 @@ public class CashierPanel extends javax.swing.JFrame {
             .addGroup(MenuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tvAbout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
                 .addComponent(tvTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(tvInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(tvMember)
-                .addGap(249, 249, 249)
-                .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(201, 201, 201)
+                .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,11 +245,10 @@ public class CashierPanel extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tvMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tvInput, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tvTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tvTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuPanelLayout.createSequentialGroup()
-                        .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tvAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tvAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -368,7 +378,7 @@ public class CashierPanel extends javax.swing.JFrame {
                                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(487, Short.MAX_VALUE))
+                .addContainerGap(519, Short.MAX_VALUE))
         );
         ProfilePanelLayout.setVerticalGroup(
             ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,14 +429,27 @@ public class CashierPanel extends javax.swing.JFrame {
         jLabel9.setText("Invoice Number");
 
         jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("jTextField2");
+        jtCustomerId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtCustomerIdKeyTyped(evt);
+            }
+        });
 
         jButton1.setText("Go");
 
         jLabel10.setText("Nama Product");
 
-        jTextField3.setText("jTextField1");
+        tfInvoiceNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfInvoiceNumberKeyTyped(evt);
+            }
+        });
 
         jLabel12.setText("Product Id");
 
@@ -436,7 +459,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jLabel15.setText("jLabel15");
 
-        jLabel16.setText("Spek");
+        jLabel16.setText("Stok");
 
         jLabel17.setText("jLabel17");
 
@@ -501,9 +524,9 @@ public class CashierPanel extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addComponent(jLabel8))
                     .addGroup(transaksiPanelLayout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfInvoiceNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jButton1))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -550,16 +573,16 @@ public class CashierPanel extends javax.swing.JFrame {
                             .addGroup(transaksiPanelLayout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addComponent(jLabel17)
-                                .addGap(50, 50, 50)
+                                .addGap(75, 75, 75)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transaksiPanelLayout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(90, 90, 90)
                                 .addComponent(jLabel18)))))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         transaksiPanelLayout.setVerticalGroup(
             transaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -570,8 +593,8 @@ public class CashierPanel extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addGap(6, 6, 6)
                 .addGroup(transaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfInvoiceNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(47, 47, 47)
                 .addGroup(transaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -586,8 +609,9 @@ public class CashierPanel extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(jLabel15)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addGroup(transaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
@@ -611,7 +635,7 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addGroup(transaksiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         mainPanel.add(transaksiPanel, "card4");
@@ -626,7 +650,54 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jLabel45.setText("Jenis Kelamin");
 
+        inputMain.setBackground(new java.awt.Color(0, 102, 102));
+        inputMain.setLayout(new java.awt.CardLayout());
+
+        jPanel4.setBackground(new java.awt.Color(204, 102, 255));
+
+        jLabel46.setText("jLabel46");
+
+        jLabel47.setText("jLabel47");
+
+        jLabel48.setText("jLabel48");
+
+        jLabel49.setText("jLabel49");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel46)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel47)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(jLabel49)
+                .addGap(30, 30, 30))
+        );
+
+        inputMain.add(jPanel4, "card3");
+
         jTextField12.setText("jTextField12");
+        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField12KeyTyped(evt);
+            }
+        });
 
         jTextField13.setText("jTextField13");
 
@@ -636,6 +707,51 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jTextField14.setText("jTextField14");
 
+        javax.swing.GroupLayout PanelInputLayout = new javax.swing.GroupLayout(PanelInput);
+        PanelInput.setLayout(PanelInputLayout);
+        PanelInputLayout.setHorizontalGroup(
+            PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField13)
+                    .addComponent(jTextField12)
+                    .addGroup(PanelInputLayout.createSequentialGroup()
+                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 52, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        PanelInputLayout.setVerticalGroup(
+            PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInputLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        inputMain.add(PanelInput, "card2");
+
+        jButton9.setText("Edit");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Cancel");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout memberRegisterPanelLayout = new javax.swing.GroupLayout(memberRegisterPanel);
         memberRegisterPanel.setLayout(memberRegisterPanelLayout);
         memberRegisterPanelLayout.setHorizontalGroup(
@@ -643,38 +759,40 @@ public class CashierPanel extends javax.swing.JFrame {
             .addGroup(memberRegisterPanelLayout.createSequentialGroup()
                 .addGap(174, 174, 174)
                 .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addComponent(jLabel11)
                     .addComponent(jLabel45)
-                    .addComponent(jLabel44))
-                .addGap(36, 36, 36)
-                .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField12)
-                    .addComponent(jTextField13)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                    .addComponent(jTextField14))
-                .addContainerGap(724, Short.MAX_VALUE))
+                    .addComponent(jLabel44)
+                    .addComponent(jLabel1))
+                .addGap(52, 52, 52)
+                .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(memberRegisterPanelLayout.createSequentialGroup()
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputMain, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(668, Short.MAX_VALUE))
         );
         memberRegisterPanelLayout.setVerticalGroup(
             memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(memberRegisterPanelLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel44)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
+                    .addGroup(memberRegisterPanelLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel44)
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel45))
+                    .addGroup(memberRegisterPanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(inputMain, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(54, 54, 54)
                 .addGroup(memberRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel45)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(446, Short.MAX_VALUE))
+                    .addComponent(jButton9)
+                    .addComponent(jButton10))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
 
         mainPanel.add(memberRegisterPanel, "card5");
@@ -855,7 +973,7 @@ public class CashierPanel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
         InputPanelLayout.setVerticalGroup(
             InputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -905,8 +1023,8 @@ public class CashierPanel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1023,6 +1141,18 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jaAlamatKeyTyped
 
     private void jtNoTelpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNoTelpKeyTyped
+
+           char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+       
+
         if (jtNoTelp.getText().length() > 13) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "No Telp Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
@@ -1085,12 +1215,109 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void tfProductIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfProductIdKeyTyped
-         if (tfProductId.getText().length() > 13){
+        
+        char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+       
+        
+        
+        if (tfProductId.getText().length() == 13){
              evt.consume();
             JOptionPane.showMessageDialog(this, "Product Id Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
              
          }
     }//GEN-LAST:event_tfProductIdKeyTyped
+
+    private void tfInvoiceNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfInvoiceNumberKeyTyped
+
+       char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+       
+        
+        
+        
+        if (tfInvoiceNumber.getText().length() ==10){
+             evt.consume();
+            JOptionPane.showMessageDialog(this, "Invoice Number Melebihi 10 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+         
+       
+    }//GEN-LAST:event_tfInvoiceNumberKeyTyped
+
+    private void jtCustomerIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCustomerIdKeyTyped
+
+           char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+       
+
+        if (jtCustomerId.getText().length() ==5){
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Customer Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_jtCustomerIdKeyTyped
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyTyped
+        char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+       
+    }//GEN-LAST:event_jTextField12KeyTyped
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        inputMain.removeAll();
+        inputMain.repaint();
+        inputMain.revalidate();
+        
+        
+        inputMain.add(PanelInput);
+        inputMain.repaint();
+        inputMain.revalidate();
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        inputMain.removeAll();
+        inputMain.repaint();
+        inputMain.revalidate();
+        
+        
+        inputMain.add(jPanel4);
+        inputMain.repaint();
+        inputMain.revalidate();
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void bersihkan() {
         jtUsername.setText("");
@@ -1153,13 +1380,16 @@ public class CashierPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InputPanel;
     private javax.swing.JPanel MenuPanel;
+    private javax.swing.JPanel PanelInput;
     private javax.swing.JPanel ProfilePanel;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel imgWelcome;
+    private javax.swing.JPanel inputMain;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1167,6 +1397,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1207,12 +1438,17 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1224,8 +1460,6 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
@@ -1234,12 +1468,14 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JTextArea jaAlamat;
     private javax.swing.JPasswordField jpPassword;
     private javax.swing.JComboBox<String> jsGender;
+    private javax.swing.JTextField jtCustomerId;
     private javax.swing.JTextField jtNama;
     private javax.swing.JTextField jtNoTelp;
     private javax.swing.JTextField jtUsername;
     private javax.swing.JLabel label;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel memberRegisterPanel;
+    private javax.swing.JTextField tfInvoiceNumber;
     private javax.swing.JTextField tfProductId;
     private javax.swing.JPanel transaksiPanel;
     private javax.swing.JLabel tvAbout;
