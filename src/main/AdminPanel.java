@@ -12,9 +12,9 @@ import java.awt.Color;
  * @author muham
  */
 public class AdminPanel extends javax.swing.JFrame {
-    
-        Color klik;
-        Color utama;
+
+    Color klik;
+    Color utama;
 
     public AdminPanel() {
         initComponents();
@@ -33,18 +33,20 @@ public class AdminPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         MenuPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        tvData = new javax.swing.JLabel();
+        imgLogo = new javax.swing.JLabel();
+        tvCashier = new javax.swing.JLabel();
+        tvMember = new javax.swing.JLabel();
+        tvUser = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         WelcomePanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        imgWelcome = new javax.swing.JLabel();
         DataPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        CashierPanel = new javax.swing.JPanel();
+        MemberPanel = new javax.swing.JPanel();
+        ProfilePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
@@ -58,53 +60,59 @@ public class AdminPanel extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MenuPanel.setBackground(new java.awt.Color(0, 204, 51));
+        MenuPanel.setBackground(new java.awt.Color(255, 255, 255));
         MenuPanel.setForeground(new java.awt.Color(255, 255, 255));
         MenuPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(250, 128, 114));
-        jLabel1.setText("Data");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvData.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tvData.setForeground(new java.awt.Color(250, 128, 114));
+        tvData.setText("Data");
+        tvData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                tvDataMouseClicked(evt);
             }
         });
 
-        jLabel2.setForeground(new java.awt.Color(250, 128, 114));
-        jLabel2.setText("jLabel2");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        imgLogo.setForeground(new java.awt.Color(250, 128, 114));
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logo.png"))); // NOI18N
+        imgLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imgLogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                imgLogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imgLogoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                imgLogoMouseExited(evt);
             }
         });
 
-        jLabel3.setForeground(new java.awt.Color(250, 128, 114));
-        jLabel3.setText("jLabel3");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvCashier.setForeground(new java.awt.Color(250, 128, 114));
+        tvCashier.setText("Cashier");
+        tvCashier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvCashier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                tvCashierMouseClicked(evt);
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(250, 128, 114));
-        jLabel4.setText("jLabel4");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvMember.setForeground(new java.awt.Color(250, 128, 114));
+        tvMember.setText("Member");
+        tvMember.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvMember.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                tvMemberMouseClicked(evt);
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(250, 128, 114));
-        jLabel5.setText("jLabel5");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvUser.setForeground(new java.awt.Color(250, 128, 114));
+        tvUser.setText("Hi, User");
+        tvUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tvUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                tvUserMouseClicked(evt);
             }
         });
 
@@ -113,126 +121,106 @@ public class AdminPanel extends javax.swing.JFrame {
         MenuPanelLayout.setHorizontalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuPanelLayout.createSequentialGroup()
-                .addGap(446, 446, 446)
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel2)
-                .addGap(37, 37, 37)
-                .addComponent(jLabel3)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel4)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel5)
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(imgLogo)
+                .addGap(341, 341, 341)
+                .addComponent(tvData)
+                .addGap(68, 68, 68)
+                .addComponent(tvCashier)
+                .addGap(51, 51, 51)
+                .addComponent(tvMember)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                .addComponent(tvUser)
+                .addGap(96, 96, 96))
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
+                .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tvData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tvCashier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tvMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tvUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
+                .addGap(0, 5, Short.MAX_VALUE)
+                .addComponent(imgLogo))
         );
 
-        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, -1));
+        getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
 
         MainPanel.setBackground(new java.awt.Color(102, 102, 0));
         MainPanel.setLayout(new java.awt.CardLayout());
 
         WelcomePanel.setBackground(new java.awt.Color(153, 153, 255));
+        WelcomePanel.setLayout(null);
 
-        javax.swing.GroupLayout WelcomePanelLayout = new javax.swing.GroupLayout(WelcomePanel);
-        WelcomePanel.setLayout(WelcomePanelLayout);
-        WelcomePanelLayout.setHorizontalGroup(
-            WelcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1160, Short.MAX_VALUE)
-        );
-        WelcomePanelLayout.setVerticalGroup(
-            WelcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("jLabel2");
+        WelcomePanel.add(jLabel2);
+        jLabel2.setBounds(40, 300, 150, 30);
+
+        imgWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/WelcomeAdmin.png"))); // NOI18N
+        imgWelcome.setText("jLabel1");
+        WelcomePanel.add(imgWelcome);
+        imgWelcome.setBounds(0, 0, 1150, 650);
 
         MainPanel.add(WelcomePanel, "card2");
 
         DataPanel.setBackground(new java.awt.Color(0, 102, 153));
+        DataPanel.setLayout(null);
 
-        javax.swing.GroupLayout DataPanelLayout = new javax.swing.GroupLayout(DataPanel);
-        DataPanel.setLayout(DataPanelLayout);
-        DataPanelLayout.setHorizontalGroup(
-            DataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1160, Short.MAX_VALUE)
-        );
-        DataPanelLayout.setVerticalGroup(
-            DataPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/BlankPanel.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        DataPanel.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1150, 640);
 
         MainPanel.add(DataPanel, "card3");
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        CashierPanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1160, Short.MAX_VALUE)
+        javax.swing.GroupLayout CashierPanelLayout = new javax.swing.GroupLayout(CashierPanel);
+        CashierPanel.setLayout(CashierPanelLayout);
+        CashierPanelLayout.setHorizontalGroup(
+            CashierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
-
-        MainPanel.add(jPanel1, "card4");
-
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1160, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+        CashierPanelLayout.setVerticalGroup(
+            CashierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
-        MainPanel.add(jPanel2, "card5");
+        MainPanel.add(CashierPanel, "card4");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1160, Short.MAX_VALUE)
+        MemberPanel.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout MemberPanelLayout = new javax.swing.GroupLayout(MemberPanel);
+        MemberPanel.setLayout(MemberPanelLayout);
+        MemberPanelLayout.setHorizontalGroup(
+            MemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1150, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
-
-        MainPanel.add(jPanel3, "card6");
-
-        jPanel4.setForeground(new java.awt.Color(250, 128, 114));
-        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1160, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+        MemberPanelLayout.setVerticalGroup(
+            MemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
-        MainPanel.add(jPanel4, "card7");
+        MainPanel.add(MemberPanel, "card5");
 
-        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1160, 620));
+        javax.swing.GroupLayout ProfilePanelLayout = new javax.swing.GroupLayout(ProfilePanel);
+        ProfilePanel.setLayout(ProfilePanelLayout);
+        ProfilePanelLayout.setHorizontalGroup(
+            ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1150, Short.MAX_VALUE)
+        );
+        ProfilePanelLayout.setVerticalGroup(
+            ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+
+        MainPanel.add(ProfilePanel, "card6");
+
+        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1150, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -246,109 +234,93 @@ public class AdminPanel extends javax.swing.JFrame {
 //        jLabel1.setText("Hi, " + Encapsulation.getName());
     }//GEN-LAST:event_formWindowOpened
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void tvUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvUserMouseClicked
         MainPanel.removeAll();
         MainPanel.repaint();
         MainPanel.revalidate();
-        
-        
+
+        MainPanel.add(ProfilePanel);
+        MainPanel.repaint();
+        MainPanel.revalidate();
+
+        imgLogo.setForeground(utama);
+        tvData.setForeground(utama);
+
+        tvCashier.setForeground(utama);
+        tvMember.setForeground(utama);
+        tvUser.setForeground(klik);
+    }//GEN-LAST:event_tvUserMouseClicked
+
+    private void tvMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvMemberMouseClicked
+        MainPanel.removeAll();
+        MainPanel.repaint();
+        MainPanel.revalidate();
+
+        MainPanel.add(MemberPanel);
+        MainPanel.repaint();
+        MainPanel.revalidate();
+
+        tvMember.setForeground(klik);
+        imgLogo.setForeground(utama);
+        tvData.setForeground(utama);
+        tvCashier.setForeground(utama);
+        tvUser.setForeground(utama);
+
+    }//GEN-LAST:event_tvMemberMouseClicked
+
+    private void tvCashierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvCashierMouseClicked
+        MainPanel.removeAll();
+        MainPanel.repaint();
+        MainPanel.revalidate();
+
+        MainPanel.add(CashierPanel);
+        MainPanel.repaint();
+        MainPanel.revalidate();
+
+        imgLogo.setForeground(utama);
+        tvData.setForeground(utama);
+
+        tvCashier.setForeground(klik);
+        tvMember.setForeground(utama);
+        tvUser.setForeground(utama);
+    }//GEN-LAST:event_tvCashierMouseClicked
+
+    private void imgLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgLogoMouseClicked
+        AboutPanel.summonAboutPanel();
+    }//GEN-LAST:event_imgLogoMouseClicked
+
+    private void tvDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvDataMouseClicked
+        MainPanel.removeAll();
+        MainPanel.repaint();
+        MainPanel.revalidate();
+
         MainPanel.add(DataPanel);
         MainPanel.repaint();
         MainPanel.revalidate();
-        
-        jLabel1.setForeground(klik);
-        jLabel2.setForeground(utama);
-        jLabel3.setForeground(utama);
-        jLabel4.setForeground(utama);
-        jLabel5.setForeground(utama);
-        
-        
-        
-    }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-       MainPanel.removeAll();
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        
-        MainPanel.add(jPanel1);
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-         jLabel2.setForeground(klik);
-        jLabel1.setForeground(utama);
-        
-        jLabel3.setForeground(utama);
-        jLabel4.setForeground(utama);
-        jLabel5.setForeground(utama);
-        
-    }//GEN-LAST:event_jLabel2MouseClicked
+        tvData.setForeground(klik);
+        imgLogo.setForeground(utama);
+        tvCashier.setForeground(utama);
+        tvMember.setForeground(utama);
+        tvUser.setForeground(utama);
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       MainPanel.removeAll();
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        
-        MainPanel.add(jPanel2);
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        jLabel2.setForeground(utama);
-        jLabel1.setForeground(utama);
-        
-        jLabel3.setForeground(klik);
-        jLabel4.setForeground(utama);
-        jLabel5.setForeground(utama);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_tvDataMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        MainPanel.removeAll();
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        
-        MainPanel.add(jPanel4);
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        jLabel4.setForeground(klik);
-        jLabel2.setForeground(utama);
-        jLabel1.setForeground(utama);
-        jLabel3.setForeground(utama);
-        jLabel5.setForeground(utama);
-        
-        
-        
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void imgLogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgLogoMouseEntered
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logoGlow.png")));
+    }//GEN-LAST:event_imgLogoMouseEntered
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-         MainPanel.removeAll();
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        
-        MainPanel.add(jPanel3);
-        MainPanel.repaint();
-        MainPanel.revalidate();
-        
-        
-         jLabel2.setForeground(utama);
-        jLabel1.setForeground(utama);
-        
-        jLabel3.setForeground(utama);
-        jLabel4.setForeground(utama);
-        jLabel5.setForeground(klik);
-    }//GEN-LAST:event_jLabel5MouseClicked
+    private void imgLogoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgLogoMouseExited
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logo.png")));
+    }//GEN-LAST:event_imgLogoMouseExited
 
-        public static void summonAdminPanel() {
+    public static void summonAdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
-        adminPanel.setSize(1155, 716);
+        adminPanel.setSize(1150, 695);
         adminPanel.setLocationRelativeTo(null);
         adminPanel.setVisible(true);
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -386,18 +358,20 @@ public class AdminPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CashierPanel;
     private javax.swing.JPanel DataPanel;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel MemberPanel;
     private javax.swing.JPanel MenuPanel;
+    private javax.swing.JPanel ProfilePanel;
     private javax.swing.JPanel WelcomePanel;
+    private javax.swing.JLabel imgLogo;
+    private javax.swing.JLabel imgWelcome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel tvCashier;
+    private javax.swing.JLabel tvData;
+    private javax.swing.JLabel tvMember;
+    private javax.swing.JLabel tvUser;
     // End of variables declaration//GEN-END:variables
 }
