@@ -45,8 +45,11 @@ public class AdminPanel extends javax.swing.JFrame {
         DataPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         MemberPanel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         ProfilePanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
@@ -178,45 +181,28 @@ public class AdminPanel extends javax.swing.JFrame {
         MainPanel.add(DataPanel, "card3");
 
         CashierPanel.setBackground(new java.awt.Color(51, 102, 255));
+        CashierPanel.setLayout(null);
 
-        javax.swing.GroupLayout CashierPanelLayout = new javax.swing.GroupLayout(CashierPanel);
-        CashierPanel.setLayout(CashierPanelLayout);
-        CashierPanelLayout.setHorizontalGroup(
-            CashierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
-        );
-        CashierPanelLayout.setVerticalGroup(
-            CashierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
+        CashierPanel.add(jLabel5);
+        jLabel5.setBounds(0, 0, 1155, 651);
 
         MainPanel.add(CashierPanel, "card4");
 
         MemberPanel.setBackground(new java.awt.Color(51, 51, 51));
+        MemberPanel.setLayout(null);
 
-        javax.swing.GroupLayout MemberPanelLayout = new javax.swing.GroupLayout(MemberPanel);
-        MemberPanel.setLayout(MemberPanelLayout);
-        MemberPanelLayout.setHorizontalGroup(
-            MemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
-        );
-        MemberPanelLayout.setVerticalGroup(
-            MemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/MemberPanel.png"))); // NOI18N
+        MemberPanel.add(jLabel4);
+        jLabel4.setBounds(0, 0, 1155, 651);
 
         MainPanel.add(MemberPanel, "card5");
 
-        javax.swing.GroupLayout ProfilePanelLayout = new javax.swing.GroupLayout(ProfilePanel);
-        ProfilePanel.setLayout(ProfilePanelLayout);
-        ProfilePanelLayout.setHorizontalGroup(
-            ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
-        );
-        ProfilePanelLayout.setVerticalGroup(
-            ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
+        ProfilePanel.setLayout(null);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
+        ProfilePanel.add(jLabel3);
+        jLabel3.setBounds(0, 0, 1150, 650);
 
         MainPanel.add(ProfilePanel, "card6");
 
@@ -369,6 +355,9 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel imgWelcome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel tvCashier;
     private javax.swing.JLabel tvData;
     private javax.swing.JLabel tvMember;
