@@ -6,6 +6,9 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +24,24 @@ public class AdminPanel extends javax.swing.JFrame {
 
         klik = Color.BLUE;
         utama = new Color(250, 128, 114);
+        
+        jTable1.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jTable1.getTableHeader().setOpaque(false);
+        jTable1.getTableHeader().setBackground(Color.GREEN);
+        jTable1.getTableHeader().setForeground(Color.ORANGE);
+        jTable1.setRowHeight(25);
+        
+        
+        jTable2.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jTable2.getTableHeader().setOpaque(false);
+        jTable2.getTableHeader().setBackground(Color.GREEN);
+        jTable2.getTableHeader().setForeground(Color.ORANGE);
+        jTable2.setRowHeight(25);
+        
+        
     }
+    
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,12 +63,55 @@ public class AdminPanel extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         imgWelcome = new javax.swing.JLabel();
         DataPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        MainPanelAdmin = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         MemberPanel = new javax.swing.JPanel();
+        tvNoTelpMember = new javax.swing.JTextField();
+        tvMemberId = new javax.swing.JTextField();
+        tvnamaMember = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jaAlamatMember = new javax.swing.JTextArea();
+        JcGenderMember = new javax.swing.JComboBox<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         ProfilePanel = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -173,6 +236,96 @@ public class AdminPanel extends javax.swing.JFrame {
         DataPanel.setBackground(new java.awt.Color(0, 102, 153));
         DataPanel.setLayout(null);
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setText("Item 2");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        DataPanel.add(jLabel7);
+        jLabel7.setBounds(870, 50, 90, 17);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setText("Data Transaksi");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        DataPanel.add(jLabel6);
+        jLabel6.setBounds(200, 50, 120, 17);
+
+        MainPanelAdmin.setLayout(new java.awt.CardLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel1.setOpaque(false);
+
+        jScrollPane1.setFocusable(false);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setFocusable(false);
+        jTable1.setOpaque(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+        );
+
+        MainPanelAdmin.add(jPanel1, "card2");
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 0));
+        jPanel2.setOpaque(false);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Ginok", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+        );
+
+        MainPanelAdmin.add(jPanel2, "card3");
+
+        DataPanel.add(MainPanelAdmin);
+        MainPanelAdmin.setBounds(50, 120, 1040, 390);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/BlankPanel.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         DataPanel.add(jLabel1);
@@ -183,6 +336,75 @@ public class AdminPanel extends javax.swing.JFrame {
         CashierPanel.setBackground(new java.awt.Color(51, 102, 255));
         CashierPanel.setLayout(null);
 
+        jTextField1.setBorder(null);
+        CashierPanel.add(jTextField1);
+        jTextField1.setBounds(300, 100, 240, 30);
+
+        jTextField2.setBorder(null);
+        CashierPanel.add(jTextField2);
+        jTextField2.setBounds(300, 160, 230, 30);
+
+        jTextField3.setBorder(null);
+        CashierPanel.add(jTextField3);
+        jTextField3.setBounds(300, 220, 230, 30);
+
+        jTextField4.setBorder(null);
+        CashierPanel.add(jTextField4);
+        jTextField4.setBounds(300, 280, 230, 30);
+
+        jTextField5.setBorder(null);
+        CashierPanel.add(jTextField5);
+        jTextField5.setBounds(310, 500, 220, 30);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setBorder(null);
+        jTextArea1.setCaretColor(new java.awt.Color(153, 153, 153));
+        jTextArea1.setDisabledTextColor(new java.awt.Color(102, 102, 102));
+        jTextArea1.setOpaque(false);
+        jTextArea1.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextArea1.setSelectionColor(new java.awt.Color(0, 0, 0));
+        jScrollPane3.setViewportView(jTextArea1);
+
+        CashierPanel.add(jScrollPane3);
+        jScrollPane3.setBounds(310, 336, 200, 140);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable5);
+
+        CashierPanel.add(jScrollPane7);
+        jScrollPane7.setBounds(580, 90, 530, 370);
+
+        jButton11.setText("Baru");
+        CashierPanel.add(jButton11);
+        jButton11.setBounds(590, 480, 90, 40);
+
+        jButton12.setText("Simpan");
+        CashierPanel.add(jButton12);
+        jButton12.setBounds(700, 480, 90, 40);
+
+        jButton13.setText("Ubah");
+        CashierPanel.add(jButton13);
+        jButton13.setBounds(810, 480, 80, 40);
+
+        jButton14.setText("Hapus");
+        CashierPanel.add(jButton14);
+        jButton14.setBounds(920, 480, 80, 40);
+
+        jButton15.setText("Batal");
+        CashierPanel.add(jButton15);
+        jButton15.setBounds(1030, 480, 80, 40);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
         CashierPanel.add(jLabel5);
         jLabel5.setBounds(0, 0, 1155, 651);
@@ -192,6 +414,95 @@ public class AdminPanel extends javax.swing.JFrame {
         MemberPanel.setBackground(new java.awt.Color(51, 51, 51));
         MemberPanel.setLayout(null);
 
+        tvNoTelpMember.setBorder(null);
+        tvNoTelpMember.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tvNoTelpMemberKeyTyped(evt);
+            }
+        });
+        MemberPanel.add(tvNoTelpMember);
+        tvNoTelpMember.setBounds(290, 460, 220, 30);
+
+        tvMemberId.setBorder(null);
+        tvMemberId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tvMemberIdActionPerformed(evt);
+            }
+        });
+        tvMemberId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tvMemberIdKeyTyped(evt);
+            }
+        });
+        MemberPanel.add(tvMemberId);
+        tvMemberId.setBounds(290, 110, 220, 40);
+
+        tvnamaMember.setBorder(null);
+        tvnamaMember.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tvnamaMemberKeyTyped(evt);
+            }
+        });
+        MemberPanel.add(tvnamaMember);
+        tvnamaMember.setBounds(290, 170, 220, 30);
+
+        jaAlamatMember.setColumns(20);
+        jaAlamatMember.setRows(5);
+        jScrollPane4.setViewportView(jaAlamatMember);
+
+        MemberPanel.add(jScrollPane4);
+        jScrollPane4.setBounds(290, 286, 210, 140);
+
+        JcGenderMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Laki - Laki", "Perempuan" }));
+        MemberPanel.add(JcGenderMember);
+        JcGenderMember.setBounds(290, 230, 220, 30);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable3);
+
+        MemberPanel.add(jScrollPane5);
+        jScrollPane5.setBounds(600, 100, 510, 340);
+
+        jButton6.setText("Baru");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        MemberPanel.add(jButton6);
+        jButton6.setBounds(590, 460, 90, 40);
+
+        jButton7.setText("Simpan");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        MemberPanel.add(jButton7);
+        jButton7.setBounds(700, 460, 80, 40);
+
+        jButton8.setText("Ubah");
+        MemberPanel.add(jButton8);
+        jButton8.setBounds(800, 460, 90, 40);
+
+        jButton9.setText("Hapus");
+        MemberPanel.add(jButton9);
+        jButton9.setBounds(920, 460, 80, 40);
+
+        jButton10.setText("Batal");
+        MemberPanel.add(jButton10);
+        jButton10.setBounds(1020, 460, 80, 40);
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/MemberPanel.png"))); // NOI18N
         MemberPanel.add(jLabel4);
         jLabel4.setBounds(0, 0, 1155, 651);
@@ -199,6 +510,42 @@ public class AdminPanel extends javax.swing.JFrame {
         MainPanel.add(MemberPanel, "card5");
 
         ProfilePanel.setLayout(null);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable4);
+
+        ProfilePanel.add(jScrollPane6);
+        jScrollPane6.setBounds(610, 100, 490, 350);
+
+        jButton1.setText("Baru");
+        ProfilePanel.add(jButton1);
+        jButton1.setBounds(600, 470, 80, 40);
+
+        jButton2.setText("Simpan");
+        ProfilePanel.add(jButton2);
+        jButton2.setBounds(700, 470, 90, 40);
+
+        jButton3.setText("Ubah");
+        ProfilePanel.add(jButton3);
+        jButton3.setBounds(810, 470, 90, 40);
+
+        jButton4.setText("Hapus");
+        ProfilePanel.add(jButton4);
+        jButton4.setBounds(920, 470, 80, 40);
+
+        jButton5.setText("Batal");
+        ProfilePanel.add(jButton5);
+        jButton5.setBounds(1023, 470, 80, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
         ProfilePanel.add(jLabel3);
@@ -218,8 +565,34 @@ public class AdminPanel extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 //        jLabel1.setText("Hi, " + Encapsulation.getName());
+         MainPanelAdmin.removeAll();
+         MainPanelAdmin.repaint();
+        MainPanelAdmin.revalidate();
+        
+        MainPanelAdmin.add(jPanel2);
+        MainPanelAdmin.repaint();
+        MainPanelAdmin.revalidate();
+        
+         jLabel6.setForeground(utama);
+        jLabel7.setForeground(klik);
+        
+        admin();
     }//GEN-LAST:event_formWindowOpened
-
+      
+        private void admin(){
+            
+           tvMemberId.setEnabled(false);
+           tvnamaMember.setEnabled(false);
+           JcGenderMember.setEnabled(false);
+           jaAlamatMember.setEnabled(false);
+           tvNoTelpMember.setEnabled(false);
+           
+           
+           
+            
+        }
+    
+    
     private void tvUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvUserMouseClicked
         MainPanel.removeAll();
         MainPanel.repaint();
@@ -300,6 +673,87 @@ public class AdminPanel extends javax.swing.JFrame {
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logo.png")));
     }//GEN-LAST:event_imgLogoMouseExited
 
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+       MainPanelAdmin.removeAll();
+         MainPanelAdmin.repaint();
+        MainPanelAdmin.revalidate();
+        
+        MainPanelAdmin.add(jPanel2);
+        MainPanelAdmin.repaint();
+        MainPanelAdmin.revalidate();
+        
+        jLabel6.setForeground(utama);
+        jLabel7.setForeground(klik);
+        
+       
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        MainPanelAdmin.removeAll();
+         MainPanelAdmin.repaint();
+        MainPanelAdmin.revalidate();
+        
+        MainPanelAdmin.add(jPanel1);
+        MainPanelAdmin.repaint();
+        MainPanelAdmin.revalidate();
+        
+        
+        jLabel6.setForeground(klik);
+        jLabel7.setForeground(utama);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void tvMemberIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tvMemberIdKeyTyped
+        if (tvMemberId.getText().length() == 5){
+             evt.consume();
+            JOptionPane.showMessageDialog(this, "Product Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+             
+         }
+        
+          char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+    }//GEN-LAST:event_tvMemberIdKeyTyped
+
+    private void tvnamaMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tvnamaMemberKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tvnamaMemberKeyTyped
+
+    private void tvMemberIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tvMemberIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tvMemberIdActionPerformed
+
+    private void tvNoTelpMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tvNoTelpMemberKeyTyped
+       if (tvNoTelpMember.getText().length() == 13){
+             evt.consume();
+            JOptionPane.showMessageDialog(this, "Product Id Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+             
+         }
+        
+          char angka = evt.getKeyChar();
+       
+       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE || angka==KeyEvent.VK_ENTER)){
+           
+           getToolkit().beep();
+           evt.consume();
+            
+             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+       }
+    }//GEN-LAST:event_tvNoTelpMemberKeyTyped
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     public static void summonAdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
         adminPanel.setSize(1150, 695);
@@ -346,21 +800,64 @@ public class AdminPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CashierPanel;
     private javax.swing.JPanel DataPanel;
+    private javax.swing.JComboBox<String> JcGenderMember;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel MainPanelAdmin;
     private javax.swing.JPanel MemberPanel;
     private javax.swing.JPanel MenuPanel;
     private javax.swing.JPanel ProfilePanel;
     private javax.swing.JPanel WelcomePanel;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel imgWelcome;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextArea jaAlamatMember;
     private javax.swing.JLabel tvCashier;
     private javax.swing.JLabel tvData;
     private javax.swing.JLabel tvMember;
+    private javax.swing.JTextField tvMemberId;
+    private javax.swing.JTextField tvNoTelpMember;
     private javax.swing.JLabel tvUser;
+    private javax.swing.JTextField tvnamaMember;
     // End of variables declaration//GEN-END:variables
 }
