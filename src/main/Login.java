@@ -127,17 +127,14 @@ public class Login extends javax.swing.JFrame {
     private void tvRegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvRegisterMouseExited
         tvRegister.setForeground(Color.gray);
     }//GEN-LAST:event_tvRegisterMouseExited
-    
-    public void date (){
-       Date data = new Date();
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-       String tanggal = sdf.format(data);
-      
+
+    public void date() {
+        Date data = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String tanggal = sdf.format(data);
+
     }
-    
-    
-    
-    
+
     public static void summonLoginPanel() {
         Login loginPanel = new Login();
         loginPanel.setSize(1155, 716);

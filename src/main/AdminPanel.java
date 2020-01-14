@@ -24,24 +24,20 @@ public class AdminPanel extends javax.swing.JFrame {
 
         klik = Color.BLUE;
         utama = new Color(250, 128, 114);
-        
+
         jTable1.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         jTable1.getTableHeader().setOpaque(false);
         jTable1.getTableHeader().setBackground(Color.GREEN);
         jTable1.getTableHeader().setForeground(Color.ORANGE);
         jTable1.setRowHeight(25);
-        
-        
+
         jTable2.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         jTable2.getTableHeader().setOpaque(false);
         jTable2.getTableHeader().setBackground(Color.GREEN);
         jTable2.getTableHeader().setForeground(Color.ORANGE);
         jTable2.setRowHeight(25);
-        
-        
+
     }
-    
-     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -565,34 +561,31 @@ public class AdminPanel extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 //        jLabel1.setText("Hi, " + Encapsulation.getName());
-         MainPanelAdmin.removeAll();
-         MainPanelAdmin.repaint();
+        MainPanelAdmin.removeAll();
+        MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
-        
+
         MainPanelAdmin.add(jPanel2);
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
-        
-         jLabel6.setForeground(utama);
+
+        jLabel6.setForeground(utama);
         jLabel7.setForeground(klik);
-        
+
         admin();
     }//GEN-LAST:event_formWindowOpened
-      
-        private void admin(){
-            
-           tvMemberId.setEnabled(false);
-           tvnamaMember.setEnabled(false);
-           JcGenderMember.setEnabled(false);
-           jaAlamatMember.setEnabled(false);
-           tvNoTelpMember.setEnabled(false);
-           
-           
-           
-            
-        }
-    
-    
+
+    private void admin() {
+
+        tvMemberId.setEnabled(false);
+        tvnamaMember.setEnabled(false);
+        JcGenderMember.setEnabled(false);
+        jaAlamatMember.setEnabled(false);
+        tvNoTelpMember.setEnabled(false);
+
+    }
+
+
     private void tvUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvUserMouseClicked
         MainPanel.removeAll();
         MainPanel.repaint();
@@ -674,50 +667,49 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_imgLogoMouseExited
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-       MainPanelAdmin.removeAll();
-         MainPanelAdmin.repaint();
+        MainPanelAdmin.removeAll();
+        MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
-        
+
         MainPanelAdmin.add(jPanel2);
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
-        
+
         jLabel6.setForeground(utama);
         jLabel7.setForeground(klik);
-        
-       
+
+
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         MainPanelAdmin.removeAll();
-         MainPanelAdmin.repaint();
+        MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
-        
+
         MainPanelAdmin.add(jPanel1);
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
-        
-        
+
         jLabel6.setForeground(klik);
         jLabel7.setForeground(utama);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void tvMemberIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tvMemberIdKeyTyped
-        if (tvMemberId.getText().length() == 5){
-             evt.consume();
+        if (tvMemberId.getText().length() == 5) {
+            evt.consume();
             JOptionPane.showMessageDialog(this, "Product Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
-             
-         }
-        
-          char angka = evt.getKeyChar();
-       
-       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE)){
-           
-           getToolkit().beep();
-           evt.consume();
-            
-             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
-       }
+
+        }
+
+        char angka = evt.getKeyChar();
+
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_tvMemberIdKeyTyped
 
     private void tvnamaMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tvnamaMemberKeyTyped
@@ -729,25 +721,25 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tvMemberIdActionPerformed
 
     private void tvNoTelpMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tvNoTelpMemberKeyTyped
-       if (tvNoTelpMember.getText().length() == 13){
-             evt.consume();
+        if (tvNoTelpMember.getText().length() == 13) {
+            evt.consume();
             JOptionPane.showMessageDialog(this, "Product Id Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
-             
-         }
-        
-          char angka = evt.getKeyChar();
-       
-       if (!(Character.isDigit(angka)||angka==KeyEvent.VK_BACK_SPACE||angka==KeyEvent.VK_DELETE || angka==KeyEvent.VK_ENTER)){
-           
-           getToolkit().beep();
-           evt.consume();
-            
-             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
-       }
+
+        }
+
+        char angka = evt.getKeyChar();
+
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_tvNoTelpMemberKeyTyped
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

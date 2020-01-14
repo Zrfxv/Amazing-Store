@@ -9,6 +9,7 @@ import java.sql.Statement;
 public class AppDatabase {
 
     private static Connection connection;
+    public static Statement perintah;
 
     public static Connection getConnection() {
         if (connection == null) {
@@ -19,6 +20,7 @@ public class AppDatabase {
                 String user = "root";
                 String pass = "";
                 connection = DriverManager.getConnection(url, user, pass);
+                perintah = connection.createStatement();
                 System.out.println("Koneksi Berhasil");
             } catch (ClassNotFoundException e) {
                 System.err.println("JDBC Driver tidak ditemukan");
