@@ -10,6 +10,7 @@ package main;
  * @author muham
  */
 public class Encapsulation {
+
     private static String username, name;
 
     public static String getName() {

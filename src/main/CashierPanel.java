@@ -24,8 +24,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private ResultSet hasil;
     private Boolean saveMode;
     private DefaultTableModel memberTable, transactionTable, productTable;
-    Color klik;
-    Color utama;
+    private Color klik, utama;
 
     /**
      * Creates new form CashierPanel
@@ -43,6 +42,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         //table model
         memberTable = (DefaultTableModel) TableMember.getModel();
+        productTable = (DefaultTableModel) TableProduct.getModel();
 
     }
 
@@ -71,17 +71,15 @@ public class CashierPanel extends javax.swing.JFrame {
         tfNamaProfile = new javax.swing.JTextField();
         tfPasswordProfile = new javax.swing.JPasswordField();
         tfUsernameProfile = new javax.swing.JTextField();
-        JsGenderProfile = new javax.swing.JComboBox<>();
+        cbGenderProfile = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jaAlamatprfile = new javax.swing.JTextArea();
-        jfNoTelpProfile = new javax.swing.JTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        btnBaruProfile = new javax.swing.JButton();
+        taAlamatprofile = new javax.swing.JTextArea();
+        tfNoTelpProfile = new javax.swing.JTextField();
         btnSimpanProfile = new javax.swing.JButton();
         btnUbahProfile = new javax.swing.JButton();
-        btnHapusProfile = new javax.swing.JButton();
         btnBatalProfile = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        taProfile = new javax.swing.JTextArea();
         imgTransaction = new javax.swing.JLabel();
         transaksiPanel = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -103,15 +101,15 @@ public class CashierPanel extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         memberRegisterPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jaAlamatMember = new javax.swing.JTextArea();
-        jfNoTelpMember = new javax.swing.JTextField();
-        tfmemberIdMember = new javax.swing.JTextField();
+        taAlamatMember = new javax.swing.JTextArea();
+        tfNoTelpMember = new javax.swing.JTextField();
+        tfMemberID = new javax.swing.JTextField();
         tfNamaMember = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         TableMember = new javax.swing.JTable();
         btnBaruMemeber = new javax.swing.JButton();
         btnSimpanMember = new javax.swing.JButton();
-        jsJenisKleaminMember = new javax.swing.JComboBox<>();
+        cbJenisKleaminMember = new javax.swing.JComboBox<>();
         btnUbahMember = new javax.swing.JButton();
         btnHapusMember = new javax.swing.JButton();
         btnBatalMember = new javax.swing.JButton();
@@ -124,7 +122,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tfStockProduct = new javax.swing.JTextField();
         tfHargaProduct = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        TableProduct = new javax.swing.JTable();
         btnBaruPrduct = new javax.swing.JButton();
         btnSimpanProduct = new javax.swing.JButton();
         btnUbahProduct = new javax.swing.JButton();
@@ -285,61 +283,31 @@ public class CashierPanel extends javax.swing.JFrame {
         ProfilePanel.add(tfUsernameProfile);
         tfUsernameProfile.setBounds(300, 100, 240, 33);
 
-        JsGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Laki-Laki", "Perempuan" }));
-        ProfilePanel.add(JsGenderProfile);
-        JsGenderProfile.setBounds(300, 270, 230, 40);
+        cbGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Laki-Laki", "Perempuan" }));
+        ProfilePanel.add(cbGenderProfile);
+        cbGenderProfile.setBounds(300, 270, 230, 40);
 
-        jaAlamatprfile.setColumns(20);
-        jaAlamatprfile.setRows(5);
-        jaAlamatprfile.setBorder(null);
-        jaAlamatprfile.addKeyListener(new java.awt.event.KeyAdapter() {
+        taAlamatprofile.setColumns(20);
+        taAlamatprofile.setRows(5);
+        taAlamatprofile.setBorder(null);
+        taAlamatprofile.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jaAlamatprfileKeyTyped(evt);
+                taAlamatprofileKeyTyped(evt);
             }
         });
-        jScrollPane1.setViewportView(jaAlamatprfile);
+        jScrollPane1.setViewportView(taAlamatprofile);
 
         ProfilePanel.add(jScrollPane1);
         jScrollPane1.setBounds(300, 330, 220, 150);
 
-        jfNoTelpProfile.setBorder(null);
-        jfNoTelpProfile.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfNoTelpProfile.setBorder(null);
+        tfNoTelpProfile.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jfNoTelpProfileKeyTyped(evt);
+                tfNoTelpProfileKeyTyped(evt);
             }
         });
-        ProfilePanel.add(jfNoTelpProfile);
-        jfNoTelpProfile.setBounds(300, 500, 230, 33);
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable4MouseClicked(evt);
-            }
-        });
-        jScrollPane6.setViewportView(jTable4);
-
-        ProfilePanel.add(jScrollPane6);
-        jScrollPane6.setBounds(570, 90, 453, 360);
-
-        btnBaruProfile.setText("Baru");
-        btnBaruProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBaruProfileActionPerformed(evt);
-            }
-        });
-        ProfilePanel.add(btnBaruProfile);
-        btnBaruProfile.setBounds(570, 480, 90, 40);
+        ProfilePanel.add(tfNoTelpProfile);
+        tfNoTelpProfile.setBounds(300, 500, 230, 33);
 
         btnSimpanProfile.setText("Simpan");
         btnSimpanProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +316,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnSimpanProfile);
-        btnSimpanProfile.setBounds(670, 480, 90, 40);
+        btnSimpanProfile.setBounds(710, 470, 90, 40);
 
         btnUbahProfile.setText("Ubah");
         btnUbahProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -357,16 +325,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnUbahProfile);
-        btnUbahProfile.setBounds(770, 480, 90, 40);
-
-        btnHapusProfile.setText("Hapus");
-        btnHapusProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusProfileActionPerformed(evt);
-            }
-        });
-        ProfilePanel.add(btnHapusProfile);
-        btnHapusProfile.setBounds(870, 480, 90, 40);
+        btnUbahProfile.setBounds(590, 470, 90, 40);
 
         btnBatalProfile.setText("Batal");
         btnBatalProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -375,7 +334,15 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnBatalProfile);
-        btnBatalProfile.setBounds(973, 480, 90, 40);
+        btnBatalProfile.setBounds(820, 470, 90, 40);
+
+        taProfile.setEditable(false);
+        taProfile.setColumns(20);
+        taProfile.setRows(5);
+        jScrollPane7.setViewportView(taProfile);
+
+        ProfilePanel.add(jScrollPane7);
+        jScrollPane7.setBounds(590, 100, 480, 350);
 
         imgTransaction.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         imgTransaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
@@ -491,32 +458,33 @@ public class CashierPanel extends javax.swing.JFrame {
         memberRegisterPanel.setBackground(new java.awt.Color(0, 255, 0));
         memberRegisterPanel.setLayout(null);
 
-        jaAlamatMember.setColumns(20);
-        jaAlamatMember.setRows(5);
-        jaAlamatMember.setBorder(null);
-        jaAlamatMember.setOpaque(false);
-        jScrollPane3.setViewportView(jaAlamatMember);
+        taAlamatMember.setColumns(20);
+        taAlamatMember.setRows(5);
+        taAlamatMember.setBorder(null);
+        taAlamatMember.setOpaque(false);
+        jScrollPane3.setViewportView(taAlamatMember);
 
         memberRegisterPanel.add(jScrollPane3);
         jScrollPane3.setBounds(290, 290, 220, 140);
 
-        jfNoTelpMember.setBorder(null);
-        memberRegisterPanel.add(jfNoTelpMember);
-        jfNoTelpMember.setBounds(300, 450, 210, 40);
+        tfNoTelpMember.setBorder(null);
+        memberRegisterPanel.add(tfNoTelpMember);
+        tfNoTelpMember.setBounds(300, 450, 210, 40);
 
-        tfmemberIdMember.setBorder(null);
-        tfmemberIdMember.addActionListener(new java.awt.event.ActionListener() {
+        tfMemberID.setBorder(null);
+        tfMemberID.setEnabled(false);
+        tfMemberID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfmemberIdMemberActionPerformed(evt);
+                tfMemberIDActionPerformed(evt);
             }
         });
-        tfmemberIdMember.addKeyListener(new java.awt.event.KeyAdapter() {
+        tfMemberID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                tfmemberIdMemberKeyTyped(evt);
+                tfMemberIDKeyTyped(evt);
             }
         });
-        memberRegisterPanel.add(tfmemberIdMember);
-        tfmemberIdMember.setBounds(290, 110, 230, 40);
+        memberRegisterPanel.add(tfMemberID);
+        tfMemberID.setBounds(290, 110, 230, 40);
 
         tfNamaMember.setBorder(null);
         memberRegisterPanel.add(tfNamaMember);
@@ -560,11 +528,11 @@ public class CashierPanel extends javax.swing.JFrame {
         memberRegisterPanel.add(btnSimpanMember);
         btnSimpanMember.setBounds(690, 360, 90, 40);
 
-        jsJenisKleaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
-        jsJenisKleaminMember.setBorder(null);
-        jsJenisKleaminMember.setOpaque(false);
-        memberRegisterPanel.add(jsJenisKleaminMember);
-        jsJenisKleaminMember.setBounds(290, 230, 230, 30);
+        cbJenisKleaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
+        cbJenisKleaminMember.setBorder(null);
+        cbJenisKleaminMember.setOpaque(false);
+        memberRegisterPanel.add(cbJenisKleaminMember);
+        cbJenisKleaminMember.setBounds(290, 230, 230, 30);
 
         btnUbahMember.setText("Ubah");
         btnUbahMember.addActionListener(new java.awt.event.ActionListener() {
@@ -632,12 +600,9 @@ public class CashierPanel extends javax.swing.JFrame {
         InputPanel.add(tfHargaProduct);
         tfHargaProduct.setBounds(280, 400, 202, 30);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        TableProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Product Id", "Nama", "Merek", "Jenis", "Stock", "Harga"
@@ -651,12 +616,12 @@ public class CashierPanel extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        TableProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                TableProductMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(TableProduct);
 
         InputPanel.add(jScrollPane5);
         jScrollPane5.setBounds(560, 100, 530, 330);
@@ -724,7 +689,6 @@ public class CashierPanel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowClosing
 
-
     private void tvProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvProductMouseClicked
 
         mainPanel.removeAll();
@@ -743,6 +707,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         productPanel();
 
+        refreshData(2);
 
     }//GEN-LAST:event_tvProductMouseClicked
 
@@ -762,7 +727,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tvAbout.setForeground(utama);
 
         member();
-        refreshDataMember();
+        refreshData(1);
     }//GEN-LAST:event_tvMemberMouseClicked
 
     private void tvTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvTransactionMouseClicked
@@ -799,6 +764,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tvProduct.setForeground(utama);
         tvAbout.setForeground(utama);
 
+        refreshData(3);
         member();
     }//GEN-LAST:event_tvUserMouseClicked
 
@@ -825,14 +791,14 @@ public class CashierPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfNamaProfileKeyTyped
 
-    private void jaAlamatprfileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jaAlamatprfileKeyTyped
-        if (jaAlamatprfile.getText().length() > 150) {
+    private void taAlamatprofileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taAlamatprofileKeyTyped
+        if (taAlamatprofile.getText().length() > 150) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Alamat Melebihi 150 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jaAlamatprfileKeyTyped
+    }//GEN-LAST:event_taAlamatprofileKeyTyped
 
-    private void jfNoTelpProfileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jfNoTelpProfileKeyTyped
+    private void tfNoTelpProfileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNoTelpProfileKeyTyped
 
         char angka = evt.getKeyChar();
 
@@ -844,13 +810,13 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-        if (jfNoTelpProfile.getText().length() > 13) {
+        if (tfNoTelpProfile.getText().length() > 13) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "No Telp Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
 
             //buat perkondisian yang busa di inputkan angka ini kan masih bebas angka dan huruf
         }
-    }//GEN-LAST:event_jfNoTelpProfileKeyTyped
+    }//GEN-LAST:event_tfNoTelpProfileKeyTyped
 
     private void tvAboutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvAboutMouseEntered
         tvAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logoGlow.png")));
@@ -871,26 +837,24 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(false);
         btnUbahMember.setEnabled(false);
 
-        tfmemberIdMember.setEnabled(false);
+        tfMemberID.setEnabled(false);
         tfNamaMember.setEnabled(false);
-        jsJenisKleaminMember.setEnabled(false);
-        jaAlamatMember.setEnabled(false);
-        jfNoTelpMember.setEnabled(false);
+        cbJenisKleaminMember.setEnabled(false);
+        taAlamatMember.setEnabled(false);
+        tfNoTelpMember.setEnabled(false);
     }
 
     private void profile() {
         tfUsernameProfile.setEnabled(false);
         tfPasswordProfile.setEnabled(false);
         tfNamaProfile.setEnabled(false);
-        JsGenderProfile.setEnabled(false);
-        jaAlamatprfile.setEnabled(false);
-        jfNoTelpProfile.setEnabled(false);
+        cbGenderProfile.setEnabled(false);
+        taAlamatprofile.setEnabled(false);
+        tfNoTelpProfile.setEnabled(false);
 
-        btnBaruProfile.setEnabled(true);
-        btnBatalProfile.setEnabled(true);
+        btnBatalProfile.setEnabled(false);
         btnSimpanProfile.setEnabled(false);
-        btnUbahProfile.setEnabled(false);
-        btnHapusProfile.setEnabled(false);
+        btnUbahProfile.setEnabled(true);
 
     }
 
@@ -919,7 +883,6 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusProduct.setEnabled(false);
 
     }
-
 
     private void tfProductIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfProductIdKeyTyped
 
@@ -957,7 +920,6 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Invoice Number Melebihi 10 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-
     }//GEN-LAST:event_tfInvoiceNumberKeyTyped
 
     private void jtCustomerIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCustomerIdKeyTyped
@@ -977,14 +939,13 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Customer Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-
     }//GEN-LAST:event_jtCustomerIdKeyTyped
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
 
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void tfmemberIdMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfmemberIdMemberKeyTyped
+    private void tfMemberIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMemberIDKeyTyped
         char angka = evt.getKeyChar();
 
         if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE)) {
@@ -995,28 +956,29 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-        if (tfmemberIdMember.getText().length() == 5) {
+        if (tfMemberID.getText().length() == 5) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Customer Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-    }//GEN-LAST:event_tfmemberIdMemberKeyTyped
+    }//GEN-LAST:event_tfMemberIDKeyTyped
 
     private void btnBaruMemeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruMemeberActionPerformed
-        
         btnBaruMemeber.setEnabled(false);
         btnSimpanMember.setEnabled(true);
         btnBatalMember.setEnabled(true);
         btnHapusMember.setEnabled(false);
         btnUbahMember.setEnabled(false);
 
-        tfmemberIdMember.setEnabled(true);
+        tfMemberID.setEnabled(true);
         tfNamaMember.setEnabled(true);
-        jsJenisKleaminMember.setEnabled(true);
-        jaAlamatMember.setEnabled(true);
-        jfNoTelpMember.setEnabled(true);
+        cbJenisKleaminMember.setEnabled(true);
+        taAlamatMember.setEnabled(true);
+        tfNoTelpMember.setEnabled(true);
 
-        tfmemberIdMember.requestFocus();
+        tfMemberID.requestFocus();
+
+        saveMode = true;
     }//GEN-LAST:event_btnBaruMemeberActionPerformed
 
     private void btnBatalMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalMemberActionPerformed
@@ -1026,48 +988,89 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(false);
         btnUbahMember.setEnabled(false);
 
-        tfmemberIdMember.setEnabled(false);
+        tfMemberID.setEnabled(false);
         tfNamaMember.setEnabled(false);
-        jsJenisKleaminMember.setEnabled(false);
-        jaAlamatMember.setEnabled(false);
-        jfNoTelpMember.setEnabled(false);
-
+        cbJenisKleaminMember.setEnabled(false);
+        taAlamatMember.setEnabled(false);
+        tfNoTelpMember.setEnabled(false);
 
     }//GEN-LAST:event_btnBatalMemberActionPerformed
 
     private void btnHapusMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusMemberActionPerformed
-        btnBaruMemeber.setEnabled(true);
-        btnBatalMember.setEnabled(true);
-        btnSimpanMember.setEnabled(false);
-        btnHapusMember.setEnabled(false);
-        btnUbahMember.setEnabled(false);
+
+        int konfirmasi = JOptionPane.showConfirmDialog(this,
+                "Apakah Anda Yakin?\n Dengan Menghapus Member akan Menghilangkan\n Seluruh Data Transaksi yang ada",
+                "Konfirmasi",
+                JOptionPane.YES_NO_OPTION);
+        if (konfirmasi == 0) {
+
+            try {
+                AppDatabase.perintah.execute("delete from customer "
+                        + "where customer_id ='" + tfMemberID.getText() + "';");
+                refreshData(1);
+            } catch (SQLException e) {
+                System.err.println("Query delete Member gagal");
+            }
+
+            btnBaruMemeber.setEnabled(true);
+            btnBatalMember.setEnabled(false);
+            btnSimpanMember.setEnabled(false);
+            btnHapusMember.setEnabled(false);
+            btnUbahMember.setEnabled(false);
+
+            bersihkan();
+            refreshData(1);
+        }
 
     }//GEN-LAST:event_btnHapusMemberActionPerformed
 
     private void btnSimpanMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanMemberActionPerformed
 
-        if (tfmemberIdMember.getText().equals("")) {
+        if (tfMemberID.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
 
         } else if (tfNamaMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
 
-//        }else if (jsJenisKleaminMember.getAction().equals("")){
-//            JOptionPane.showMessageDialog(this," Data Tidak Boleh Kosong","Informasi",JOptionPane.WARNING_MESSAGE);
-        } else if (jaAlamatMember.getText().equals("")) {
+        } else if (cbJenisKleaminMember.getSelectedItem().equals("Pilih Jenis Kelamin")) {
+            JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+        } else if (taAlamatMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
 
-        } else if (jfNoTelpMember.getText().equals("")) {
+        } else if (tfNoTelpMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
         } else {
 
         }
 
-        tfmemberIdMember.setEnabled(false);
+        //query simpan 
+        try {
+            if (saveMode == true) {
+                AppDatabase.perintah.executeUpdate("insert into customer values "
+                        + "('" + tfMemberID.getText() + "',"
+                        + "'" + tfNamaMember.getText() + "',"
+                        + "'" + cbJenisKleaminMember.getSelectedItem() + " ',"
+                        + "'" + taAlamatMember.getText() + " ',"
+                        + "'" + tfNoTelpMember.getText() + "')");
+            } else {
+                AppDatabase.perintah.executeUpdate("update customer set "
+                        + "name = '" + tfNamaMember.getText() + "',"
+                        + "gender = '" + cbJenisKleaminMember.getSelectedItem() + "',"
+                        + "address = '" + taAlamatMember.getText() + "' ,"
+                        + "telp = '" + tfNoTelpMember.getText() + "' "
+                        + "where customer_id = '" + tfMemberID.getText() + "';");
+                System.out.println("Query update berhasil");
+            }
+        } catch (SQLException e) {
+        }
+
+        bersihkan();
+        refreshData(1);
+        tfMemberID.setEnabled(false);
         tfNamaMember.setEnabled(true);
-        jsJenisKleaminMember.setEnabled(true);
-        jaAlamatMember.setEnabled(true);
-        jfNoTelpMember.setEnabled(true);
+        cbJenisKleaminMember.setEnabled(true);
+        taAlamatMember.setEnabled(true);
+        tfNoTelpMember.setEnabled(true);
 
         btnBaruMemeber.setEnabled(true);
         btnSimpanMember.setEnabled(false);
@@ -1085,10 +1088,11 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(false);
         btnBatalMember.setEnabled(true);
 
-        tfmemberIdMember.setEnabled(false);
+        tfMemberID.setEnabled(false);
         tfNamaMember.setEnabled(true);
         tfNamaMember.requestFocus();
 
+        saveMode = false;
 
     }//GEN-LAST:event_btnUbahMemberActionPerformed
 
@@ -1108,6 +1112,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         tfProductidProduct.requestFocus();
 
+        saveMode = true;
 
     }//GEN-LAST:event_btnBaruPrductActionPerformed
 
@@ -1141,6 +1146,28 @@ public class CashierPanel extends javax.swing.JFrame {
 
         }
 
+        //query simpan product
+        try {
+            if (saveMode == true) {
+                AppDatabase.perintah.executeUpdate("insert into product values "
+                        + "('" + tfProductidProduct.getText() + "',"
+                        + "'" + tfNamaProduct.getText() + "',"
+                        + "'" + tfMerekProduct.getText() + " ',"
+                        + "'" + tfJenisProduct.getText() + " ',"
+                        + "'" + tfStockProduct.getText() + " ',"
+                        + "'" + tfHargaProduct.getText() + "')");
+            } else {
+                AppDatabase.perintah.executeUpdate("update product set "
+                        + "name = '" + tfNamaProduct.getText() + "',"
+                        + "brand = '" + tfMerekProduct.getText() + "',"
+                        + "type = '" + tfJenisProduct.getText() + "' ,"
+                        + "stock = '" + tfStockProduct.getText() + "' ,"
+                        + "price = '" + tfHargaProduct.getText() + "' "
+                        + "where product_id = '" + tfProductidProduct.getText() + "';");
+            }
+        } catch (SQLException e) {
+        }
+
         btnBaruPrduct.setEnabled(true);
         btnBatalProduct.setEnabled(false);
         btnSimpanProduct.setEnabled(false);
@@ -1166,7 +1193,6 @@ public class CashierPanel extends javax.swing.JFrame {
         tfJenisProduct.setEnabled(false);
         tfNamaProduct.setEnabled(false);
 
-
     }//GEN-LAST:event_btnBatalProductActionPerformed
 
     private void TableMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMemberMouseClicked
@@ -1176,46 +1202,43 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(true);
         btnBatalMember.setEnabled(true);
 
-        tfmemberIdMember.setEnabled(false);
+        tfMemberID.setEnabled(false);
         tfNamaMember.setEnabled(false);
 
+        tfMemberID.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 0).toString());
+        tfNamaMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 1).toString());
+        cbJenisKleaminMember.setSelectedItem(memberTable.getValueAt(TableMember.getSelectedRow(), 2).toString());
+        taAlamatMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 3).toString());
+        tfNoTelpMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_TableMemberMouseClicked
 
-    private void btnBaruProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruProfileActionPerformed
-
-        btnSimpanProfile.setEnabled(true);
-        btnBaruProfile.setEnabled(false);
-        btnUbahProfile.setEnabled(false);
-        btnHapusProfile.setEnabled(false);
-        btnBatalProfile.setEnabled(false);
-
-        tfUsernameProfile.setEnabled(true);
-        tfPasswordProfile.setEnabled(true);
-        tfNamaProfile.setEnabled(true);
-        JsGenderProfile.setEnabled(true);
-        jaAlamatprfile.setEnabled(true);
-        jfNoTelpProfile.setEnabled(true);
-
-        tfUsernameProfile.requestFocus();
-
-
-    }//GEN-LAST:event_btnBaruProfileActionPerformed
-
     private void btnSimpanProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanProfileActionPerformed
+
+        // query simpan 
+        try {
+            AppDatabase.perintah.executeUpdate("update employee set "
+                    + "password = '" + String.valueOf(tfPasswordProfile.getPassword())+ "',"
+                    + "name = '" + tfNamaProfile.getText() + "' ,"
+                    + "gender = '" + cbGenderProfile.getSelectedItem()+ "' ,"
+                    + "address = '" + taAlamatprofile.getText() + "' ,"
+                    + "telp = '" + tfNoTelpProfile.getText() + "' "
+                    + "where username = '" + tfUsernameProfile.getText() + "';");
+        } catch (SQLException e) {
+        }
+
         bersihkan();
         btnSimpanProfile.setEnabled(false);
-        btnBaruProfile.setEnabled(true);
         btnUbahProfile.setEnabled(false);
-        btnHapusProfile.setEnabled(false);
         btnBatalProfile.setEnabled(false);
 
         tfUsernameProfile.setEnabled(false);
         tfPasswordProfile.setEnabled(true);
         tfNamaProfile.setEnabled(true);
-        JsGenderProfile.setEnabled(true);
-        jaAlamatprfile.setEnabled(true);
-        jfNoTelpProfile.setEnabled(true);
-
+        cbGenderProfile.setEnabled(true);
+        taAlamatprofile.setEnabled(true);
+        tfNoTelpProfile.setEnabled(true);
+        
+        refreshData(3);
 
     }//GEN-LAST:event_btnSimpanProfileActionPerformed
 
@@ -1238,26 +1261,11 @@ public class CashierPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfProductidProductKeyTyped
 
-    private void tfmemberIdMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfmemberIdMemberActionPerformed
+    private void tfMemberIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMemberIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfmemberIdMemberActionPerformed
+    }//GEN-LAST:event_tfMemberIDActionPerformed
 
-    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
-        btnSimpanProfile.setEnabled(false);
-        btnBaruProfile.setEnabled(false);
-        btnUbahProfile.setEnabled(true);
-        btnHapusProfile.setEnabled(true);
-        btnBatalProfile.setEnabled(false);
-
-        tfUsernameProfile.setEnabled(false);
-        tfPasswordProfile.setEnabled(true);
-        tfNamaProfile.setEnabled(true);
-        JsGenderProfile.setEnabled(true);
-        jaAlamatprfile.setEnabled(true);
-        jfNoTelpProfile.setEnabled(true);
-    }//GEN-LAST:event_jTable4MouseClicked
-
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+    private void TableProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProductMouseClicked
         btnBaruPrduct.setEnabled(false);
         btnBatalProduct.setEnabled(false);
         btnSimpanProduct.setEnabled(false);
@@ -1267,7 +1275,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tfProductidProduct.setEnabled(false);
         tfNamaProduct.setEnabled(false);
 
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_TableProductMouseClicked
 
     private void btnUbahProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProductActionPerformed
         tfProductidProduct.setEnabled(false);
@@ -1284,9 +1292,27 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusProduct.setEnabled(false);
 
         tfNamaProduct.requestFocus();
+
+        saveMode = false;
+
     }//GEN-LAST:event_btnUbahProductActionPerformed
 
     private void btnHapusProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusProductActionPerformed
+
+        int konfirmasi = JOptionPane.showConfirmDialog(this,
+                "Apakah Anda Yakin?\n Dengan Menghapus Product akan Menghilangkan\n Seluruh Data Transaksi dengan\n Produk yang bersangkutan",
+                "Konfirmasi",
+                JOptionPane.YES_NO_OPTION);
+        if (konfirmasi == 0) {
+            try {
+                AppDatabase.perintah.execute("delete from product "
+                        + "where product_id ='" + tfProductidProduct.getText() + "';");
+                refreshData(1);
+            } catch (SQLException e) {
+                System.err.println("Query delete Member gagal");
+            }
+        }
+
         tfProductidProduct.setEnabled(false);
         tfStockProduct.setEnabled(false);
         tfHargaProduct.setEnabled(false);
@@ -1303,35 +1329,20 @@ public class CashierPanel extends javax.swing.JFrame {
 
     private void btnUbahProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProfileActionPerformed
         btnSimpanProfile.setEnabled(true);
-        btnBaruProfile.setEnabled(false);
         btnUbahProfile.setEnabled(true);
-        btnHapusProfile.setEnabled(false);
         btnBatalProfile.setEnabled(true);
 
         tfUsernameProfile.setEnabled(true);
         tfPasswordProfile.setEnabled(true);
         tfNamaProfile.setEnabled(true);
-        JsGenderProfile.setEnabled(true);
-        jaAlamatprfile.setEnabled(true);
-        jfNoTelpProfile.setEnabled(true);
+        cbGenderProfile.setEnabled(true);
+        taAlamatprofile.setEnabled(true);
+        tfNoTelpProfile.setEnabled(true);
 
         tfUsernameProfile.requestFocus();
+
+        refreshData(4);
     }//GEN-LAST:event_btnUbahProfileActionPerformed
-
-    private void btnHapusProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusProfileActionPerformed
-        btnSimpanProfile.setEnabled(false);
-        btnBaruProfile.setEnabled(true);
-        btnUbahProfile.setEnabled(false);
-        btnHapusProfile.setEnabled(false);
-        btnBatalProfile.setEnabled(false);
-
-        tfUsernameProfile.setEnabled(false);
-        tfPasswordProfile.setEnabled(false);
-        tfNamaProfile.setEnabled(false);
-        JsGenderProfile.setEnabled(false);
-        jaAlamatprfile.setEnabled(false);
-        jfNoTelpProfile.setEnabled(false);
-    }//GEN-LAST:event_btnHapusProfileActionPerformed
 
     private void btnBatalProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalProfileActionPerformed
         // TODO add your handling code here:
@@ -1342,8 +1353,8 @@ public class CashierPanel extends javax.swing.JFrame {
         tfUsernameProfile.setText("");
         tfPasswordProfile.setText("");
         tfNamaProfile.setText("");
-        jaAlamatprfile.setText("");
-        jfNoTelpProfile.setText("");
+        taAlamatprofile.setText("");
+        tfNoTelpProfile.setText("");
 
         //panel Product
         tfProductidProduct.setText("");
@@ -1355,38 +1366,97 @@ public class CashierPanel extends javax.swing.JFrame {
         //=================================//
 
         //Panel Memeber
-        tfmemberIdMember.setText("");
+        tfMemberID.setText("");
         tfNamaMember.setText("");
 
-        jaAlamatMember.setText("");
-        jfNoTelpMember.setText("");
+        taAlamatMember.setText("");
+        tfNoTelpMember.setText("");
         //=====================================//
 
         //Panel Member//
-        tfmemberIdMember.setText("");
+        tfMemberID.setText("");
         tfNamaMember.setText("");
 //        jsJenisKleaminMember.set
-        jaAlamatMember.setText("");
-        jfNoTelpMember.setText("");
+        taAlamatMember.setText("");
+        tfNoTelpMember.setText("");
         //=====================================
 
     }
 
-    private void refreshDataMember() {
-        try {
-            hasil = AppDatabase.perintah.executeQuery("select * from customer;");
-            while (hasil.next()) {
-                memberTable.addRow(new Object[]{
-                    hasil.getString("customer_id"),
-                    hasil.getString("name"),
-                    hasil.getString("gender"),
-                    hasil.getString("address"),
-                    hasil.getString("telp")
-                });
+    // Refresh Method
+    private void refreshData(int mode) {
+
+        if (mode == 1) { //Mode 1 untuk Member Table
+            try {
+                memberTable.getDataVector().removeAllElements();
+                memberTable.fireTableDataChanged();
+                hasil = AppDatabase.perintah.executeQuery("select * from customer;");
+                while (hasil.next()) {
+                    memberTable.addRow(new Object[]{
+                        hasil.getString("customer_id"),
+                        hasil.getString("name"),
+                        hasil.getString("gender"),
+                        hasil.getString("address"),
+                        hasil.getString("telp")
+                    });
+                }
+            } catch (SQLException e) {
+                System.err.println("Query Select Customer gagal");
+            }
+        } else if (mode == 2) { // Mode 2 untuk Product Table
+            try {
+                productTable.getDataVector().removeAllElements();
+                productTable.fireTableDataChanged();
+                hasil = AppDatabase.perintah.executeQuery("select * from product;");
+                while (hasil.next()) {
+                    productTable.addRow(new Object[]{
+                        hasil.getString("product_id"),
+                        hasil.getString("name"),
+                        hasil.getString("brand"),
+                        hasil.getString("type"),
+                        hasil.getString("stok"),
+                        hasil.getString("price")
+                    });
+                }
+            } catch (SQLException e) {
+                System.err.println("Query Select Product gagal");
+            }
+        } else if (mode == 3) { //mode 3 untuk refresh data table profile
+            taProfile.setText("");
+            try {
+                hasil = AppDatabase.perintah.executeQuery("select * from employee "
+                        + "where username='" + Encapsulation.getUsername() + "';");
+                hasil.next();
+                taProfile.setText("Username\n\n"
+                        + hasil.getString("username")
+                        + "\n\nNama\n\n"
+                        + hasil.getString("name")
+                        + "\n\nJenis Kelamin\n\n"
+                        + hasil.getString("gender")
+                        + "\n\nAlamat\n\n"
+                        + hasil.getString("address")
+                        + "\n\nNo Telpon\n\n"
+                        + hasil.getString("telp"));
+            } catch (Exception e) {
+                System.out.println("Query Select Profile gagal");
             }
 
-        } catch (SQLException e) {
-            System.err.println("Query Select Customer gagal");
+        } else if (mode == 4) { //mode 4 untuk refresh data pada text field profile
+            taProfile.setText("");
+            try {
+                hasil = AppDatabase.perintah.executeQuery("select * from employee "
+                        + "where username='" + Encapsulation.getUsername() + "';");
+                hasil.next();
+                tfUsernameProfile.setText(hasil.getString("username"));
+                tfPasswordProfile.setText(hasil.getString("password"));
+                tfNamaProfile.setText(hasil.getString("name"));
+                cbGenderProfile.setSelectedItem(hasil.getString("gender"));
+                taAlamatprofile.setText(hasil.getString("address"));
+                tfNoTelpProfile.setText(hasil.getString("telp"));
+            } catch (Exception e) {
+                System.out.println("Query Select Profile gagal");
+            }
+
         }
     }
 
@@ -1443,19 +1513,17 @@ public class CashierPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InputPanel;
-    private javax.swing.JComboBox<String> JsGenderProfile;
     private javax.swing.JPanel MenuPanel;
     private javax.swing.JPanel ProfilePanel;
     private javax.swing.JTable TableMember;
+    private javax.swing.JTable TableProduct;
     private javax.swing.JButton btnBaruMemeber;
     private javax.swing.JButton btnBaruPrduct;
-    private javax.swing.JButton btnBaruProfile;
     private javax.swing.JButton btnBatalMember;
     private javax.swing.JButton btnBatalProduct;
     private javax.swing.JButton btnBatalProfile;
     private javax.swing.JButton btnHapusMember;
     private javax.swing.JButton btnHapusProduct;
-    private javax.swing.JButton btnHapusProfile;
     private javax.swing.JButton btnSimpanMember;
     private javax.swing.JButton btnSimpanProduct;
     private javax.swing.JButton btnSimpanProfile;
@@ -1464,6 +1532,8 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnUbahProfile;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JComboBox<String> cbGenderProfile;
+    private javax.swing.JComboBox<String> cbJenisKleaminMember;
     private javax.swing.JLabel imgProduct;
     private javax.swing.JLabel imgTransaction;
     private javax.swing.JLabel imgWelcome;
@@ -1482,34 +1552,32 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextArea jaAlamatMember;
-    private javax.swing.JTextArea jaAlamatprfile;
-    private javax.swing.JTextField jfNoTelpMember;
-    private javax.swing.JTextField jfNoTelpProfile;
-    private javax.swing.JComboBox<String> jsJenisKleaminMember;
     private javax.swing.JTextField jtCustomerId;
     private javax.swing.JLabel label;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel memberRegisterPanel;
+    private javax.swing.JTextArea taAlamatMember;
+    private javax.swing.JTextArea taAlamatprofile;
+    private javax.swing.JTextArea taProfile;
     private javax.swing.JTextField tfHargaProduct;
     private javax.swing.JTextField tfInvoiceNumber;
     private javax.swing.JTextField tfJenisProduct;
+    private javax.swing.JTextField tfMemberID;
     private javax.swing.JTextField tfMerekProduct;
     private javax.swing.JTextField tfNamaMember;
     private javax.swing.JTextField tfNamaProduct;
     private javax.swing.JTextField tfNamaProfile;
+    private javax.swing.JTextField tfNoTelpMember;
+    private javax.swing.JTextField tfNoTelpProfile;
     private javax.swing.JPasswordField tfPasswordProfile;
     private javax.swing.JTextField tfProductId;
     private javax.swing.JTextField tfProductidProduct;
     private javax.swing.JTextField tfStockProduct;
     private javax.swing.JTextField tfUsernameProfile;
-    private javax.swing.JTextField tfmemberIdMember;
     private javax.swing.JPanel transaksiPanel;
     private javax.swing.JLabel tvAbout;
     private javax.swing.JLabel tvMember;

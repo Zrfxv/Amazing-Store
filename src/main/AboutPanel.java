@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package main;
+
 import AppPackage.AnimationClass;
 
 /**
@@ -56,17 +57,15 @@ public class AboutPanel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-    
-        public static void summonAboutPanel() {
+
+    public static void summonAboutPanel() {
         AboutPanel aboutPanel = new AboutPanel();
         aboutPanel.setSize(1150, 695);
         aboutPanel.setLocationRelativeTo(null);
         aboutPanel.setVisible(true);
-        
+
     }
-    
+
     /**
      * @param args the command line arguments
      */

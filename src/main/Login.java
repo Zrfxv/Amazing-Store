@@ -100,9 +100,7 @@ public class Login extends javax.swing.JFrame {
             resultSet.last();
             if (resultSet.getString("level").equals("admin")) {
                 dispose();
-                AdminPanel adminPanel = new AdminPanel();
-                adminPanel.setLocationRelativeTo(null);
-                adminPanel.setVisible(true);
+                AdminPanel.summonAdminPanel();
             } else if (resultSet.getString("level").equals("cashier")) {
                 dispose();
                 CashierPanel.summonCashierPanel();

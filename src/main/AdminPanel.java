@@ -16,8 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class AdminPanel extends javax.swing.JFrame {
 
-    Color klik;
-    Color utama;
+    private Color klik, utama;
 
     public AdminPanel() {
         initComponents();
@@ -636,7 +635,6 @@ public class AdminPanel extends javax.swing.JFrame {
         EnableKasir(1);
     }//GEN-LAST:event_formWindowOpened
 
-
     private void tvUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvUserMouseClicked
         MainPanel.removeAll();
         MainPanel.repaint();
@@ -729,7 +727,6 @@ public class AdminPanel extends javax.swing.JFrame {
         jLabel6.setForeground(utama);
         jLabel7.setForeground(klik);
 
-
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -795,8 +792,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
     private void btnSimpanMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanMemberActionPerformed
         EnableMember(3);
-        
-      
+
     }//GEN-LAST:event_btnSimpanMemberActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
@@ -842,9 +838,9 @@ public class AdminPanel extends javax.swing.JFrame {
     private void btnBatalKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalKasirActionPerformed
         EnableKasir(7);
     }//GEN-LAST:event_btnBatalKasirActionPerformed
-    
-    private void EnableKasir(int mode){
-        if (mode == 1){
+
+    private void EnableKasir(int mode) {
+        if (mode == 1) {
             //windows opened
             tfUsernameKasir.setEnabled(false);
             tfNamaKasir.setEnabled(false);
@@ -852,26 +848,23 @@ public class AdminPanel extends javax.swing.JFrame {
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEnabled(false);
-            
+
             btnBaruKasir.setEnabled(true);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(false);
             btnHapusKasir.setEnabled(false);
             btnBatalKasir.setEnabled(false);
             btnBaruKasir.requestFocus();
-            
-            
-            
-            
-        }else if (mode == 2){
+
+        } else if (mode == 2) {
             //btnBaru
-             tfUsernameKasir.setEnabled(true);
+            tfUsernameKasir.setEnabled(true);
             tfNamaKasir.setEnabled(true);
             tpPasswordKaisr.setEnabled(true);
             jcJenisKleaminKaisr.setEnabled(true);
             taAlamatKasir.setEnabled(true);
             tfNoTelpKasir.setEnabled(true);
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(true);
             btnUbahKasir.setEnabled(false);
@@ -879,53 +872,50 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalKasir.setEnabled(false);
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
-        
-        }else if (mode == 3){
-            
+
+        } else if (mode == 3) {
+
             //btnsimpan
-             tfUsernameKasir.setEnabled(false);
+            tfUsernameKasir.setEnabled(false);
             tfNamaKasir.setEnabled(false);
             tpPasswordKaisr.setEnabled(false);
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEnabled(false);
-            
+
             btnBaruKasir.setEnabled(true);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(false);
             btnHapusKasir.setEnabled(false);
             btnBatalKasir.setEnabled(true);
             btnBaruKasir.requestFocus();
-        
-        }else if (mode == 4){
-            
+
+        } else if (mode == 4) {
+
             //klik tabel
-             tfUsernameKasir.setEnabled(false);
+            tfUsernameKasir.setEnabled(false);
             tfNamaKasir.setEnabled(false);
             tpPasswordKaisr.setEnabled(false);
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEnabled(false);
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(true);
             btnHapusKasir.setEnabled(true);
             btnBatalKasir.setEnabled(true);
             btnUbahKasir.requestFocus();
-            
-           
 
-            
-        }else if (mode == 5){
+        } else if (mode == 5) {
             //ubah
-             tfUsernameKasir.setEnabled(true);
+            tfUsernameKasir.setEnabled(true);
             tfNamaKasir.setEnabled(true);
             tpPasswordKaisr.setEnabled(true);
             jcJenisKleaminKaisr.setEnabled(true);
             taAlamatKasir.setEnabled(true);
             tfNoTelpKasir.setEnabled(true);
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(true);
             btnUbahKasir.setEnabled(false);
@@ -933,38 +923,33 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalKasir.setEnabled(true);
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
-            
-        }else if (mode == 6){
+
+        } else if (mode == 6) {
             //hapus
-             tfUsernameKasir.setEnabled(false);
+            tfUsernameKasir.setEnabled(false);
             tfNamaKasir.setEnabled(false);
             tpPasswordKaisr.setEnabled(false);
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEnabled(false);
-            
+
             btnBaruKasir.setEnabled(true);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(false);
             btnHapusKasir.setEnabled(false);
             btnBatalKasir.setEnabled(false);
             btnBatalKasir.requestFocus();
-            
-            
-            
-            
 
-        }else if (mode == 7){
-            
+        } else if (mode == 7) {
+
             //batal
-             tfUsernameKasir.setEnabled(true);
+            tfUsernameKasir.setEnabled(true);
             tfNamaKasir.setEnabled(true);
             tpPasswordKaisr.setEnabled(true);
             jcJenisKleaminKaisr.setEnabled(true);
             taAlamatKasir.setEnabled(true);
             tfNoTelpKasir.setEnabled(true);
-            
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(true);
             btnUbahKasir.setEnabled(false);
@@ -972,15 +957,11 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalKasir.setEnabled(true);
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
-            
-            
-          
 
         }
-        
+
     }
-    
-    
+
     private void EnableMember(int mode) {
         if (mode == 1) {
 
@@ -1047,9 +1028,9 @@ public class AdminPanel extends javax.swing.JFrame {
             btnUbahMember.requestFocus();
 
         } else if (mode == 5) {
-            
+
             //ubah
-             tfMemberId.setEnabled(true);
+            tfMemberId.setEnabled(true);
             tfNamaMember.setEnabled(true);
             jcJenisKelaminMember.setEnabled(true);
             taaAlamatMember.setEnabled(true);
@@ -1062,11 +1043,10 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalMember.setEnabled(true);
             btnSimpanMember.requestFocus();
             tfMemberId.requestFocus();
-            
-         
-        } else if (mode == 6){
+
+        } else if (mode == 6) {
             //hapus
-              tfMemberId.setEnabled(false);
+            tfMemberId.setEnabled(false);
             tfNamaMember.setEnabled(false);
             jcJenisKelaminMember.setEnabled(false);
             taaAlamatMember.setEnabled(false);
@@ -1078,10 +1058,9 @@ public class AdminPanel extends javax.swing.JFrame {
             btnHapusMember.setEnabled(false);
             btnBatalMember.setEnabled(false);
             btnBaruMember.requestFocus();
-        
-       
-        }else if (mode == 7){
-            
+
+        } else if (mode == 7) {
+
             //batal
             tfMemberId.setEnabled(true);
             tfNamaMember.setEnabled(true);
@@ -1096,7 +1075,6 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalMember.setEnabled(true);
             btnSimpanMember.requestFocus();
             tfMemberId.requestFocus();
-            
 
         }
     }
