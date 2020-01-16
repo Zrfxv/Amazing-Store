@@ -283,7 +283,7 @@ public class CashierPanel extends javax.swing.JFrame {
         ProfilePanel.add(tfUsernameProfile);
         tfUsernameProfile.setBounds(300, 100, 240, 33);
 
-        cbGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Laki-Laki", "Perempuan" }));
+        cbGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
         ProfilePanel.add(cbGenderProfile);
         cbGenderProfile.setBounds(300, 270, 230, 40);
 
@@ -373,7 +373,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jButton1.setText("Go");
         transaksiPanel.add(jButton1);
-        jButton1.setBounds(910, 20, 45, 32);
+        jButton1.setBounds(910, 20, 45, 23);
 
         tfInvoiceNumber.setBorder(null);
         tfInvoiceNumber.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -386,15 +386,15 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jLabel13.setText("jLabel13");
         transaksiPanel.add(jLabel13);
-        jLabel13.setBounds(380, 130, 48, 16);
+        jLabel13.setBounds(380, 130, 40, 14);
 
         jLabel15.setText("jLabel15");
         transaksiPanel.add(jLabel15);
-        jLabel15.setBounds(630, 130, 48, 16);
+        jLabel15.setBounds(630, 130, 40, 14);
 
         jLabel17.setText("jLabel17");
         transaksiPanel.add(jLabel17);
-        jLabel17.setBounds(780, 130, 48, 16);
+        jLabel17.setBounds(780, 130, 40, 14);
 
         tfProductId.setBorder(null);
         tfProductId.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -407,7 +407,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jButton2.setText("Enter");
         transaksiPanel.add(jButton2);
-        jButton2.setBounds(1040, 120, 60, 32);
+        jButton2.setBounds(1040, 120, 59, 23);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -433,21 +433,21 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jLabel21.setText("jLabel21");
         transaksiPanel.add(jLabel21);
-        jLabel21.setBounds(890, 480, 70, 16);
+        jLabel21.setBounds(890, 480, 70, 14);
         transaksiPanel.add(jTextField5);
         jTextField5.setBounds(890, 560, 170, 20);
 
         label.setText("label");
         transaksiPanel.add(label);
-        label.setBounds(890, 610, 70, 16);
+        label.setBounds(890, 610, 70, 14);
 
         jButton3.setText("Transaksi Batal");
         transaksiPanel.add(jButton3);
-        jButton3.setBounds(221, 527, 119, 32);
+        jButton3.setBounds(221, 527, 105, 23);
 
         jButton4.setText("Transaksi Selesai");
         transaksiPanel.add(jButton4);
-        jButton4.setBounds(358, 527, 132, 32);
+        jButton4.setBounds(358, 527, 113, 23);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/TransactionPanel.png"))); // NOI18N
         transaksiPanel.add(jLabel9);
