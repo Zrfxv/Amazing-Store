@@ -456,13 +456,13 @@ public class CashierPanel extends javax.swing.JFrame {
 
         jLabel21.setText("jLabel21");
         transaksiPanel.add(jLabel21);
-        jLabel21.setBounds(890, 480, 70, 16);
+        jLabel21.setBounds(890, 480, 70, 14);
         transaksiPanel.add(jTextField5);
         jTextField5.setBounds(890, 560, 170, 20);
 
         label.setText("label");
         transaksiPanel.add(label);
-        label.setBounds(890, 610, 70, 16);
+        label.setBounds(890, 610, 70, 14);
 
         btntransaksiBatal.setText("Transaksi Batal");
         btntransaksiBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -471,7 +471,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(btntransaksiBatal);
-        btntransaksiBatal.setBounds(221, 527, 119, 32);
+        btntransaksiBatal.setBounds(221, 527, 105, 23);
 
         jButton4.setText("Transaksi Selesai");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -480,7 +480,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(jButton4);
-        jButton4.setBounds(358, 527, 132, 32);
+        jButton4.setBounds(358, 527, 113, 23);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/TransactionPanel.png"))); // NOI18N
         transaksiPanel.add(jLabel9);
@@ -505,7 +505,6 @@ public class CashierPanel extends javax.swing.JFrame {
         tfNoTelpMember.setBounds(300, 450, 210, 40);
 
         tfMemberID.setBorder(null);
-        tfMemberID.setEnabled(false);
         tfMemberID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfMemberIDActionPerformed(evt);
@@ -898,9 +897,9 @@ public class CashierPanel extends javax.swing.JFrame {
         tvUser.setText("Hi, " + Encapsulation.getUsername());
 
         tvWelcome.setText(Encapsulation.getName());
-        member();
-        productPanel();
-        profile();
+        enableMember(1);
+        enableInputPanel(1);
+        enableProfile(2);
 
     }//GEN-LAST:event_formWindowOpened
 
@@ -995,37 +994,120 @@ public class CashierPanel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tfMemberIDKeyTyped
 
-    private void btnBaruMemeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruMemeberActionPerformed
-        btnBaruMemeber.setEnabled(false);
-        btnSimpanMember.setEnabled(true);
-        btnBatalMember.setEnabled(true);
-        btnHapusMember.setEnabled(false);
-        btnUbahMember.setEnabled(false);
-
-        tfMemberID.setEnabled(true);
-        tfNamaMember.setEnabled(true);
-        cbJenisKleaminMember.setEnabled(true);
-        taAlamatMember.setEnabled(true);
-        tfNoTelpMember.setEnabled(true);
-
-        tfMemberID.requestFocus();
-
-        saveMode = true;
-    }//GEN-LAST:event_btnBaruMemeberActionPerformed
-
-    private void btnBatalMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalMemberActionPerformed
+     private void enableMember (int model){
+        //ketika aplikasi muncul 
+        if (model == 1){
+            
+        
         btnBaruMemeber.setEnabled(true);
         btnSimpanMember.setEnabled(false);
         btnBatalMember.setEnabled(false);
         btnHapusMember.setEnabled(false);
         btnUbahMember.setEnabled(false);
 
-        tfMemberID.setEnabled(false);
-        tfNamaMember.setEnabled(false);
+        tfMemberID.setEditable(false);
+        tfNamaMember.setEditable(false);
         cbJenisKleaminMember.setEnabled(false);
-        taAlamatMember.setEnabled(false);
-        tfNoTelpMember.setEnabled(false);
+        taAlamatMember.setEditable(false);
+        tfNoTelpMember.setEditable(false);  
+         
+        btnBaruMemeber.requestFocus();
+        bersihkan();
+       
+        }else if (model == 2){
+            //btn Baru 
+        btnBaruMemeber.setEnabled(false);
+        btnSimpanMember.setEnabled(true);
+        btnBatalMember.setEnabled(true);
+        btnHapusMember.setEnabled(false);
+        btnUbahMember.setEnabled(false);
 
+        tfMemberID.setEditable(true);
+        tfNamaMember.setEditable(true);
+        cbJenisKleaminMember.setEnabled(true);
+        taAlamatMember.setEditable(true);
+        tfNoTelpMember.setEditable(true);
+
+        tfMemberID.requestFocus();
+        
+        }else if (model == 3){
+            //btn Simpan
+       
+        tfMemberID.setEditable(false); 
+        tfNamaMember.setEditable(false);
+        cbJenisKleaminMember.setEditable(false);
+        taAlamatMember.setEditable(false);
+        tfNoTelpMember.setEditable(false);
+
+        btnBaruMemeber.setEnabled(true);
+        btnSimpanMember.setEnabled(false);
+        btnBatalMember.setEnabled(false);
+        btnHapusMember.setEnabled(false);
+        btnUbahMember.setEnabled(false);
+          bersihkan();
+
+            
+        }else if (model == 4){
+            //btn Ubah
+            btnBaruMemeber.setEnabled(false);
+            btnSimpanMember.setEnabled(true);
+            btnUbahMember.setEnabled(true);
+            btnHapusMember.setEnabled(false);
+            btnBatalMember.setEnabled(true);
+
+            tfMemberID.setEditable(false); 
+            tfNamaMember.setEditable(true);
+            cbJenisKleaminMember.setEditable(true);
+            taAlamatMember.setEditable(true);
+            tfNoTelpMember.setEditable(true);
+            tfNamaMember.requestFocus();
+
+        } else if (model == 5) {
+            //btn Hapus
+            btnBaruMemeber.setEnabled(true);
+            btnBatalMember.setEnabled(false);
+            btnSimpanMember.setEnabled(false);
+            btnHapusMember.setEnabled(false);
+            btnUbahMember.setEnabled(false);
+            
+            tfMemberID.setEditable(false); 
+            tfNamaMember.setEditable(false);
+            cbJenisKleaminMember.setEditable(false);
+            taAlamatMember.setEditable(false);
+            tfNoTelpMember.setEditable(false);
+            
+
+            bersihkan();
+        
+        }else if (model == 6){
+            //tabel di klik 
+        btnBaruMemeber.setEnabled(false);
+        btnSimpanMember.setEnabled(false);
+        btnUbahMember.setEnabled(true);
+        btnHapusMember.setEnabled(true);
+        btnBatalMember.setEnabled(true);
+        
+        tfMemberID.setEditable(false); 
+        tfNamaMember.setEditable(true);
+        cbJenisKleaminMember.setEditable(true);
+        taAlamatMember.setEditable(true);
+        tfNoTelpMember.setEditable(true);
+        
+        
+        }
+         
+   
+    }
+    
+    private void btnBaruMemeberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruMemeberActionPerformed
+        enableMember(2);
+
+        saveMode = true;
+    }//GEN-LAST:event_btnBaruMemeberActionPerformed
+
+    private void btnBatalMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalMemberActionPerformed
+        enableMember(1);
+       
     }//GEN-LAST:event_btnBatalMemberActionPerformed
 
     private void btnHapusMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusMemberActionPerformed
@@ -1044,20 +1126,14 @@ public class CashierPanel extends javax.swing.JFrame {
                 System.err.println("Query delete Member gagal");
             }
 
-            btnBaruMemeber.setEnabled(true);
-            btnBatalMember.setEnabled(false);
-            btnSimpanMember.setEnabled(false);
-            btnHapusMember.setEnabled(false);
-            btnUbahMember.setEnabled(false);
-
-            bersihkan();
+            enableMember(5);
             refreshData(1);
         }
 
     }//GEN-LAST:event_btnHapusMemberActionPerformed
 
     private void btnSimpanMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanMemberActionPerformed
-
+ 
         if (tfMemberID.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
 
@@ -1072,7 +1148,7 @@ public class CashierPanel extends javax.swing.JFrame {
         } else if (tfNoTelpMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
         } else {
-
+             enableMember(3);
         }
 
         //query simpan 
@@ -1096,40 +1172,42 @@ public class CashierPanel extends javax.swing.JFrame {
         } catch (SQLException e) {
         }
 
-        bersihkan();
+        
         refreshData(1);
-        tfMemberID.setEditable(false);
-        tfNamaMember.setEditable(true);
-        cbJenisKleaminMember.setEditable(true);
-        taAlamatMember.setEditable(true);
-        tfNoTelpMember.setEditable(true);
-
-        btnBaruMemeber.setEnabled(true);
-        btnSimpanMember.setEnabled(false);
-        btnBatalMember.setEnabled(false);
-        btnHapusMember.setEnabled(false);
-        btnUbahMember.setEnabled(false);
-
+       
 
     }//GEN-LAST:event_btnSimpanMemberActionPerformed
 
     private void btnUbahMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahMemberActionPerformed
-        btnBaruMemeber.setEnabled(false);
-        btnSimpanMember.setEnabled(true);
-        btnUbahMember.setEnabled(true);
-        btnHapusMember.setEnabled(false);
-        btnBatalMember.setEnabled(true);
-
-        tfMemberID.setEditable(false);
-        tfNamaMember.setEditable(true);
-        tfNamaMember.requestFocus();
+        
+        enableMember(4);
 
         saveMode = false;
 
     }//GEN-LAST:event_btnUbahMemberActionPerformed
-
-    private void btnBaruPrductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruPrductActionPerformed
-        tfProductidProduct.setEditable(true);
+    
+    private void enableInputPanel(int model){
+        
+        if (model ==1){
+            //windows opened
+            
+            tfProductidProduct.setEditable(false);
+            tfNamaProduct.setEditable(false);
+            tfMerekProduct.setEditable(false);
+            tfJenisProduct.setEditable(false);
+            tfStockProduct.setEditable(false);
+            tfHargaProduct.setEditable(false);
+            
+            
+            btnBaruPrduct.setEnabled(true);
+            btnSimpanProduct.setEnabled(false);
+            btnUbahProduct.setEnabled(false);
+            btnHapusProduct.setEnabled(false);
+            btnBatalProduct.setEnabled(false);
+        
+        }else if (model == 2){
+            //btn baru 
+         tfProductidProduct.setEditable(true);
         tfStockProduct.setEditable(true);
         tfHargaProduct.setEditable(true);
         tfMerekProduct.setEditable(true);
@@ -1143,7 +1221,68 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusProduct.setEnabled(false);
 
         tfProductidProduct.requestFocus();
+        
+        }else if (model ==3){
+            //btn simpan 
+        btnBaruPrduct.setEnabled(true);
+        btnBatalProduct.setEnabled(false);
+        btnSimpanProduct.setEnabled(false);
+        btnUbahProduct.setEnabled(false);
+        btnHapusProduct.setEnabled(false);
 
+        tfProductidProduct.requestFocus();
+
+        bersihkan();
+        
+        }else if (model == 4){
+        //btn ubah 
+         tfProductidProduct.setEditable(false);
+        tfStockProduct.setEditable(true);
+        tfHargaProduct.setEditable(true);
+        tfMerekProduct.setEditable(true);
+        tfJenisProduct.setEditable(true);
+        tfNamaProduct.setEditable(true);
+
+        btnBaruPrduct.setEnabled(false);
+        btnBatalProduct.setEnabled(true);
+        btnSimpanProduct.setEnabled(true);
+        btnUbahProduct.setEnabled(true);
+        btnHapusProduct.setEnabled(false);
+
+        tfNamaProduct.requestFocus();
+    
+        }else if (model == 5){
+            //hapus
+        tfProductidProduct.setEditable(false);
+        tfStockProduct.setEditable(false);
+        tfHargaProduct.setEditable(false);
+        tfMerekProduct.setEditable(false);
+        tfJenisProduct.setEditable(false);
+        tfNamaProduct.setEditable(false);
+
+        btnBaruPrduct.setEnabled(true);
+        btnBatalProduct.setEnabled(true);
+        btnSimpanProduct.setEnabled(false);
+        btnUbahProduct.setEnabled(false);
+        btnHapusProduct.setEnabled(false);
+        
+        }else if (model == 6){
+            //tabel di klik
+        btnBaruPrduct.setEnabled(false);
+        btnBatalProduct.setEnabled(false);
+        btnSimpanProduct.setEnabled(false);
+        btnUbahProduct.setEnabled(true);
+        btnHapusProduct.setEnabled(true);
+
+        tfProductidProduct.setEditable(false);
+        tfNamaProduct.setEditable(false);
+        }
+        
+    }
+    
+    
+    private void btnBaruPrductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruPrductActionPerformed
+        enableInputPanel(2);
         saveMode = true;
 
     }//GEN-LAST:event_btnBaruPrductActionPerformed
@@ -1200,42 +1339,18 @@ public class CashierPanel extends javax.swing.JFrame {
         } catch (SQLException e) {
         }
 
-        btnBaruPrduct.setEnabled(true);
-        btnBatalProduct.setEnabled(false);
-        btnSimpanProduct.setEnabled(false);
-        btnUbahProduct.setEnabled(false);
-        btnHapusProduct.setEnabled(false);
-
-        tfProductidProduct.requestFocus();
+        enableInputPanel(3);
 
         bersihkan();
     }//GEN-LAST:event_btnSimpanProductActionPerformed
 
     private void btnBatalProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalProductActionPerformed
-        btnBaruPrduct.setEnabled(true);
-        btnBatalProduct.setEnabled(false);
-        btnSimpanProduct.setEnabled(false);
-        btnUbahProduct.setEnabled(false);
-        btnHapusProduct.setEnabled(false);
-
-        tfProductidProduct.setEditable(false);
-        tfStockProduct.setEditable(false);
-        tfHargaProduct.setEditable(false);
-        tfMerekProduct.setEditable(false);
-        tfJenisProduct.setEditable(false);
-        tfNamaProduct.setEditable(false);
+        enableInputPanel(1);
 
     }//GEN-LAST:event_btnBatalProductActionPerformed
 
     private void TableMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMemberMouseClicked
-        btnBaruMemeber.setEnabled(false);
-        btnSimpanMember.setEnabled(false);
-        btnUbahMember.setEnabled(true);
-        btnHapusMember.setEnabled(true);
-        btnBatalMember.setEnabled(true);
-
-        tfMemberID.setEditable(false);
-        tfNamaMember.setEditable(false);
+        enableMember(6);
 
         tfMemberID.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 0).toString());
         tfNamaMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 1).toString());
@@ -1258,17 +1373,7 @@ public class CashierPanel extends javax.swing.JFrame {
         } catch (SQLException e) {
         }
 
-        bersihkan();
-        btnSimpanProfile.setEnabled(false);
-        btnUbahProfile.setEnabled(false);
-        btnBatalProfile.setEnabled(false);
-
-        tfUsernameProfile.setEditable(false);
-        tfPasswordProfile.setEditable(true);
-        tfNamaProfile.setEditable(true);
-        cbGenderProfile.setEditable(true);
-        taAlamatprofile.setEditable(true);
-        tfNoTelpProfile.setEditable(true);
+        enableProfile(3);
 
         refreshData(3);
 
@@ -1298,33 +1403,12 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tfMemberIDActionPerformed
 
     private void TableProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProductMouseClicked
-        btnBaruPrduct.setEnabled(false);
-        btnBatalProduct.setEnabled(false);
-        btnSimpanProduct.setEnabled(false);
-        btnUbahProduct.setEnabled(true);
-        btnHapusProduct.setEnabled(true);
-
-        tfProductidProduct.setEditable(false);
-        tfNamaProduct.setEditable(false);
+        enableInputPanel(6);
 
     }//GEN-LAST:event_TableProductMouseClicked
 
     private void btnUbahProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProductActionPerformed
-        tfProductidProduct.setEditable(false);
-        tfStockProduct.setEditable(true);
-        tfHargaProduct.setEditable(true);
-        tfMerekProduct.setEditable(true);
-        tfJenisProduct.setEditable(true);
-        tfNamaProduct.setEditable(true);
-
-        btnBaruPrduct.setEnabled(false);
-        btnBatalProduct.setEnabled(true);
-        btnSimpanProduct.setEnabled(true);
-        btnUbahProduct.setEnabled(true);
-        btnHapusProduct.setEnabled(false);
-
-        tfNamaProduct.requestFocus();
-
+        enableInputPanel(4);
         saveMode = false;
 
     }//GEN-LAST:event_btnUbahProductActionPerformed
@@ -1345,23 +1429,15 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         }
 
-        tfProductidProduct.setEditable(false);
-        tfStockProduct.setEditable(false);
-        tfHargaProduct.setEditable(false);
-        tfMerekProduct.setEditable(false);
-        tfJenisProduct.setEditable(false);
-        tfNamaProduct.setEditable(false);
-
-        btnBaruPrduct.setEnabled(true);
-        btnBatalProduct.setEnabled(true);
-        btnSimpanProduct.setEnabled(false);
-        btnUbahProduct.setEnabled(false);
-        btnHapusProduct.setEnabled(false);
+        enableInputPanel(5);
     }//GEN-LAST:event_btnHapusProductActionPerformed
-
-    private void btnUbahProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProfileActionPerformed
+   
+    private void enableProfile(int mode){
+        
+        if (mode == 1){
+        //btn ubah  
         btnSimpanProfile.setEnabled(true);
-        btnUbahProfile.setEnabled(true);
+        btnUbahProfile.setEnabled(false);
         btnBatalProfile.setEnabled(true);
 
         tfUsernameProfile.setEditable(true);
@@ -1374,10 +1450,69 @@ public class CashierPanel extends javax.swing.JFrame {
         tfUsernameProfile.requestFocus();
 
         refreshData(4);
+        
+        
+        
+        }else if (mode == 2){
+          //windows opened
+        tfUsernameProfile.setEditable(false);
+        tfPasswordProfile .setEditable(false);
+        tfNamaProfile.setEditable(false);
+
+        cbGenderProfile.setEditable(false);
+        taAlamatprofile.setEditable(false);
+        tfNoTelpProfile.setEditable(false);
+
+        btnBatalProfile.setEnabled(false);
+        btnSimpanProfile.setEnabled(false);
+        btnUbahProfile.setEnabled(true);
+
+    
+            
+        }else if (mode == 3){
+            //btn simpan 
+            
+             bersihkan();
+        btnSimpanProfile.setEnabled(false);
+        btnUbahProfile.setEnabled(true);
+        btnBatalProfile.setEnabled(false);
+
+        tfUsernameProfile.setEditable(false);
+        tfPasswordProfile.setEditable(true);
+        tfNamaProfile.setEditable(true);
+        cbGenderProfile.setEditable(true);
+        taAlamatprofile.setEditable(true);
+        tfNoTelpProfile.setEditable(true);
+
+        refreshData(3);
+
+        }else if (mode == 4){
+         btnSimpanProfile.setEnabled(false);
+        btnUbahProfile.setEnabled(true);
+        btnBatalProfile.setEnabled(false);
+
+        tfUsernameProfile.setEditable(false);
+        tfPasswordProfile.setEditable(false);
+        tfNamaProfile.setEditable(false);
+        cbGenderProfile.setEditable(false);
+        taAlamatprofile.setEditable(false);
+        tfNoTelpProfile.setEditable(false);
+        
+        btnUbahProfile.requestFocus();
+        bersihkan();
+        }
+        
+    }
+    
+    
+    private void btnUbahProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProfileActionPerformed
+        enableProfile(1);
+
+        refreshData(4);
     }//GEN-LAST:event_btnUbahProfileActionPerformed
 
     private void btnBatalProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalProfileActionPerformed
-        // TODO add your handling code here:
+        enableProfile(4);
     }//GEN-LAST:event_btnBatalProfileActionPerformed
 
     private void tfProductIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfProductIdKeyPressed
