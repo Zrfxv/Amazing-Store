@@ -92,13 +92,9 @@ public class AdminPanel extends javax.swing.JFrame {
         btnBatalMember = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         ProfilePanel = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTabelProfile = new javax.swing.JTable();
-        btnbaruprofile = new javax.swing.JButton();
         btnSimpanProfile = new javax.swing.JButton();
         btnUbahProfile = new javax.swing.JButton();
         btnHapusProfile = new javax.swing.JButton();
-        btnBatalProfile = new javax.swing.JButton();
         tfUsernameProfile = new javax.swing.JTextField();
         tfNamaProfile = new javax.swing.JTextField();
         jcNamaProfile = new javax.swing.JComboBox<>();
@@ -106,6 +102,8 @@ public class AdminPanel extends javax.swing.JFrame {
         jtaAlamatProfile = new javax.swing.JTextArea();
         tfNoTelpProfile = new javax.swing.JTextField();
         jpPasswordProfile = new javax.swing.JPasswordField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -580,39 +578,6 @@ public class AdminPanel extends javax.swing.JFrame {
 
         ProfilePanel.setLayout(null);
 
-        jTabelProfile.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Username", "Password", "Nama", "Jenis Kelamin", "Alamat", "No Telpon"
-            }
-        ));
-        jTabelProfile.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTabelProfile.setShowVerticalLines(false);
-        jTabelProfile.getTableHeader().setReorderingAllowed(false);
-        jTabelProfile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabelProfileMouseClicked(evt);
-            }
-        });
-        jScrollPane6.setViewportView(jTabelProfile);
-
-        ProfilePanel.add(jScrollPane6);
-        jScrollPane6.setBounds(610, 100, 490, 350);
-
-        btnbaruprofile.setText("Baru");
-        btnbaruprofile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbaruprofileActionPerformed(evt);
-            }
-        });
-        ProfilePanel.add(btnbaruprofile);
-        btnbaruprofile.setBounds(600, 470, 80, 40);
-
         btnSimpanProfile.setText("Simpan");
         btnSimpanProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -620,7 +585,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnSimpanProfile);
-        btnSimpanProfile.setBounds(700, 470, 90, 40);
+        btnSimpanProfile.setBounds(620, 470, 90, 40);
 
         btnUbahProfile.setText("Ubah");
         btnUbahProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -629,7 +594,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnUbahProfile);
-        btnUbahProfile.setBounds(810, 470, 90, 40);
+        btnUbahProfile.setBounds(740, 470, 90, 40);
 
         btnHapusProfile.setText("Hapus");
         btnHapusProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -638,16 +603,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnHapusProfile);
-        btnHapusProfile.setBounds(920, 470, 80, 40);
-
-        btnBatalProfile.setText("Batal");
-        btnBatalProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBatalProfileActionPerformed(evt);
-            }
-        });
-        ProfilePanel.add(btnBatalProfile);
-        btnBatalProfile.setBounds(1023, 470, 80, 40);
+        btnHapusProfile.setBounds(870, 470, 80, 40);
 
         tfUsernameProfile.setBorder(null);
         ProfilePanel.add(tfUsernameProfile);
@@ -676,6 +632,13 @@ public class AdminPanel extends javax.swing.JFrame {
         jpPasswordProfile.setBorder(null);
         ProfilePanel.add(jpPasswordProfile);
         jpPasswordProfile.setBounds(300, 160, 230, 30);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        ProfilePanel.add(jScrollPane1);
+        jScrollPane1.setBounds(610, 90, 490, 350);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
         ProfilePanel.add(jLabel3);
@@ -712,11 +675,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jTabelKasir.getTableHeader().setForeground(Color.PINK);
         jTabelKasir.setRowHeight(25);
         
-        jTabelProfile.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD, 14));
-        jTabelProfile.getTableHeader().setOpaque(false);
-        jTabelProfile.setBackground(Color.WHITE);
-        jTabelProfile.getTableHeader().setForeground(Color.PINK);
-        jTabelProfile.setRowHeight(25);
+       
         
         
         jTabelMember.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD, 14));
@@ -954,31 +913,18 @@ public class AdminPanel extends javax.swing.JFrame {
         EnableKasir(7);
     }//GEN-LAST:event_btnBatalKasirActionPerformed
 
-    private void btnbaruprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbaruprofileActionPerformed
-        EnableProfile(2);
-        
-    }//GEN-LAST:event_btnbaruprofileActionPerformed
-
     private void btnSimpanProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanProfileActionPerformed
         EnableProfile(1);
         bersihkan();
     }//GEN-LAST:event_btnSimpanProfileActionPerformed
 
-    private void jTabelProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabelProfileMouseClicked
-        EnableProfile(4);
-    }//GEN-LAST:event_jTabelProfileMouseClicked
-
     private void btnHapusProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusProfileActionPerformed
-         EnableProfile(6);
+         EnableProfile(1);
     }//GEN-LAST:event_btnHapusProfileActionPerformed
 
     private void btnUbahProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProfileActionPerformed
-        EnableProfile(5);
+        EnableProfile(2);
     }//GEN-LAST:event_btnUbahProfileActionPerformed
-
-    private void btnBatalProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalProfileActionPerformed
-        EnableProfile(7);
-    }//GEN-LAST:event_btnBatalProfileActionPerformed
 
     private void EnableKasir(int mode){
         if (mode == 1){
@@ -1014,9 +960,10 @@ public class AdminPanel extends javax.swing.JFrame {
             btnSimpanKasir.setEnabled(true);
             btnUbahKasir.setEnabled(false);
             btnHapusKasir.setEnabled(false);
-            btnBatalKasir.setEnabled(false);
+            btnBatalKasir.setEnabled(true);
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
+            jpPasswordProfile.requestFocus();
         
        
         
@@ -1096,6 +1043,7 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalKasir.setEnabled(false);
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
+            bersihkan();
             
             
             
@@ -1139,7 +1087,7 @@ public class AdminPanel extends javax.swing.JFrame {
             btnSimpanMember.setEnabled(true);
             btnUbahMember.setEnabled(false);
             btnHapusMember.setEnabled(false);
-            btnBatalMember.setEnabled(false);
+            btnBatalMember.setEnabled(true);
             btnSimpanMember.requestFocus();
             tfMemberId.requestFocus();
             bersihkan();
@@ -1214,7 +1162,7 @@ public class AdminPanel extends javax.swing.JFrame {
             tfMemberId.setEditable(false);
             tfNamaMember.setEditable(false);
             jcJenisKelaminMember.setEnabled(false);
-            taaAlamatMember.setEnabled(false);
+            taaAlamatMember.setEditable(false);
             tfNoTelponMmber.setEditable(false);
 
             btnBaruMember.setEnabled(true);
@@ -1224,123 +1172,48 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalMember.setEnabled(false);
             btnSimpanMember.requestFocus();
             tfMemberId.requestFocus();
+            bersihkan();
             
 
         }
     }
     
     private void EnableProfile(int model){
-        
-        if(model == 1){
-            //ketika baru muncul
-            tfUsernameProfile.setEditable(false);
-            jpPasswordProfile.setEditable(false);
-            tfNamaProfile.setEditable(false);
-            jcNamaProfile.setEnabled(false);
-            jtaAlamatProfile.setEnabled(false);
-            jtaAlamatProfile.setEditable(false);
-            
-            btnbaruprofile.setEnabled(true);
+           //ketika frmae pertama kali di buka
+        if (model == 1){
+            //ketika frmae pertama kali di buka
+            btnUbahProfile.setEnabled(true);
             btnSimpanProfile.setEnabled(false);
-            btnUbahProfile.setEnabled(false);
             btnHapusProfile.setEnabled(false);
-            btnBatalProfile.setEnabled(false);
             
-            
-          
+            tfUsernameProfile.setEditable(false);
+            tfNamaProfile.setEditable(false);
+            jpPasswordProfile.setEditable(false);
+            jcNamaProfile.setEditable(false);
+            jtaAlamatProfile.setEditable(false);
+            tfNoTelpProfile.setEditable(false);
             
         }else if (model == 2){
-            //btn baru
-            tfUsernameProfile.setEditable(true);
-            jpPasswordProfile.setEditable(true);
-            tfNamaProfile.setEditable(true);
-            jcNamaProfile.setEnabled(true);
-            jtaAlamatProfile.setEnabled(true);
-            jtaAlamatProfile.setEditable(true);
-            
-            btnbaruprofile.setEnabled(false);
-            btnSimpanProfile.setEnabled(true);
+           //btn ubah 
             btnUbahProfile.setEnabled(false);
-            btnHapusProfile.setEnabled(false);
-            btnBatalProfile.setEnabled(false);
-            
-            tfUsernameProfile.requestFocus();
-            
-            
-            
-        }else if (model == 4){
-            //btn mouse click
-             tfUsernameProfile.setEditable(false);
-            jpPasswordProfile.setEditable(false);
-            tfNamaProfile.setEditable(false);
-            jcNamaProfile.setEnabled(false);
-            jtaAlamatProfile.setEnabled(false);
-            jtaAlamatProfile.setEditable(false);
-            
-            btnbaruprofile.setEnabled(false);
-            btnSimpanProfile.setEnabled(false);
-            btnUbahProfile.setEnabled(true);
+            btnSimpanProfile.setEnabled(true);
             btnHapusProfile.setEnabled(true);
-            btnBatalProfile.setEnabled(true);
-            btnUbahProfile.requestFocus();
-            tfUsernameProfile.requestFocus();
-             
             
-        }else if (model == 5){
-             
-            //ubah
             tfUsernameProfile.setEditable(false);
-            jpPasswordProfile.setEditable(true);
             tfNamaProfile.setEditable(true);
-            jcNamaProfile.setEnabled(true);
-            jtaAlamatProfile.setEnabled(true);
+            jpPasswordProfile.setEditable(true);
+            jcNamaProfile.setEditable(true);
             jtaAlamatProfile.setEditable(true);
-            
-            btnbaruprofile.setEnabled(false);
-            btnSimpanProfile.setEnabled(true);
-            btnUbahProfile.setEnabled(false);
-            btnHapusProfile.setEnabled(false);
-            btnBatalProfile.setEnabled(true);
-            
-            btnSimpanProfile.requestFocus();
+            tfNoTelpProfile.setEditable(true);
             jpPasswordProfile.requestFocus();
+           
+    
+            
+        }
         
-        }else if (model == 6){
-            //Hapus
-             tfUsernameProfile.setEditable(true);
-            jpPasswordProfile.setEditable(true);
-            tfNamaProfile.setEditable(true);
-            jcNamaProfile.setEnabled(true);
-            jtaAlamatProfile.setEnabled(true);
-            jtaAlamatProfile.setEditable(true);
-            
-            btnbaruprofile.setEnabled(true);
-            btnSimpanProfile.setEnabled(false);
-            btnUbahProfile.setEnabled(false);
-            btnHapusProfile.setEnabled(false);
-            btnBatalProfile.setEnabled(false);           
-            bersihkan();
-        
-        }else if (model == 7){
-            //batal
-            tfUsernameProfile.setEditable(true);
-            jpPasswordProfile.setEditable(true);
-            tfNamaProfile.setEditable(true);
-            jcNamaProfile.setEnabled(true);
-            jtaAlamatProfile.setEnabled(true);
-            jtaAlamatProfile.setEditable(true);
-            
-            btnbaruprofile.setEnabled(true);
-            btnSimpanProfile.setEnabled(false);
-            btnUbahProfile.setEnabled(false);
-            btnHapusProfile.setEnabled(false);
-            btnBatalProfile.setEnabled(false);
-            btnSimpanProfile.requestFocus();
-            tfUsernameProfile.requestFocus();
-         
-            
-          }
     }
+        
+        
     
     
     private void bersihkan (){
@@ -1436,7 +1309,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnBaruMember;
     private javax.swing.JButton btnBatalKasir;
     private javax.swing.JButton btnBatalMember;
-    private javax.swing.JButton btnBatalProfile;
     private javax.swing.JButton btnHapusKasir;
     private javax.swing.JButton btnHapusMember;
     private javax.swing.JButton btnHapusProfile;
@@ -1446,7 +1318,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnUbahKasir;
     private javax.swing.JButton btnUbahMember;
     private javax.swing.JButton btnUbahProfile;
-    private javax.swing.JButton btnbaruprofile;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel imgWelcome;
     private javax.swing.JLabel jLabel1;
@@ -1458,18 +1329,18 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTabelDataTransaksi;
     private javax.swing.JTable jTabelKasir;
     private javax.swing.JTable jTabelMember;
-    private javax.swing.JTable jTabelProfile;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> jcJenisKelaminMember;
     private javax.swing.JComboBox<String> jcJenisKleaminKaisr;

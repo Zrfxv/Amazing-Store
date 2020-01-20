@@ -853,20 +853,21 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(false);
         btnUbahMember.setEnabled(false);
 
-        tfMemberID.setEnabled(false);
-        tfNamaMember.setEnabled(false);
-        cbJenisKleaminMember.setEnabled(false);
-        taAlamatMember.setEnabled(false);
-        tfNoTelpMember.setEnabled(false);
+        tfMemberID.setEditable(false);
+        tfNamaMember.setEditable(false);
+        cbJenisKleaminMember.setEditable(false);
+        taAlamatMember.setEditable(false);
+        tfNoTelpMember.setEditable(false);
     }
 
     private void profile() {
-        tfUsernameProfile.setEnabled(false);
-        tfPasswordProfile.setEnabled(false);
-        tfNamaProfile.setEnabled(false);
-        cbGenderProfile.setEnabled(false);
-        taAlamatprofile.setEnabled(false);
-        tfNoTelpProfile.setEnabled(false);
+        tfUsernameProfile.setEditable(false);
+        tfPasswordProfile .setEditable(false);
+        tfNamaProfile.setEditable(false);
+
+        cbGenderProfile.setEditable(false);
+        taAlamatprofile.setEditable(false);
+        tfNoTelpProfile.setEditable(false);
 
         btnBatalProfile.setEnabled(false);
         btnSimpanProfile.setEnabled(false);
@@ -885,12 +886,12 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void productPanel() {
-        tfProductidProduct.setEnabled(false);
-        tfStockProduct.setEnabled(false);
-        tfHargaProduct.setEnabled(false);
-        tfMerekProduct.setEnabled(false);
-        tfJenisProduct.setEnabled(false);
-        tfNamaProduct.setEnabled(false);
+        tfProductidProduct.setEditable(false);
+        tfStockProduct.setEditable(false);
+        tfHargaProduct.setEditable(false);
+        tfMerekProduct.setEditable(false);
+        tfJenisProduct.setEditable(false);
+        tfNamaProduct.setEditable(false);
 
         btnBaruPrduct.setEnabled(true);
         btnBatalProduct.setEnabled(false);
@@ -1078,11 +1079,11 @@ public class CashierPanel extends javax.swing.JFrame {
 
         bersihkan();
         refreshData(1);
-        tfMemberID.setEnabled(false);
-        tfNamaMember.setEnabled(true);
-        cbJenisKleaminMember.setEnabled(true);
-        taAlamatMember.setEnabled(true);
-        tfNoTelpMember.setEnabled(true);
+        tfMemberID.setEditable(false); 
+        tfNamaMember.setEditable(true);
+        cbJenisKleaminMember.setEditable(true);
+        taAlamatMember.setEditable(true);
+        tfNoTelpMember.setEditable(true);
 
         btnBaruMemeber.setEnabled(true);
         btnSimpanMember.setEnabled(false);
@@ -1100,8 +1101,8 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(false);
         btnBatalMember.setEnabled(true);
 
-        tfMemberID.setEnabled(false);
-        tfNamaMember.setEnabled(true);
+        tfMemberID.setEditable(false);
+        tfNamaMember.setEditable(true);
         tfNamaMember.requestFocus();
 
         saveMode = false;
@@ -1109,12 +1110,12 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUbahMemberActionPerformed
 
     private void btnBaruPrductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruPrductActionPerformed
-        tfProductidProduct.setEnabled(true);
-        tfStockProduct.setEnabled(true);
-        tfHargaProduct.setEnabled(true);
-        tfMerekProduct.setEnabled(true);
-        tfJenisProduct.setEnabled(true);
-        tfNamaProduct.setEnabled(true);
+        tfProductidProduct.setEditable(true);
+        tfStockProduct.setEditable(true);
+        tfHargaProduct.setEditable(true);
+        tfMerekProduct.setEditable(true);
+        tfJenisProduct.setEditable(true);
+        tfNamaProduct.setEditable(true);
 
         btnBaruPrduct.setEnabled(false);
         btnBatalProduct.setEnabled(false);
@@ -1198,12 +1199,12 @@ public class CashierPanel extends javax.swing.JFrame {
         btnUbahProduct.setEnabled(false);
         btnHapusProduct.setEnabled(false);
 
-        tfProductidProduct.setEnabled(false);
-        tfStockProduct.setEnabled(false);
-        tfHargaProduct.setEnabled(false);
-        tfMerekProduct.setEnabled(false);
-        tfJenisProduct.setEnabled(false);
-        tfNamaProduct.setEnabled(false);
+        tfProductidProduct.setEditable(false);
+        tfStockProduct.setEditable(false);
+        tfHargaProduct.setEditable(false);
+        tfMerekProduct.setEditable(false);
+        tfJenisProduct.setEditable(false);
+        tfNamaProduct.setEditable(false);
 
     }//GEN-LAST:event_btnBatalProductActionPerformed
 
@@ -1214,8 +1215,8 @@ public class CashierPanel extends javax.swing.JFrame {
         btnHapusMember.setEnabled(true);
         btnBatalMember.setEnabled(true);
 
-        tfMemberID.setEnabled(false);
-        tfNamaMember.setEnabled(false);
+        tfMemberID.setEditable(false);
+        tfNamaMember.setEditable(false);
 
         tfMemberID.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 0).toString());
         tfNamaMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 1).toString());
@@ -1243,12 +1244,12 @@ public class CashierPanel extends javax.swing.JFrame {
         btnUbahProfile.setEnabled(false);
         btnBatalProfile.setEnabled(false);
 
-        tfUsernameProfile.setEnabled(false);
-        tfPasswordProfile.setEnabled(true);
-        tfNamaProfile.setEnabled(true);
-        cbGenderProfile.setEnabled(true);
-        taAlamatprofile.setEnabled(true);
-        tfNoTelpProfile.setEnabled(true);
+        tfUsernameProfile.setEditable(false);
+        tfPasswordProfile.setEditable(true);
+        tfNamaProfile.setEditable(true);
+        cbGenderProfile.setEditable(true);
+        taAlamatprofile.setEditable(true);
+        tfNoTelpProfile.setEditable(true);
 
         refreshData(3);
 
@@ -1284,18 +1285,18 @@ public class CashierPanel extends javax.swing.JFrame {
         btnUbahProduct.setEnabled(true);
         btnHapusProduct.setEnabled(true);
 
-        tfProductidProduct.setEnabled(false);
-        tfNamaProduct.setEnabled(false);
+        tfProductidProduct.setEditable(false);
+        tfNamaProduct.setEditable(false);
 
     }//GEN-LAST:event_TableProductMouseClicked
 
     private void btnUbahProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProductActionPerformed
-        tfProductidProduct.setEnabled(false);
-        tfStockProduct.setEnabled(true);
-        tfHargaProduct.setEnabled(true);
-        tfMerekProduct.setEnabled(true);
-        tfJenisProduct.setEnabled(true);
-        tfNamaProduct.setEnabled(true);
+        tfProductidProduct.setEditable(false);
+        tfStockProduct.setEditable(true);
+        tfHargaProduct.setEditable(true);
+        tfMerekProduct.setEditable(true);
+        tfJenisProduct.setEditable(true);
+        tfNamaProduct.setEditable(true);
 
         btnBaruPrduct.setEnabled(false);
         btnBatalProduct.setEnabled(true);
@@ -1325,12 +1326,12 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         }
 
-        tfProductidProduct.setEnabled(false);
-        tfStockProduct.setEnabled(false);
-        tfHargaProduct.setEnabled(false);
-        tfMerekProduct.setEnabled(false);
-        tfJenisProduct.setEnabled(false);
-        tfNamaProduct.setEnabled(false);
+        tfProductidProduct.setEditable(false);
+        tfStockProduct.setEditable(false);
+        tfHargaProduct.setEditable(false);
+        tfMerekProduct.setEditable(false);
+        tfJenisProduct.setEditable(false);
+        tfNamaProduct.setEditable(false);
 
         btnBaruPrduct.setEnabled(true);
         btnBatalProduct.setEnabled(true);
@@ -1344,12 +1345,12 @@ public class CashierPanel extends javax.swing.JFrame {
         btnUbahProfile.setEnabled(true);
         btnBatalProfile.setEnabled(true);
 
-        tfUsernameProfile.setEnabled(true);
-        tfPasswordProfile.setEnabled(true);
-        tfNamaProfile.setEnabled(true);
-        cbGenderProfile.setEnabled(true);
-        taAlamatprofile.setEnabled(true);
-        tfNoTelpProfile.setEnabled(true);
+        tfUsernameProfile.setEditable(true);
+        tfPasswordProfile.setEditable(true);
+        tfNamaProfile.setEditable(true);
+        cbGenderProfile.setEditable(true);
+        taAlamatprofile.setEditable(true);
+        tfNoTelpProfile.setEditable(true);
 
         tfUsernameProfile.requestFocus();
 
