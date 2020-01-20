@@ -24,9 +24,7 @@ public class AdminPanel extends javax.swing.JFrame {
         klik = Color.BLUE;
         utama = new Color(250, 128, 114);
         desainTabel();
-        
-        
-       
+
     }
 
     /**
@@ -44,6 +42,7 @@ public class AdminPanel extends javax.swing.JFrame {
         tvCashier = new javax.swing.JLabel();
         tvMember = new javax.swing.JLabel();
         tvUser = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         WelcomePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -177,6 +176,16 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(250, 128, 114));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Logout");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuPanelLayout = new javax.swing.GroupLayout(MenuPanel);
         MenuPanel.setLayout(MenuPanelLayout);
         MenuPanelLayout.setHorizontalGroup(
@@ -190,22 +199,30 @@ public class AdminPanel extends javax.swing.JFrame {
                 .addComponent(tvCashier)
                 .addGap(51, 51, 51)
                 .addComponent(tvMember)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
-                .addComponent(tvUser)
-                .addGap(96, 96, 96))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
+                .addGap(0, 5, Short.MAX_VALUE)
+                .addComponent(imgLogo))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
                 .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tvData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tvCashier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tvMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tvUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(MenuPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tvUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(MenuPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(1, 1, 1)))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuPanelLayout.createSequentialGroup()
-                .addGap(0, 5, Short.MAX_VALUE)
-                .addComponent(imgLogo))
         );
 
         getContentPane().add(MenuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 60));
@@ -655,41 +672,35 @@ public class AdminPanel extends javax.swing.JFrame {
         dispose();
         Login.summonLoginPanel();
     }//GEN-LAST:event_formWindowClosing
-    
-    private void desainTabel(){
-         jTabelDataTransaksi.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD, 14));
+
+    private void desainTabel() {
+        jTabelDataTransaksi.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         jTabelDataTransaksi.getTableHeader().setOpaque(false);
         jTabelDataTransaksi.setBackground(Color.WHITE);
         jTabelDataTransaksi.getTableHeader().setForeground(Color.PINK);
         jTabelDataTransaksi.setRowHeight(25);
-       
-        jtabel2.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD, 14));
+
+        jtabel2.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         jtabel2.getTableHeader().setOpaque(false);
         jtabel2.setBackground(Color.WHITE);
         jtabel2.getTableHeader().setForeground(Color.PINK);
         jtabel2.setRowHeight(25);
-        
-        jTabelKasir.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD, 14));
+
+        jTabelKasir.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         jTabelKasir.getTableHeader().setOpaque(false);
         jTabelKasir.setBackground(Color.WHITE);
         jTabelKasir.getTableHeader().setForeground(Color.PINK);
         jTabelKasir.setRowHeight(25);
-        
-       
-        
-        
-        jTabelMember.getTableHeader().setFont(new Font("Segoe UI",Font.BOLD, 14));
+
+        jTabelMember.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         jTabelMember.getTableHeader().setOpaque(false);
         jTabelMember.setBackground(Color.WHITE);
         jTabelMember.getTableHeader().setForeground(Color.PINK);
-       jTabelMember.setRowHeight(25);
-        
-        
-
+        jTabelMember.setRowHeight(25);
 
     }
-    
-    
+
+
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 //        jLabel1.setText("Hi, " + Encapsulation.getName());
         MainPanelAdmin.removeAll();
@@ -919,15 +930,20 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSimpanProfileActionPerformed
 
     private void btnHapusProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusProfileActionPerformed
-         EnableProfile(1);
+        EnableProfile(1);
     }//GEN-LAST:event_btnHapusProfileActionPerformed
 
     private void btnUbahProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahProfileActionPerformed
         EnableProfile(2);
     }//GEN-LAST:event_btnUbahProfileActionPerformed
 
-    private void EnableKasir(int mode){
-        if (mode == 1){
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        this.dispose();
+        Login.summonLoginPanel();
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void EnableKasir(int mode) {
+        if (mode == 1) {
             //windows opened
             tfUsernameKasir.setEditable(false);
             tfNamaKasir.setEditable(false);
@@ -935,7 +951,7 @@ public class AdminPanel extends javax.swing.JFrame {
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEditable(false);
-            
+
             btnBaruKasir.setEnabled(true);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(false);
@@ -943,19 +959,16 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalKasir.setEnabled(false);
             btnBaruKasir.requestFocus();
             bersihkan();
-            
-            
-            
-            
-        }else if (mode == 2){
+
+        } else if (mode == 2) {
             //btnBaru
-             tfUsernameKasir.setEditable(true);
+            tfUsernameKasir.setEditable(true);
             tfNamaKasir.setEditable(true);
             jpPasswordKasir.setEditable(true);
             jcJenisKleaminKaisr.setEnabled(true);
             taAlamatKasir.setEnabled(true);
             tfNoTelpKasir.setEditable(true);
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(true);
             btnUbahKasir.setEnabled(false);
@@ -964,39 +977,33 @@ public class AdminPanel extends javax.swing.JFrame {
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
             jpPasswordProfile.requestFocus();
-        
-       
-        
-        }else if (mode == 4){
-            
+
+        } else if (mode == 4) {
+
             //klik tabel
-             tfUsernameKasir.setEditable(false);
+            tfUsernameKasir.setEditable(false);
             tfNamaKasir.setEditable(false);
             jpPasswordKasir.setEditable(false);
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEditable(false);
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(true);
             btnHapusKasir.setEnabled(true);
             btnBatalKasir.setEnabled(true);
             btnUbahKasir.requestFocus();
-            
-            
-           
 
-            
-        }else if (mode == 5){
+        } else if (mode == 5) {
             //ubah
-             tfUsernameKasir.setEditable(false);
+            tfUsernameKasir.setEditable(false);
             jpPasswordKasir.setEditable(true);
             jcJenisKleaminKaisr.setEnabled(true);
             taAlamatKasir.setEnabled(true);
             tfNoTelpKasir.setEditable(true);
             tfNamaKasir.setEditable(true);
-            
+
             btnBaruKasir.setEnabled(false);
             btnSimpanKasir.setEnabled(true);
             btnUbahKasir.setEnabled(false);
@@ -1004,38 +1011,33 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalKasir.setEnabled(true);
             btnSimpanKasir.requestFocus();
             jpPasswordKasir.requestFocus();
-            
-        }else if (mode == 6){
+
+        } else if (mode == 6) {
             //hapus
-             tfUsernameKasir.setEditable(false);
+            tfUsernameKasir.setEditable(false);
             tfNamaKasir.setEditable(false);
             jpPasswordKasir.setEditable(false);
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEditable(false);
-            
+
             btnBaruKasir.setEnabled(true);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(false);
             btnHapusKasir.setEnabled(false);
             btnBatalKasir.setEnabled(false);
             btnBatalKasir.requestFocus();
-            
-            
-            
-            
 
-        }else if (mode == 7){
-            
+        } else if (mode == 7) {
+
             //batal
-             tfUsernameKasir.setEditable(false);
+            tfUsernameKasir.setEditable(false);
             tfNamaKasir.setEditable(false);
             jpPasswordKasir.setEditable(false);
             jcJenisKleaminKaisr.setEnabled(false);
             taAlamatKasir.setEnabled(false);
             tfNoTelpKasir.setEditable(false);
-            
-            
+
             btnBaruKasir.setEnabled(true);
             btnSimpanKasir.setEnabled(false);
             btnUbahKasir.setEnabled(false);
@@ -1044,16 +1046,11 @@ public class AdminPanel extends javax.swing.JFrame {
             btnSimpanKasir.requestFocus();
             tfUsernameKasir.requestFocus();
             bersihkan();
-            
-            
-            
-          
-                                                      
+
         }
-        
+
     }
-    
-    
+
     private void EnableMember(int mode) {
         if (mode == 1) {
 
@@ -1062,7 +1059,7 @@ public class AdminPanel extends javax.swing.JFrame {
             tfNamaMember.setEditable(false);
             jcJenisKelaminMember.setEnabled(false);
             taaAlamatMember.setEnabled(false);
-            
+
             tfNoTelponMmber.setEditable(false);
 
             btnBaruMember.setEnabled(true);
@@ -1072,7 +1069,7 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalMember.setEnabled(false);
 
             btnBaruMember.requestFocus();
-            bersihkan();    
+            bersihkan();
 
         } else if (mode == 2) {
 
@@ -1123,9 +1120,9 @@ public class AdminPanel extends javax.swing.JFrame {
             btnUbahMember.requestFocus();
 
         } else if (mode == 5) {
-            
+
             //ubah
-             tfMemberId.setEditable(false);
+            tfMemberId.setEditable(false);
             tfNamaMember.setEditable(true);
             jcJenisKelaminMember.setEnabled(true);
             taaAlamatMember.setEnabled(true);
@@ -1138,11 +1135,10 @@ public class AdminPanel extends javax.swing.JFrame {
             btnBatalMember.setEnabled(true);
             btnSimpanMember.requestFocus();
             tfNamaMember.requestFocus();
-            
-         
-        } else if (mode == 6){
+
+        } else if (mode == 6) {
             //hapus
-              tfMemberId.setEditable(false);
+            tfMemberId.setEditable(false);
             tfNamaMember.setEditable(false);
             jcJenisKelaminMember.setEnabled(false);
             taaAlamatMember.setEnabled(false);
@@ -1154,10 +1150,9 @@ public class AdminPanel extends javax.swing.JFrame {
             btnHapusMember.setEnabled(false);
             btnBatalMember.setEnabled(false);
             btnBaruMember.requestFocus();
-        
-       
-        }else if (mode == 7){
-            
+
+        } else if (mode == 7) {
+
             //batal
             tfMemberId.setEditable(false);
             tfNamaMember.setEditable(false);
@@ -1173,32 +1168,31 @@ public class AdminPanel extends javax.swing.JFrame {
             btnSimpanMember.requestFocus();
             tfMemberId.requestFocus();
             bersihkan();
-            
 
         }
     }
-    
-    private void EnableProfile(int model){
-           //ketika frmae pertama kali di buka
-        if (model == 1){
+
+    private void EnableProfile(int model) {
+        //ketika frmae pertama kali di buka
+        if (model == 1) {
             //ketika frmae pertama kali di buka
             btnUbahProfile.setEnabled(true);
             btnSimpanProfile.setEnabled(false);
             btnHapusProfile.setEnabled(false);
-            
+
             tfUsernameProfile.setEditable(false);
             tfNamaProfile.setEditable(false);
             jpPasswordProfile.setEditable(false);
             jcNamaProfile.setEditable(false);
             jtaAlamatProfile.setEditable(false);
             tfNoTelpProfile.setEditable(false);
-            
-        }else if (model == 2){
-           //btn ubah 
+
+        } else if (model == 2) {
+            //btn ubah 
             btnUbahProfile.setEnabled(false);
             btnSimpanProfile.setEnabled(true);
             btnHapusProfile.setEnabled(true);
-            
+
             tfUsernameProfile.setEditable(false);
             tfNamaProfile.setEditable(true);
             jpPasswordProfile.setEditable(true);
@@ -1206,52 +1200,41 @@ public class AdminPanel extends javax.swing.JFrame {
             jtaAlamatProfile.setEditable(true);
             tfNoTelpProfile.setEditable(true);
             jpPasswordProfile.requestFocus();
-           
-    
-            
+
         }
-        
+
     }
-        
-        
-    
-    
-    private void bersihkan (){
-          tfUsernameProfile.setText("");
-          jpPasswordProfile.setText("");
-          tfNamaProfile.setText("");
+
+    private void bersihkan() {
+        tfUsernameProfile.setText("");
+        jpPasswordProfile.setText("");
+        tfNamaProfile.setText("");
 //          jcJenisKelaminProfile.setSelectedItem("");
-          jtaAlamatProfile.setText("");
-          jtaAlamatProfile.setText("");
-          
-          tfMemberId.setText("");
-          tfNamaMember.setText("");
+        jtaAlamatProfile.setText("");
+        jtaAlamatProfile.setText("");
+
+        tfMemberId.setText("");
+        tfNamaMember.setText("");
 //          jcJenisKelaminMember.
-          taaAlamatMember.setText("");
-          tfNoTelponMmber.setText("");
-          
-          
-          tfUsernameKasir.setText("");
-          jpPasswordKasir.setText("");
-          tfNamaKasir.setText("");
+        taaAlamatMember.setText("");
+        tfNoTelponMmber.setText("");
+
+        tfUsernameKasir.setText("");
+        jpPasswordKasir.setText("");
+        tfNamaKasir.setText("");
 //          jcJenisKleaminKaisr
 
-           taAlamatKasir.setText("");
-           tfNoTelpKasir.setText("");
-           
-          
+        taAlamatKasir.setText("");
+        tfNoTelpKasir.setText("");
+
     }
 
-    
-    
-    
     public static void summonAdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
         adminPanel.setSize(1150, 695);
         adminPanel.setLocationRelativeTo(null);
         adminPanel.setVisible(true);
     }
-
 
     public static void AdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
@@ -1327,6 +1310,7 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

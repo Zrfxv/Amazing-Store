@@ -64,6 +64,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tvMember = new javax.swing.JLabel();
         tvProduct = new javax.swing.JLabel();
         tvAbout = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         welcomePanel = new javax.swing.JPanel();
         tvWelcome = new javax.swing.JLabel();
@@ -200,6 +201,16 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(250, 128, 114));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Logout");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuPanelLayout = new javax.swing.GroupLayout(MenuPanel);
         MenuPanel.setLayout(MenuPanelLayout);
         MenuPanelLayout.setHorizontalGroup(
@@ -215,7 +226,9 @@ public class CashierPanel extends javax.swing.JFrame {
                 .addComponent(tvMember)
                 .addGap(210, 210, 210)
                 .addComponent(tvUser, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         MenuPanelLayout.setVerticalGroup(
             MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +237,12 @@ public class CashierPanel extends javax.swing.JFrame {
                     .addComponent(tvProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(MenuPanelLayout.createSequentialGroup()
                         .addGroup(MenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tvUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tvTransaction, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tvAbout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(tvMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tvMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tvUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -423,11 +437,11 @@ public class CashierPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nama Product", "Jumlah", "Harga Satuan", "Total Harga"
+                "Kode Product", "Nama Product", "Jumlah", "Harga Satuan", "Total Harga"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -460,6 +474,11 @@ public class CashierPanel extends javax.swing.JFrame {
         btntransaksiBatal.setBounds(221, 527, 119, 32);
 
         jButton4.setText("Transaksi Selesai");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         transaksiPanel.add(jButton4);
         jButton4.setBounds(358, 527, 132, 32);
 
@@ -862,7 +881,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
     private void profile() {
         tfUsernameProfile.setEditable(false);
-        tfPasswordProfile .setEditable(false);
+        tfPasswordProfile.setEditable(false);
         tfNamaProfile.setEditable(false);
 
         cbGenderProfile.setEditable(false);
@@ -1079,7 +1098,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         bersihkan();
         refreshData(1);
-        tfMemberID.setEditable(false); 
+        tfMemberID.setEditable(false);
         tfNamaMember.setEditable(true);
         cbJenisKleaminMember.setEditable(true);
         taAlamatMember.setEditable(true);
@@ -1420,6 +1439,15 @@ public class CashierPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btntransaksiBatalActionPerformed
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        this.dispose();
+        Login.summonLoginPanel();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        updateStok();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void bersihkan() {
 
         tfUsernameProfile.setText("");
@@ -1533,11 +1561,12 @@ public class CashierPanel extends javax.swing.JFrame {
             transactionTable.getDataVector().removeAllElements();
             transactionTable.fireTableDataChanged();
             try {
-                hasil = AppDatabase.perintah.executeQuery("select name, qty, price, price*qty as total "
+                hasil = AppDatabase.perintah.executeQuery("select product_id, name, qty, price, price*qty as total "
                         + "from product join transaction using(product_id) "
                         + "where invoice_number ='" + tfInvoiceNumber.getText() + "';");
                 while (hasil.next()) {
                     transactionTable.addRow(new Object[]{
+                        hasil.getString("product_id"),
                         hasil.getString("name"),
                         hasil.getString("qty"),
                         hasil.getString("price"),
@@ -1549,6 +1578,25 @@ public class CashierPanel extends javax.swing.JFrame {
                 System.err.println("Query Select Transaction Gagal");
             }
         }
+    }
+
+    private void updateStok() {
+        try {
+
+            for (int i = 0; i < transactionTable.getRowCount(); i++) {
+                hasil = AppDatabase.perintah.executeQuery("Select stok from product where product_id ='" + transactionTable.getValueAt(i, 0).toString() + "'");
+//                AppDatabase.perintah.executeUpdate("");
+                while (hasil.next()){
+                System.out.println("update product set stok = "
+                        + "'" + ((hasil.getInt("stok")) - (Integer.valueOf(transactionTable.getValueAt(i, 2).toString())))
+                        + "' where product_id ='" + transactionTable.getValueAt(i, 0).toString() + "';");
+                }
+                hasil =null;
+            }
+        } catch (SQLException e) {
+            System.err.println("Query Update Product Gagal");
+        }
+
     }
 
     public static void summonCashierPanel() {
@@ -1632,6 +1680,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JLabel imgWelcome;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;

@@ -39,7 +39,6 @@ public class Login extends javax.swing.JFrame {
         tfUsername = new javax.swing.JTextField();
         tfPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        tvRegister = new javax.swing.JLabel();
         imgLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,19 +66,6 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnLogin);
         btnLogin.setBounds(510, 550, 150, 50);
-
-        tvRegister.setForeground(java.awt.Color.gray);
-        tvRegister.setText("Lupa Password?");
-        tvRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                tvRegisterMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                tvRegisterMouseExited(evt);
-            }
-        });
-        getContentPane().add(tvRegister);
-        tvRegister.setBounds(690, 610, 110, 40);
 
         imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/login.png"))); // NOI18N
         getContentPane().add(imgLogin);
@@ -117,14 +103,6 @@ public class Login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void tvRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvRegisterMouseEntered
-        tvRegister.setForeground(Color.green);
-    }//GEN-LAST:event_tvRegisterMouseEntered
-
-    private void tvRegisterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvRegisterMouseExited
-        tvRegister.setForeground(Color.gray);
-    }//GEN-LAST:event_tvRegisterMouseExited
 
     public void date() {
         Date data = new Date();
@@ -180,6 +158,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel imgLogin;
     private javax.swing.JPasswordField tfPassword;
     private javax.swing.JTextField tfUsername;
-    private javax.swing.JLabel tvRegister;
     // End of variables declaration//GEN-END:variables
 }
