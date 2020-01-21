@@ -8,7 +8,10 @@ package main;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +20,9 @@ import javax.swing.JOptionPane;
 public class AdminPanel extends javax.swing.JFrame {
 
     private Color klik, utama;
+    private ResultSet hasil;
+    private Boolean saveMode;
+    private DefaultTableModel memberTable, cashierTable, dataTransactionTable, dataProductTable;
 
     public AdminPanel() {
         initComponents();
@@ -24,6 +30,12 @@ public class AdminPanel extends javax.swing.JFrame {
         klik = Color.BLUE;
         utama = new Color(250, 128, 114);
         desainTabel();
+
+        // koneksi table
+        memberTable = (DefaultTableModel) MemberTable.getModel();
+        cashierTable = (DefaultTableModel) CashierTable.getModel();
+        dataProductTable = (DefaultTableModel) DataProductTable.getModel();
+        dataTransactionTable = (DefaultTableModel) DataTransactionTable.getModel();
 
     }
 
@@ -48,15 +60,15 @@ public class AdminPanel extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         imgWelcome = new javax.swing.JLabel();
         DataPanel = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        tvDataProduct = new javax.swing.JLabel();
+        tvDataTransaction = new javax.swing.JLabel();
         MainPanelAdmin = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        ProductTablePanel = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTabelDataTransaksi = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        DataProductTable = new javax.swing.JTable();
+        TransactionTablePanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtabel2 = new javax.swing.JTable();
+        DataTransactionTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
         tfUsernameKasir = new javax.swing.JTextField();
@@ -66,7 +78,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         taAlamatKasir = new javax.swing.JTextArea();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTabelKasir = new javax.swing.JTable();
+        CashierTable = new javax.swing.JTable();
         btnBaruKasir = new javax.swing.JButton();
         btnSimpanKasir = new javax.swing.JButton();
         btnUbahKasir = new javax.swing.JButton();
@@ -83,7 +95,7 @@ public class AdminPanel extends javax.swing.JFrame {
         taaAlamatMember = new javax.swing.JTextArea();
         jcJenisKelaminMember = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTabelMember = new javax.swing.JTable();
+        MemberTable = new javax.swing.JTable();
         btnBaruMember = new javax.swing.JButton();
         btnSimpanMember = new javax.swing.JButton();
         btnUbahMember = new javax.swing.JButton();
@@ -248,32 +260,32 @@ public class AdminPanel extends javax.swing.JFrame {
         DataPanel.setBackground(new java.awt.Color(0, 102, 153));
         DataPanel.setLayout(null);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setText("Item 2");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvDataProduct.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tvDataProduct.setText("Data Product");
+        tvDataProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                tvDataProductMouseClicked(evt);
             }
         });
-        DataPanel.add(jLabel7);
-        jLabel7.setBounds(870, 50, 90, 17);
+        DataPanel.add(tvDataProduct);
+        tvDataProduct.setBounds(870, 50, 90, 17);
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setText("Data Transaksi");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        tvDataTransaction.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tvDataTransaction.setText("Data Transaksi");
+        tvDataTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                tvDataTransactionMouseClicked(evt);
             }
         });
-        DataPanel.add(jLabel6);
-        jLabel6.setBounds(200, 50, 120, 17);
+        DataPanel.add(tvDataTransaction);
+        tvDataTransaction.setBounds(200, 50, 120, 17);
 
         MainPanelAdmin.setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 51, 0));
-        jPanel1.setOpaque(false);
+        ProductTablePanel.setBackground(new java.awt.Color(255, 51, 0));
+        ProductTablePanel.setOpaque(false);
 
-        jTabelDataTransaksi.setModel(new javax.swing.table.DefaultTableModel(
+        DataProductTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -284,61 +296,66 @@ public class AdminPanel extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTabelDataTransaksi.setFocusable(false);
-        jTabelDataTransaksi.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTabelDataTransaksi.setShowVerticalLines(false);
-        jTabelDataTransaksi.getTableHeader().setReorderingAllowed(false);
-        jScrollPane9.setViewportView(jTabelDataTransaksi);
+        DataProductTable.setFocusable(false);
+        DataProductTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        DataProductTable.setShowVerticalLines(false);
+        DataProductTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane9.setViewportView(DataProductTable);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ProductTablePanelLayout = new javax.swing.GroupLayout(ProductTablePanel);
+        ProductTablePanel.setLayout(ProductTablePanelLayout);
+        ProductTablePanelLayout.setHorizontalGroup(
+            ProductTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        ProductTablePanelLayout.setVerticalGroup(
+            ProductTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductTablePanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        MainPanelAdmin.add(jPanel1, "card2");
+        MainPanelAdmin.add(ProductTablePanel, "card2");
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 0));
-        jPanel2.setOpaque(false);
+        TransactionTablePanel.setBackground(new java.awt.Color(204, 204, 0));
+        TransactionTablePanel.setOpaque(false);
 
-        jtabel2.setModel(new javax.swing.table.DefaultTableModel(
+        DataTransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Ginok", "Title 2", "Title 3", "Title 4"
+                "Invoice Number", "Cashier", "Member", "Date", "Product", "Jumlah", "Pembayaran"
             }
-        ));
-        jtabel2.setFocusable(false);
-        jtabel2.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jtabel2.setShowVerticalLines(false);
-        jtabel2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jtabel2);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        DataTransactionTable.setFocusable(false);
+        DataTransactionTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        DataTransactionTable.setShowVerticalLines(false);
+        DataTransactionTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(DataTransactionTable);
+
+        javax.swing.GroupLayout TransactionTablePanelLayout = new javax.swing.GroupLayout(TransactionTablePanel);
+        TransactionTablePanel.setLayout(TransactionTablePanelLayout);
+        TransactionTablePanelLayout.setHorizontalGroup(
+            TransactionTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        TransactionTablePanelLayout.setVerticalGroup(
+            TransactionTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TransactionTablePanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        MainPanelAdmin.add(jPanel2, "card3");
+        MainPanelAdmin.add(TransactionTablePanel, "card3");
 
         DataPanel.add(MainPanelAdmin);
         MainPanelAdmin.setBounds(50, 120, 1040, 390);
@@ -387,7 +404,7 @@ public class AdminPanel extends javax.swing.JFrame {
         CashierPanel.add(jScrollPane3);
         jScrollPane3.setBounds(310, 336, 200, 140);
 
-        jTabelKasir.setModel(new javax.swing.table.DefaultTableModel(
+        CashierTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -398,16 +415,16 @@ public class AdminPanel extends javax.swing.JFrame {
                 "Username", "Password", "Nama", "Jens Kelaminj", "Alamat", "No Telpon"
             }
         ));
-        jTabelKasir.setFocusable(false);
-        jTabelKasir.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTabelKasir.setShowVerticalLines(false);
-        jTabelKasir.getTableHeader().setReorderingAllowed(false);
-        jTabelKasir.addMouseListener(new java.awt.event.MouseAdapter() {
+        CashierTable.setFocusable(false);
+        CashierTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        CashierTable.setShowVerticalLines(false);
+        CashierTable.getTableHeader().setReorderingAllowed(false);
+        CashierTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabelKasirMouseClicked(evt);
+                CashierTableMouseClicked(evt);
             }
         });
-        jScrollPane7.setViewportView(jTabelKasir);
+        jScrollPane7.setViewportView(CashierTable);
 
         CashierPanel.add(jScrollPane7);
         jScrollPane7.setBounds(580, 90, 530, 370);
@@ -517,7 +534,7 @@ public class AdminPanel extends javax.swing.JFrame {
         MemberPanel.add(jcJenisKelaminMember);
         jcJenisKelaminMember.setBounds(290, 230, 220, 30);
 
-        jTabelMember.setModel(new javax.swing.table.DefaultTableModel(
+        MemberTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -528,16 +545,16 @@ public class AdminPanel extends javax.swing.JFrame {
                 "Number ID", "Nama", "Jenis Kelamin", "Alamat", "No Telpon"
             }
         ));
-        jTabelMember.setFocusable(false);
-        jTabelMember.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTabelMember.setShowVerticalLines(false);
-        jTabelMember.getTableHeader().setReorderingAllowed(false);
-        jTabelMember.addMouseListener(new java.awt.event.MouseAdapter() {
+        MemberTable.setFocusable(false);
+        MemberTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        MemberTable.setShowVerticalLines(false);
+        MemberTable.getTableHeader().setReorderingAllowed(false);
+        MemberTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTabelMemberMouseClicked(evt);
+                MemberTableMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(jTabelMember);
+        jScrollPane5.setViewportView(MemberTable);
 
         MemberPanel.add(jScrollPane5);
         jScrollPane5.setBounds(600, 100, 510, 340);
@@ -674,29 +691,29 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void desainTabel() {
-        jTabelDataTransaksi.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
-        jTabelDataTransaksi.getTableHeader().setOpaque(false);
-        jTabelDataTransaksi.setBackground(Color.WHITE);
-        jTabelDataTransaksi.getTableHeader().setForeground(Color.PINK);
-        jTabelDataTransaksi.setRowHeight(25);
+        DataProductTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        DataProductTable.getTableHeader().setOpaque(false);
+        DataProductTable.setBackground(Color.WHITE);
+        DataProductTable.getTableHeader().setForeground(Color.PINK);
+        DataProductTable.setRowHeight(25);
 
-        jtabel2.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
-        jtabel2.getTableHeader().setOpaque(false);
-        jtabel2.setBackground(Color.WHITE);
-        jtabel2.getTableHeader().setForeground(Color.PINK);
-        jtabel2.setRowHeight(25);
+        DataTransactionTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        DataTransactionTable.getTableHeader().setOpaque(false);
+        DataTransactionTable.setBackground(Color.WHITE);
+        DataTransactionTable.getTableHeader().setForeground(Color.PINK);
+        DataTransactionTable.setRowHeight(25);
 
-        jTabelKasir.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
-        jTabelKasir.getTableHeader().setOpaque(false);
-        jTabelKasir.setBackground(Color.WHITE);
-        jTabelKasir.getTableHeader().setForeground(Color.PINK);
-        jTabelKasir.setRowHeight(25);
+        CashierTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        CashierTable.getTableHeader().setOpaque(false);
+        CashierTable.setBackground(Color.WHITE);
+        CashierTable.getTableHeader().setForeground(Color.PINK);
+        CashierTable.setRowHeight(25);
 
-        jTabelMember.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
-        jTabelMember.getTableHeader().setOpaque(false);
-        jTabelMember.setBackground(Color.WHITE);
-        jTabelMember.getTableHeader().setForeground(Color.PINK);
-        jTabelMember.setRowHeight(25);
+        MemberTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        MemberTable.getTableHeader().setOpaque(false);
+        MemberTable.setBackground(Color.WHITE);
+        MemberTable.getTableHeader().setForeground(Color.PINK);
+        MemberTable.setRowHeight(25);
 
     }
 
@@ -707,12 +724,12 @@ public class AdminPanel extends javax.swing.JFrame {
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
 
-        MainPanelAdmin.add(jPanel2);
+        MainPanelAdmin.add(TransactionTablePanel);
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
 
-        jLabel6.setForeground(utama);
-        jLabel7.setForeground(klik);
+        tvDataTransaction.setForeground(utama);
+        tvDataProduct.setForeground(klik);
 
         EnableMember(1);
         EnableKasir(1);
@@ -799,32 +816,34 @@ public class AdminPanel extends javax.swing.JFrame {
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/logo.png")));
     }//GEN-LAST:event_imgLogoMouseExited
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void tvDataTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvDataTransactionMouseClicked
         MainPanelAdmin.removeAll();
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
 
-        MainPanelAdmin.add(jPanel2);
+        MainPanelAdmin.add(TransactionTablePanel);
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
 
-        jLabel6.setForeground(utama);
-        jLabel7.setForeground(klik);
+        tvDataTransaction.setForeground(utama);
+        tvDataProduct.setForeground(klik);
 
-    }//GEN-LAST:event_jLabel6MouseClicked
+        refreshData(1);
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_tvDataTransactionMouseClicked
+
+    private void tvDataProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvDataProductMouseClicked
         MainPanelAdmin.removeAll();
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
 
-        MainPanelAdmin.add(jPanel1);
+        MainPanelAdmin.add(ProductTablePanel);
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
 
-        jLabel6.setForeground(klik);
-        jLabel7.setForeground(utama);
-    }//GEN-LAST:event_jLabel7MouseClicked
+        tvDataTransaction.setForeground(klik);
+        tvDataProduct.setForeground(utama);
+    }//GEN-LAST:event_tvDataProductMouseClicked
 
     private void tfMemberIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMemberIdKeyTyped
         if (tfMemberId.getText().length() == 5) {
@@ -880,9 +899,9 @@ public class AdminPanel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSimpanMemberActionPerformed
 
-    private void jTabelMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabelMemberMouseClicked
+    private void MemberTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MemberTableMouseClicked
         EnableMember(4);
-    }//GEN-LAST:event_jTabelMemberMouseClicked
+    }//GEN-LAST:event_MemberTableMouseClicked
 
     private void btnUbahMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahMemberActionPerformed
         EnableMember(5);
@@ -908,9 +927,9 @@ public class AdminPanel extends javax.swing.JFrame {
         EnableKasir(1);
     }//GEN-LAST:event_btnSimpanKasirActionPerformed
 
-    private void jTabelKasirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabelKasirMouseClicked
+    private void CashierTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashierTableMouseClicked
         EnableKasir(4);
-    }//GEN-LAST:event_jTabelKasirMouseClicked
+    }//GEN-LAST:event_CashierTableMouseClicked
 
     private void btnUbahKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahKasirActionPerformed
         EnableKasir(5);
@@ -1229,14 +1248,38 @@ public class AdminPanel extends javax.swing.JFrame {
 
     }
 
-    public static void summonAdminPanel() {
-        AdminPanel adminPanel = new AdminPanel();
-        adminPanel.setSize(1150, 695);
-        adminPanel.setLocationRelativeTo(null);
-        adminPanel.setVisible(true);
+    private void refreshData(int mode) {
+        if (mode == 1) {
+            try {
+                dataTransactionTable.getDataVector().removeAllElements();
+                dataTransactionTable.fireTableDataChanged();
+                hasil = AppDatabase.perintah.executeQuery("Select invoice_number, employee.name as cashier, "
+                        + "customer.name as member, date, product.name as product, qty, price*qty as pembayaran "
+                        + "from customer join invoice using(customer_id) "
+                        + " join employee using(username) "
+                        + " join transaction using(invoice_number)"
+                        + " join product using(product_id)"
+                        + " order by invoice_number");
+                while (hasil.next()) {
+                    dataTransactionTable.addRow(new Object[]{
+                        hasil.getString("invoice_number"),
+                        hasil.getString("cashier"),
+                        hasil.getString("member"),
+                        hasil.getString("date"),
+                        hasil.getString("product"),
+                        hasil.getString("qty"),
+                        hasil.getString("pembayaran")
+                    });
+                }
+            } catch (SQLException e) {
+                System.err.println("Query Select Data Transaksi Gagal");
+            }
+        } else if (mode == 2){
+            
+        }
     }
 
-    public static void AdminPanel() {
+    public static void summonAdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
         adminPanel.setSize(1150, 695);
         adminPanel.setLocationRelativeTo(null);
@@ -1281,12 +1324,18 @@ public class AdminPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CashierPanel;
+    private javax.swing.JTable CashierTable;
     private javax.swing.JPanel DataPanel;
+    private javax.swing.JTable DataProductTable;
+    private javax.swing.JTable DataTransactionTable;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel MainPanelAdmin;
     private javax.swing.JPanel MemberPanel;
+    private javax.swing.JTable MemberTable;
     private javax.swing.JPanel MenuPanel;
+    private javax.swing.JPanel ProductTablePanel;
     private javax.swing.JPanel ProfilePanel;
+    private javax.swing.JPanel TransactionTablePanel;
     private javax.swing.JPanel WelcomePanel;
     private javax.swing.JButton btnBaruKasir;
     private javax.swing.JButton btnBaruMember;
@@ -1308,11 +1357,7 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1321,9 +1366,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTabelDataTransaksi;
-    private javax.swing.JTable jTabelKasir;
-    private javax.swing.JTable jTabelMember;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> jcJenisKelaminMember;
@@ -1332,7 +1374,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JTextField jpPasswordKasir;
     private javax.swing.JPasswordField jpPasswordProfile;
     private javax.swing.JTextArea jtaAlamatProfile;
-    private javax.swing.JTable jtabel2;
     private javax.swing.JTextArea taAlamatKasir;
     private javax.swing.JTextArea taaAlamatMember;
     private javax.swing.JTextField tfMemberId;
@@ -1346,6 +1387,8 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JTextField tfUsernameProfile;
     private javax.swing.JLabel tvCashier;
     private javax.swing.JLabel tvData;
+    private javax.swing.JLabel tvDataProduct;
+    private javax.swing.JLabel tvDataTransaction;
     private javax.swing.JLabel tvMember;
     private javax.swing.JLabel tvUser;
     // End of variables declaration//GEN-END:variables
