@@ -108,7 +108,7 @@ public class AdminPanel extends javax.swing.JFrame {
         btnHapusProfile = new javax.swing.JButton();
         tfUsernameProfile = new javax.swing.JTextField();
         tfNamaProfile = new javax.swing.JTextField();
-        jcNamaProfile = new javax.swing.JComboBox<>();
+        jcJenisKelamin = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         jtaAlamatProfile = new javax.swing.JTextArea();
         tfNoTelpProfile = new javax.swing.JTextField();
@@ -371,6 +371,11 @@ public class AdminPanel extends javax.swing.JFrame {
         CashierPanel.setLayout(null);
 
         tfUsernameKasir.setBorder(null);
+        tfUsernameKasir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfUsernameKasirActionPerformed(evt);
+            }
+        });
         CashierPanel.add(tfUsernameKasir);
         tfUsernameKasir.setBounds(300, 100, 240, 30);
 
@@ -388,6 +393,11 @@ public class AdminPanel extends javax.swing.JFrame {
         tfNamaKasir.setBounds(300, 220, 230, 30);
 
         tfNoTelpKasir.setBorder(null);
+        tfNoTelpKasir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNoTelpKasirKeyTyped(evt);
+            }
+        });
         CashierPanel.add(tfNoTelpKasir);
         tfNoTelpKasir.setBounds(310, 500, 220, 30);
 
@@ -474,7 +484,12 @@ public class AdminPanel extends javax.swing.JFrame {
         CashierPanel.add(btnBatalKasir);
         btnBatalKasir.setBounds(1030, 480, 80, 40);
 
-        jcJenisKleaminKaisr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Laki - Laki", "Perempuan", " " }));
+        jcJenisKleaminKaisr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki - Laki", "Perempuan", " " }));
+        jcJenisKleaminKaisr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcJenisKleaminKaisrActionPerformed(evt);
+            }
+        });
         CashierPanel.add(jcJenisKleaminKaisr);
         jcJenisKleaminKaisr.setBounds(300, 280, 210, 30);
 
@@ -530,7 +545,7 @@ public class AdminPanel extends javax.swing.JFrame {
         MemberPanel.add(jScrollPane4);
         jScrollPane4.setBounds(290, 286, 210, 140);
 
-        jcJenisKelaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Laki - Laki", "Perempuan" }));
+        jcJenisKelaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki - Laki", "Perempuan" }));
         MemberPanel.add(jcJenisKelaminMember);
         jcJenisKelaminMember.setBounds(290, 230, 220, 30);
 
@@ -647,9 +662,9 @@ public class AdminPanel extends javax.swing.JFrame {
         ProfilePanel.add(tfNamaProfile);
         tfNamaProfile.setBounds(300, 220, 230, 30);
 
-        jcNamaProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki - Laki", "Perempuan" }));
-        ProfilePanel.add(jcNamaProfile);
-        jcNamaProfile.setBounds(300, 280, 230, 30);
+        jcJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki - Laki", "Perempuan" }));
+        ProfilePanel.add(jcJenisKelamin);
+        jcJenisKelamin.setBounds(300, 280, 230, 30);
 
         jtaAlamatProfile.setColumns(20);
         jtaAlamatProfile.setRows(5);
@@ -660,6 +675,11 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane8.setBounds(300, 330, 210, 150);
 
         tfNoTelpProfile.setBorder(null);
+        tfNoTelpProfile.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNoTelpProfileKeyTyped(evt);
+            }
+        });
         ProfilePanel.add(tfNoTelpProfile);
         tfNoTelpProfile.setBounds(300, 500, 230, 30);
 
@@ -848,7 +868,7 @@ public class AdminPanel extends javax.swing.JFrame {
     private void tfMemberIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMemberIdKeyTyped
         if (tfMemberId.getText().length() == 5) {
             evt.consume();
-            JOptionPane.showMessageDialog(this, "Product Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Member Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
 
         }
 
@@ -894,6 +914,28 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBaruMemberActionPerformed
 
     private void btnSimpanMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanMemberActionPerformed
+        if (tfMemberId.getText().equals("")){
+            JOptionPane.showMessageDialog(this, " Member Id Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfMemberId.requestFocus();
+        
+        }else if (tfNamaMember.getText().equals("")){
+             JOptionPane.showMessageDialog(this, " Nama Member Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfNamaMember.requestFocus();
+        
+        }else if (jcJenisKelaminMember.getSelectedItem().equals("Pilih Jenis Kelamin")){
+            JOptionPane.showMessageDialog(this, " Nama Member Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             jcJenisKelaminMember.requestFocus();
+        
+        }else if (taaAlamatMember.getText().equals("")){
+            JOptionPane.showMessageDialog(this, " Alamat Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfNamaMember.requestFocus();
+        
+        }else if (tfNoTelponMmber.getText().equals("")){
+            JOptionPane.showMessageDialog(this, " No Telpon Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfNoTelponMmber.requestFocus();
+        }
+        
+        btnSimpanMember.requestFocus();
         EnableMember(1);
         bersihkan();
 
@@ -924,7 +966,35 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBaruKasirActionPerformed
 
     private void btnSimpanKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanKasirActionPerformed
-        EnableKasir(1);
+        if (tfUsernameKasir.getText().equals("")){
+             JOptionPane.showMessageDialog(this, " Username Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfUsernameKasir.requestFocus();
+        
+        }else if (jpPasswordKasir.getText().equals("")){
+              JOptionPane.showMessageDialog(this, " Password Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             jpPasswordKasir.requestFocus();
+            
+        }else if (tfNamaKasir.getText().equals("")){
+            JOptionPane.showMessageDialog(this, " Nama Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfNamaKasir.requestFocus();
+            
+        }else if (jcJenisKleaminKaisr.getSelectedItem().equals("Pilih Jenis Kelamin")){
+             JOptionPane.showMessageDialog(this, " Jenis Kelamin Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             jcJenisKleaminKaisr.requestFocus();
+        
+        }else if (taAlamatKasir.getText().equals("")){
+             JOptionPane.showMessageDialog(this, " Jenis Kelamin Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             taAlamatKasir.requestFocus();
+        
+        }else if (tfNoTelpKasir.getText().equals("")){
+             JOptionPane.showMessageDialog(this, " No Telpon Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfNoTelponMmber.requestFocus();
+        }else {
+             
+        }
+          EnableKasir(1);
+        
+       
     }//GEN-LAST:event_btnSimpanKasirActionPerformed
 
     private void CashierTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashierTableMouseClicked
@@ -944,6 +1014,30 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBatalKasirActionPerformed
 
     private void btnSimpanProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanProfileActionPerformed
+         if (tfUsernameProfile.getText().equals("")){
+             JOptionPane.showMessageDialog(this, " Username Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+             tfUsernameProfile.requestFocus();
+         
+         }else if (jpPasswordProfile.getText().equals("")){
+             JOptionPane.showMessageDialog(this, "Password Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+              jpPasswordProfile.requestFocus();
+         }else if (tfNamaProfile.getText().equals("")){
+             JOptionPane.showMessageDialog(this, "Nama Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+              tfNamaProfile.requestFocus();
+         
+         }else if (jcJenisKelamin.getSelectedItem().equals("Pilih Jenis Kelamin")){
+             JOptionPane.showMessageDialog(this, "jenis Kelamin Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+              jcJenisKelamin.requestFocus();
+         }else if (jtaAlamatProfile.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Alamat Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+              jtaAlamatProfile.requestFocus(); 
+         }else if (tfNoTelpProfile.getText().equals("")){
+              JOptionPane.showMessageDialog(this, "Alamat Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
+               tfNoTelpProfile.requestFocus(); 
+         }else {
+             
+         }
+     btnSimpanProfile.requestFocus();
         EnableProfile(1);
         bersihkan();
     }//GEN-LAST:event_btnSimpanProfileActionPerformed
@@ -960,6 +1054,52 @@ public class AdminPanel extends javax.swing.JFrame {
         this.dispose();
         Login.summonLoginPanel();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jcJenisKleaminKaisrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcJenisKleaminKaisrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcJenisKleaminKaisrActionPerformed
+
+    private void tfNoTelpKasirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNoTelpKasirKeyTyped
+          char angka = evt.getKeyChar();
+
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+        
+         
+        if (tfNoTelpKasir.getText().length() > 13  ) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "No Telp Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+            
+            btnSimpanKasir.requestFocus();
+        }
+    }//GEN-LAST:event_tfNoTelpKasirKeyTyped
+
+    private void tfUsernameKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameKasirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfUsernameKasirActionPerformed
+
+    private void tfNoTelpProfileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNoTelpProfileKeyTyped
+          if (tfNoTelpProfile.getText().length() == 13) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "No Telpon Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+
+        }
+
+        char angka = evt.getKeyChar();
+
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_tfNoTelpProfileKeyTyped
 
     private void EnableKasir(int mode) {
         if (mode == 1) {
@@ -1202,7 +1342,7 @@ public class AdminPanel extends javax.swing.JFrame {
             tfUsernameProfile.setEditable(false);
             tfNamaProfile.setEditable(false);
             jpPasswordProfile.setEditable(false);
-            jcNamaProfile.setEditable(false);
+            jcJenisKelamin.setEditable(false);
             jtaAlamatProfile.setEditable(false);
             tfNoTelpProfile.setEditable(false);
 
@@ -1215,7 +1355,7 @@ public class AdminPanel extends javax.swing.JFrame {
             tfUsernameProfile.setEditable(false);
             tfNamaProfile.setEditable(true);
             jpPasswordProfile.setEditable(true);
-            jcNamaProfile.setEditable(true);
+            jcJenisKelamin.setEditable(true);
             jtaAlamatProfile.setEditable(true);
             tfNoTelpProfile.setEditable(true);
             jpPasswordProfile.requestFocus();
@@ -1368,9 +1508,9 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> jcJenisKelamin;
     private javax.swing.JComboBox<String> jcJenisKelaminMember;
     private javax.swing.JComboBox<String> jcJenisKleaminKaisr;
-    private javax.swing.JComboBox<String> jcNamaProfile;
     private javax.swing.JTextField jpPasswordKasir;
     private javax.swing.JPasswordField jpPasswordProfile;
     private javax.swing.JTextArea jtaAlamatProfile;
