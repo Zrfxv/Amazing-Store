@@ -11,8 +11,11 @@ import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,6 +28,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private Boolean saveMode;
     private DefaultTableModel memberTable, transactionTable, productTable;
     private Color klik, utama;
+    private boolean dataditemukan = false;
 
     /**
      * Creates new form CashierPanel
@@ -98,6 +102,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tvKembalian = new javax.swing.JLabel();
         btntransaksiBatal = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        tvData = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         memberRegisterPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -376,6 +381,11 @@ public class CashierPanel extends javax.swing.JFrame {
         tfJumlah.setBounds(890, 120, 129, 30);
 
         tfCustomerId.setBorder(null);
+        tfCustomerId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCustomerIdActionPerformed(evt);
+            }
+        });
         tfCustomerId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfCustomerIdKeyPressed(evt);
@@ -456,7 +466,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         tvTotalHarga.setText("jLabel21");
         transaksiPanel.add(tvTotalHarga);
-        tvTotalHarga.setBounds(890, 480, 70, 16);
+        tvTotalHarga.setBounds(890, 480, 70, 14);
 
         tfBayar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -468,7 +478,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         tvKembalian.setText("label");
         transaksiPanel.add(tvKembalian);
-        tvKembalian.setBounds(890, 610, 230, 16);
+        tvKembalian.setBounds(890, 610, 230, 14);
 
         btntransaksiBatal.setText("Transaksi Batal");
         btntransaksiBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -477,7 +487,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(btntransaksiBatal);
-        btntransaksiBatal.setBounds(221, 527, 119, 32);
+        btntransaksiBatal.setBounds(221, 527, 105, 23);
 
         jButton4.setText("Transaksi Selesai");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -486,7 +496,11 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(jButton4);
-        jButton4.setBounds(358, 527, 132, 32);
+        jButton4.setBounds(358, 527, 113, 23);
+
+        tvData.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        transaksiPanel.add(tvData);
+        tvData.setBounds(160, 600, 240, 30);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/TransactionPanel.png"))); // NOI18N
         transaksiPanel.add(jLabel9);
@@ -525,6 +539,11 @@ public class CashierPanel extends javax.swing.JFrame {
         tfMemberID.setBounds(290, 110, 230, 40);
 
         tfNamaMember.setBorder(null);
+        tfNamaMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNamaMemberActionPerformed(evt);
+            }
+        });
         memberRegisterPanel.add(tfNamaMember);
         tfNamaMember.setBounds(290, 170, 234, 40);
 
@@ -769,21 +788,23 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tvMemberMouseClicked
 
     private void tvTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvTransactionMouseClicked
+
         mainPanel.removeAll();
         mainPanel.repaint();
         mainPanel.revalidate();
 
         mainPanel.add(transaksiPanel);
+        tfInvoiceNumber.requestFocus();
+
         mainPanel.repaint();
         mainPanel.revalidate();
-
-        tfInvoiceNumber.requestFocus();
 
         tvUser.setForeground(utama);
         tvTransaction.setForeground(klik);
         tvMember.setForeground(utama);
         tvProduct.setForeground(utama);
         tvAbout.setForeground(utama);
+
     }//GEN-LAST:event_tvTransactionMouseClicked
 
     private void tvUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tvUserMouseClicked
@@ -906,6 +927,7 @@ public class CashierPanel extends javax.swing.JFrame {
         enableMember(1);
         enableInputPanel(1);
         enableProfile(2);
+        Date();
 
     }//GEN-LAST:event_formWindowOpened
 
@@ -956,8 +978,9 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-        if (tfInvoiceNumber.getText().length() == 11) {
+        if (tfInvoiceNumber.getText().length() == 10) {
             evt.consume();
+
             JOptionPane.showMessageDialog(this, "Invoice Number Melebihi 10 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
@@ -1050,7 +1073,7 @@ public class CashierPanel extends javax.swing.JFrame {
         } else if (tfNoTelpMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
         } else {
-            
+
         }
 
         //query simpan 
@@ -1212,6 +1235,12 @@ public class CashierPanel extends javax.swing.JFrame {
 
     private void TableProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProductMouseClicked
         enableInputPanel(6);
+        tfProductidProduct.setText(productTable.getValueAt(TableProduct.getSelectedRow(), 0).toString());
+        tfNamaProduct.setText(productTable.getValueAt(TableProduct.getSelectedRow(), 1).toString());
+        tfMerekProduct.setText(productTable.getValueAt(TableProduct.getSelectedRow(), 2).toString());
+        tfJenisProduct.setText(productTable.getValueAt(TableProduct.getSelectedRow(), 3).toString());
+        tfStockProduct.setText(productTable.getValueAt(TableProduct.getSelectedRow(), 4).toString());
+        tfHargaProduct.setText(productTable.getValueAt(TableProduct.getSelectedRow(), 5).toString());
 
     }//GEN-LAST:event_TableProductMouseClicked
 
@@ -1264,6 +1293,7 @@ public class CashierPanel extends javax.swing.JFrame {
                 System.err.println("Produk Tidak Ditemukan");
             }
             tfJumlah.requestFocus();
+            tfJumlah.setEditable(true);
         }
     }//GEN-LAST:event_tfProductIdKeyPressed
 
@@ -1274,18 +1304,37 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "('" + tfInvoiceNumber.getText() + "', '"
                         + Encapsulation.getUsername() + "' ,'"
                         + tfCustomerId.getText() + "');");
+                tfInvoiceNumber.setEditable(false);
+                tfCustomerId.setEditable(false);
+                tfProductId.requestFocus();
             } catch (SQLException e) {
-                System.err.println("Query Insert Invoice gagal");
+//               JOptionPane.showInputDialog(this,"Customer Id Tidak Ditemukan" , "Informasi",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
+                tfCustomerId.setText("");
             }
 
-            tfInvoiceNumber.setEditable(false);
-            tfCustomerId.setEditable(false);
-            tfProductId.requestFocus();
         }
     }//GEN-LAST:event_tfCustomerIdKeyPressed
 
     private void tfInvoiceNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfInvoiceNumberKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!tfInvoiceNumber.getText().equals("")) {
+
+                try {
+                    //queryyy
+
+                    if (hasil.next()) {
+                        dataditemukan = true;
+
+                    }
+
+                    int pilihan;
+//                   pilihan = JOptionPane.showConfirmDialog(this, "")
+
+                } catch (Exception e) {
+                }
+            }
+
             tfCustomerId.requestFocus();
         }
     }//GEN-LAST:event_tfInvoiceNumberKeyPressed
@@ -1306,17 +1355,17 @@ public class CashierPanel extends javax.swing.JFrame {
             }
             tfProductId.requestFocus();
             int totalHarga = 0;
-            for (int i = 0; i < TableTransaction.getRowCount() ;i++){
+            for (int i = 0; i < TableTransaction.getRowCount(); i++) {
                 totalHarga = totalHarga + Integer.valueOf(transactionTable.getValueAt(i, 4).toString());
             }
-            tvTotalHarga.setText(""+totalHarga);
+            tvTotalHarga.setText("" + totalHarga);
         }
     }//GEN-LAST:event_tfJumlahKeyPressed
 
     private void btntransaksiBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransaksiBatalActionPerformed
 
         try {
-            AppDatabase.perintah.executeUpdate("delete from invoice where invoice_number ='"+ tfInvoiceNumber.getText() +"';");
+            AppDatabase.perintah.executeUpdate("delete from invoice where invoice_number ='" + tfInvoiceNumber.getText() + "';");
         } catch (SQLException e) {
         }
         transactionTable.getDataVector().removeAllElements();
@@ -1330,19 +1379,31 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        kasir();
+
         updateStok();
         bersihkan();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tfBayarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBayarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            System.out.println(tvTotalHarga.getText() +"   "+ tfBayar.getText());
-            Double totalHarga = Double.parseDouble(tvTotalHarga.getText()) , jumlahBayar = Double.parseDouble(tfBayar.getText());
-            Double kembalian = jumlahBayar - totalHarga ;
+            System.out.println(tvTotalHarga.getText() + "   " + tfBayar.getText());
+            Double totalHarga = Double.parseDouble(tvTotalHarga.getText()), jumlahBayar = Double.parseDouble(tfBayar.getText());
+            Double kembalian = jumlahBayar - totalHarga;
 //            System.out.println("Kembalianya "+ (Integer.valueOf(tvTotalHarga.getText()) - Integer.valueOf(tfBayar.getText())));
-        tvKembalian.setText(""+kembalian);
+            tfJumlah.setEditable(false);
+            tvKembalian.setText("" + kembalian);
         }
     }//GEN-LAST:event_tfBayarKeyPressed
+
+    private void tfNamaMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaMemberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNamaMemberActionPerformed
+
+    private void tfCustomerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCustomerIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCustomerIdActionPerformed
 
     private void bersihkan() {
 
@@ -1777,6 +1838,44 @@ public class CashierPanel extends javax.swing.JFrame {
 
     }
 
+    private void Date() {
+
+        new Thread() {
+
+            public void run() {
+
+                while (true) {
+                    Calendar kalender = new GregorianCalendar();
+                    int tahun = kalender.get(Calendar.YEAR);
+                    int bulan = kalender.get(Calendar.MONTH) + 1;
+                    int hari = kalender.get(Calendar.DAY_OF_MONTH);
+                    int jam = kalender.get(Calendar.HOUR_OF_DAY);
+                    int menit = kalender.get(Calendar.MINUTE);
+                    int detik = kalender.get(Calendar.SECOND);
+
+                    String date = hari + "-" + bulan + "-" + tahun + " " + jam + ":" + menit + ":" + detik;
+
+                    tvData.setText(date);
+
+                }
+
+            }
+
+        }.start();
+
+    }
+
+    private void kasir() {
+
+        transactionTable.getDataVector().removeAllElements();
+        transactionTable.fireTableDataChanged();
+
+        tfInvoiceNumber.setEditable(true);
+        tfCustomerId.setEditable(true);
+        tfJumlah.setEditable(false);
+        tfInvoiceNumber.requestFocus();
+    }
+
 //    private void recolor(){
 //        jlProfile.setForeground(Color.BLACK);
 //        jlInput.setForeground(Color.BLACK);
@@ -1883,6 +1982,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JTextField tfUsernameProfile;
     private javax.swing.JPanel transaksiPanel;
     private javax.swing.JLabel tvAbout;
+    private javax.swing.JLabel tvData;
     private javax.swing.JLabel tvHarga;
     private javax.swing.JLabel tvKembalian;
     private javax.swing.JLabel tvMember;

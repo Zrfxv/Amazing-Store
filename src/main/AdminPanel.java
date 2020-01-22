@@ -747,7 +747,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
         CashierTable.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         CashierTable.getTableHeader().setOpaque(false);
-        CashierTable.setBackground(Color.WHITE);
+        CashierTable.setBackground(Color.WHITE);            
         CashierTable.getTableHeader().setForeground(Color.PINK);
         CashierTable.setRowHeight(25);
 
