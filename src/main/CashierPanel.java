@@ -457,12 +457,18 @@ public class CashierPanel extends javax.swing.JFrame {
         tvTotalHarga.setText("jLabel21");
         transaksiPanel.add(tvTotalHarga);
         tvTotalHarga.setBounds(890, 480, 70, 16);
+
+        tfBayar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfBayarKeyPressed(evt);
+            }
+        });
         transaksiPanel.add(tfBayar);
         tfBayar.setBounds(890, 560, 170, 20);
 
         tvKembalian.setText("label");
         transaksiPanel.add(tvKembalian);
-        tvKembalian.setBounds(890, 610, 70, 16);
+        tvKembalian.setBounds(890, 610, 230, 16);
 
         btntransaksiBatal.setText("Transaksi Batal");
         btntransaksiBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -1269,6 +1275,7 @@ public class CashierPanel extends javax.swing.JFrame {
                         + Encapsulation.getUsername() + "' ,'"
                         + tfCustomerId.getText() + "');");
             } catch (SQLException e) {
+                System.err.println("Query Insert Invoice gagal");
             }
 
             tfInvoiceNumber.setEditable(false);
@@ -1292,19 +1299,24 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "'2020-01-19 10:35:15', "
                         + "'" + tfProductId.getText() + "', "
                         + "'" + tfJumlah.getText() + "');");
+                refreshData(5);
+
             } catch (SQLException e) {
                 System.err.println("Query Insert Transaksi Gagal");
             }
-            refreshData(5);
             tfProductId.requestFocus();
+            int totalHarga = 0;
+            for (int i = 0; i < TableTransaction.getRowCount() ;i++){
+                totalHarga = totalHarga + Integer.valueOf(transactionTable.getValueAt(i, 4).toString());
+            }
+            tvTotalHarga.setText(""+totalHarga);
         }
     }//GEN-LAST:event_tfJumlahKeyPressed
 
     private void btntransaksiBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntransaksiBatalActionPerformed
 
         try {
-            AppDatabase.perintah.executeQuery("Delete from invoice where "
-                    + "invoice_number = '" + tfProductId.getText() + "';");
+            AppDatabase.perintah.executeUpdate("delete from invoice where invoice_number ='"+ tfInvoiceNumber.getText() +"';");
         } catch (SQLException e) {
         }
         transactionTable.getDataVector().removeAllElements();
@@ -1321,6 +1333,16 @@ public class CashierPanel extends javax.swing.JFrame {
         updateStok();
         bersihkan();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tfBayarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBayarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            System.out.println(tvTotalHarga.getText() +"   "+ tfBayar.getText());
+            Double totalHarga = Double.parseDouble(tvTotalHarga.getText()) , jumlahBayar = Double.parseDouble(tfBayar.getText());
+            Double kembalian = jumlahBayar - totalHarga ;
+//            System.out.println("Kembalianya "+ (Integer.valueOf(tvTotalHarga.getText()) - Integer.valueOf(tfBayar.getText())));
+        tvKembalian.setText(""+kembalian);
+        }
+    }//GEN-LAST:event_tfBayarKeyPressed
 
     private void bersihkan() {
 
@@ -1355,17 +1377,17 @@ public class CashierPanel extends javax.swing.JFrame {
         tfNoTelpMember.setText("");
         //=====================================
 
-//        //panel Transaksi
-//        tfInvoiceNumber.setText("");
-//        tfCustomerId.setText("");
-//        tfProductId.setText("");
-//        tfJumlah.setText("");
-//        tfBayar.setText("");
-//        tvNamaProduk.setText("");
-//        tvHarga.setText("");
-//        tvStok.setText("");
-//        tvTotalHarga.setText("");
-//        tvKembalian.setText("");
+        //panel Transaksi
+        tfInvoiceNumber.setText("");
+        tfCustomerId.setText("");
+        tfProductId.setText("");
+        tfJumlah.setText("");
+        tfBayar.setText("");
+        tvNamaProduk.setText("");
+        tvHarga.setText("");
+        tvStok.setText("");
+        tvTotalHarga.setText("");
+        tvKembalian.setText("");
 
     }
 
@@ -1443,13 +1465,13 @@ public class CashierPanel extends javax.swing.JFrame {
                 System.out.println("Query Select Profile gagal");
             }
 
-        } else if (mode == 5) {
+        } else if (mode == 5) { //mode 5 untuk refresh data pada table transaksi
 
             try {
                 transactionTable.getDataVector().removeAllElements();
                 transactionTable.fireTableDataChanged();
                 hasil = AppDatabase.perintah.executeQuery("select product_id, name, qty, price, price*qty as total "
-                        + "from product join transaction using(product_id) "
+                        + "from transaction left join product using(product_id) "
                         + "where invoice_number ='" + tfInvoiceNumber.getText() + "';");
                 while (hasil.next()) {
                     transactionTable.addRow(new Object[]{
