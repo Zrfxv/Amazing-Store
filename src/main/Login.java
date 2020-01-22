@@ -45,12 +45,12 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        tfUsername.setText("zrfxv");
+        tfUsername.setText("heathcliff");
         tfUsername.setBorder(null);
         getContentPane().add(tfUsername);
         tfUsername.setBounds(440, 390, 320, 50);
 
-        tfPassword.setText("kucing123");
+        tfPassword.setText("suprax125");
         tfPassword.setBorder(null);
         getContentPane().add(tfPassword);
         tfPassword.setBounds(440, 460, 320, 50);
