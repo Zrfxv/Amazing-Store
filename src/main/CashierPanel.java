@@ -114,7 +114,7 @@ public class CashierPanel extends javax.swing.JFrame {
         TableMember = new javax.swing.JTable();
         btnBaruMemeber = new javax.swing.JButton();
         btnSimpanMember = new javax.swing.JButton();
-        cbJenisKleaminMember = new javax.swing.JComboBox<>();
+        cbKelaminMember = new javax.swing.JComboBox<>();
         btnUbahMember = new javax.swing.JButton();
         btnHapusMember = new javax.swing.JButton();
         btnBatalMember = new javax.swing.JButton();
@@ -302,8 +302,9 @@ public class CashierPanel extends javax.swing.JFrame {
         tfUsernameProfile.setBounds(300, 100, 240, 33);
 
         cbGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
+        cbGenderProfile.setEnabled(false);
         ProfilePanel.add(cbGenderProfile);
-        cbGenderProfile.setBounds(300, 270, 230, 40);
+        cbGenderProfile.setBounds(300, 280, 230, 30);
 
         taAlamatprofile.setColumns(20);
         taAlamatprofile.setRows(5);
@@ -595,11 +596,12 @@ public class CashierPanel extends javax.swing.JFrame {
         memberRegisterPanel.add(btnSimpanMember);
         btnSimpanMember.setBounds(690, 360, 90, 40);
 
-        cbJenisKleaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
-        cbJenisKleaminMember.setBorder(null);
-        cbJenisKleaminMember.setOpaque(false);
-        memberRegisterPanel.add(cbJenisKleaminMember);
-        cbJenisKleaminMember.setBounds(290, 230, 230, 30);
+        cbKelaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
+        cbKelaminMember.setBorder(null);
+        cbKelaminMember.setEnabled(false);
+        cbKelaminMember.setOpaque(false);
+        memberRegisterPanel.add(cbKelaminMember);
+        cbKelaminMember.setBounds(290, 230, 230, 30);
 
         btnUbahMember.setText("Ubah");
         btnUbahMember.addActionListener(new java.awt.event.ActionListener() {
@@ -920,7 +922,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         tfMemberID.setEditable(false);
         tfNamaMember.setEditable(false);
-        cbJenisKleaminMember.setEditable(false);
+        cbKelaminMember.setEditable(false);
         taAlamatMember.setEditable(false);
         tfNoTelpMember.setEditable(false);
     }
@@ -1087,7 +1089,7 @@ public class CashierPanel extends javax.swing.JFrame {
         } else if (tfNamaMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
 
-        } else if (cbJenisKleaminMember.getSelectedItem().equals("Pilih Jenis Kelamin")) {
+        } else if (cbKelaminMember.getSelectedItem().equals("Pilih Jenis Kelamin")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
         } else if (taAlamatMember.getText().equals("")) {
             JOptionPane.showMessageDialog(this, " Data Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
@@ -1104,13 +1106,13 @@ public class CashierPanel extends javax.swing.JFrame {
                 AppDatabase.perintah.executeUpdate("insert into customer values "
                         + "('" + tfMemberID.getText() + "',"
                         + "'" + tfNamaMember.getText() + "',"
-                        + "'" + cbJenisKleaminMember.getSelectedItem() + " ',"
+                        + "'" + cbKelaminMember.getSelectedItem() + " ',"
                         + "'" + taAlamatMember.getText() + " ',"
                         + "'" + tfNoTelpMember.getText() + "')");
             } else {
                 AppDatabase.perintah.executeUpdate("update customer set "
                         + "name = '" + tfNamaMember.getText() + "',"
-                        + "gender = '" + cbJenisKleaminMember.getSelectedItem() + "',"
+                        + "gender = '" + cbKelaminMember.getSelectedItem() + "',"
                         + "address = '" + taAlamatMember.getText() + "' ,"
                         + "telp = '" + tfNoTelpMember.getText() + "' "
                         + "where customer_id = '" + tfMemberID.getText() + "';");
@@ -1211,7 +1213,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
         tfMemberID.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 0).toString());
         tfNamaMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 1).toString());
-        cbJenisKleaminMember.setSelectedItem(memberTable.getValueAt(TableMember.getSelectedRow(), 2).toString());
+        cbKelaminMember.setSelectedItem(memberTable.getValueAt(TableMember.getSelectedRow(), 2).toString());
         taAlamatMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 3).toString());
         tfNoTelpMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_TableMemberMouseClicked
@@ -1410,10 +1412,10 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        updateStok();
         kasir();
 
-        updateStok();
+        
         bersihkan();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1631,7 +1633,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private void updateStok() {
         try {
 
-            for (int i = 0; i < transactionTable.getRowCount(); i++) {
+            for (int i = 0; i < TableTransaction.getRowCount(); i++) {
                 hasil = AppDatabase.perintah.executeQuery("Select stok from product where product_id ='" + transactionTable.getValueAt(i, 0).toString() + "'");
                 while (hasil.next()) {
                     AppDatabase.perintah.executeUpdate("update product set stok = "
@@ -1663,6 +1665,7 @@ public class CashierPanel extends javax.swing.JFrame {
             btnUbahProduct.setEnabled(false);
             btnHapusProduct.setEnabled(false);
             btnBatalProduct.setEnabled(false);
+            cbGenderProfile.setEnabled(false);
             bersihkan();
 
         } else if (model == 2) {
@@ -1755,7 +1758,7 @@ public class CashierPanel extends javax.swing.JFrame {
             tfUsernameProfile.setEditable(false);
             tfPasswordProfile.setEditable(true);
             tfNamaProfile.setEditable(true);
-            cbGenderProfile.setEditable(true);
+            cbGenderProfile.setEnabled(true);
             taAlamatprofile.setEditable(true);
             tfNoTelpProfile.setEditable(true);
 
@@ -1788,7 +1791,7 @@ public class CashierPanel extends javax.swing.JFrame {
             tfUsernameProfile.setEditable(false);
             tfPasswordProfile.setEditable(true);
             tfNamaProfile.setEditable(true);
-            cbGenderProfile.setEditable(true);
+            cbGenderProfile.setEnabled(true);
             taAlamatprofile.setEditable(true);
             tfNoTelpProfile.setEditable(true);
 
@@ -1824,7 +1827,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfMemberID.setEditable(false);
             tfNamaMember.setEditable(false);
-            cbJenisKleaminMember.setEnabled(false);
+            cbKelaminMember.setEnabled(false);
             taAlamatMember.setEditable(false);
             tfNoTelpMember.setEditable(false);
 
@@ -1841,7 +1844,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfMemberID.setEditable(true);
             tfNamaMember.setEditable(true);
-            cbJenisKleaminMember.setEnabled(true);
+            cbKelaminMember.setEnabled(true);
             taAlamatMember.setEditable(true);
             tfNoTelpMember.setEditable(true);
 
@@ -1852,7 +1855,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfMemberID.setEditable(false);
             tfNamaMember.setEditable(false);
-            cbJenisKleaminMember.setEditable(false);
+            cbKelaminMember.setEditable(false);
             taAlamatMember.setEditable(false);
             tfNoTelpMember.setEditable(false);
 
@@ -1873,7 +1876,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfMemberID.setEditable(false);
             tfNamaMember.setEditable(true);
-            cbJenisKleaminMember.setEditable(true);
+            cbKelaminMember.setEditable(true);
             taAlamatMember.setEditable(true);
             tfNoTelpMember.setEditable(true);
             tfNamaMember.requestFocus();
@@ -1888,7 +1891,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfMemberID.setEditable(false);
             tfNamaMember.setEditable(false);
-            cbJenisKleaminMember.setEditable(false);
+            cbKelaminMember.setEditable(false);
             taAlamatMember.setEditable(false);
             tfNoTelpMember.setEditable(false);
 
@@ -1904,7 +1907,7 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfMemberID.setEditable(false);
             tfNamaMember.setEditable(true);
-            cbJenisKleaminMember.setEditable(true);
+            cbKelaminMember.setEditable(true);
             taAlamatMember.setEditable(true);
             tfNoTelpMember.setEditable(true);
 
@@ -2025,7 +2028,7 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cbGenderProfile;
-    private javax.swing.JComboBox<String> cbJenisKleaminMember;
+    private javax.swing.JComboBox<String> cbKelaminMember;
     private javax.swing.JLabel imgProduct;
     private javax.swing.JLabel imgTransaction;
     private javax.swing.JLabel imgWelcome;
