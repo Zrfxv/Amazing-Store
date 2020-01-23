@@ -650,10 +650,20 @@ public class CashierPanel extends javax.swing.JFrame {
         tfMerekProduct.setBounds(280, 230, 202, 30);
 
         tfStockProduct.setBorder(null);
+        tfStockProduct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfStockProductKeyTyped(evt);
+            }
+        });
         InputPanel.add(tfStockProduct);
         tfStockProduct.setBounds(280, 340, 202, 30);
 
         tfHargaProduct.setBorder(null);
+        tfHargaProduct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfHargaProductKeyTyped(evt);
+            }
+        });
         InputPanel.add(tfHargaProduct);
         tfHargaProduct.setBounds(280, 400, 202, 30);
 
@@ -1158,21 +1168,25 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "'" + tfJenisProduct.getText() + " ',"
                         + "'" + tfStockProduct.getText() + " ',"
                         + "'" + tfHargaProduct.getText() + "')");
+                enableInputPanel(3);
+                refreshData(2);
+                bersihkan();
             } else {
                 AppDatabase.perintah.executeUpdate("update product set "
                         + "name = '" + tfNamaProduct.getText() + "',"
                         + "brand = '" + tfMerekProduct.getText() + "',"
                         + "type = '" + tfJenisProduct.getText() + "' ,"
-                        + "stock = '" + tfStockProduct.getText() + "' ,"
+                        + "stok = '" + tfStockProduct.getText() + "' ,"
                         + "price = '" + tfHargaProduct.getText() + "' "
                         + "where product_id = '" + tfProductidProduct.getText() + "';");
+                enableInputPanel(3);
+                refreshData(2);
+                bersihkan();
             }
         } catch (SQLException e) {
         }
 
-        enableInputPanel(3);
 
-        bersihkan();
     }//GEN-LAST:event_btnSimpanProductActionPerformed
 
     private void btnBatalProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalProductActionPerformed
@@ -1260,7 +1274,9 @@ public class CashierPanel extends javax.swing.JFrame {
             try {
                 AppDatabase.perintah.execute("delete from product "
                         + "where product_id ='" + tfProductidProduct.getText() + "';");
-                refreshData(1);
+                refreshData(2);
+                bersihkan();
+               
             } catch (SQLException e) {
                 System.err.println("Query delete Member gagal");
             }
@@ -1404,6 +1420,44 @@ public class CashierPanel extends javax.swing.JFrame {
     private void tfCustomerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCustomerIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfCustomerIdActionPerformed
+
+    private void tfStockProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfStockProductKeyTyped
+       char angka = evt.getKeyChar();
+
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+
+        if (tfStockProduct.getText().length() == 4) {
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Stok Melebihi 4 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_tfStockProductKeyTyped
+
+    private void tfHargaProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHargaProductKeyTyped
+          char angka = evt.getKeyChar();
+
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+
+        if (tfHargaProduct.getText().length() == 10) {
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harga Melebihi 10 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_tfHargaProductKeyTyped
 
     private void bersihkan() {
 
@@ -1586,6 +1640,7 @@ public class CashierPanel extends javax.swing.JFrame {
             btnUbahProduct.setEnabled(false);
             btnHapusProduct.setEnabled(false);
             btnBatalProduct.setEnabled(false);
+            bersihkan();
 
         } else if (model == 2) {
             //btn baru 
@@ -1628,7 +1683,7 @@ public class CashierPanel extends javax.swing.JFrame {
             btnBaruPrduct.setEnabled(false);
             btnBatalProduct.setEnabled(true);
             btnSimpanProduct.setEnabled(true);
-            btnUbahProduct.setEnabled(true);
+            btnUbahProduct.setEnabled(false);
             btnHapusProduct.setEnabled(false);
 
             tfNamaProduct.requestFocus();
@@ -1658,6 +1713,10 @@ public class CashierPanel extends javax.swing.JFrame {
 
             tfProductidProduct.setEditable(false);
             tfNamaProduct.setEditable(false);
+            tfMerekProduct.setEditable(false);
+            tfJenisProduct.setEditable(false);
+            tfStockProduct.setEditable(false);
+            tfHargaProduct.setEditable(false);
         }
 
     }
@@ -1670,14 +1729,14 @@ public class CashierPanel extends javax.swing.JFrame {
             btnUbahProfile.setEnabled(false);
             btnBatalProfile.setEnabled(true);
 
-            tfUsernameProfile.setEditable(true);
+            tfUsernameProfile.setEditable(false);
             tfPasswordProfile.setEditable(true);
             tfNamaProfile.setEditable(true);
             cbGenderProfile.setEditable(true);
             taAlamatprofile.setEditable(true);
             tfNoTelpProfile.setEditable(true);
 
-            tfUsernameProfile.requestFocus();
+            tfPasswordProfile.requestFocus();
 
             refreshData(4);
 
