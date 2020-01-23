@@ -6,6 +6,7 @@
 package main;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -47,11 +48,24 @@ public class Login extends javax.swing.JFrame {
 
         tfUsername.setText("heathcliff");
         tfUsername.setBorder(null);
+        tfUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfUsernameKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfUsernameKeyTyped(evt);
+            }
+        });
         getContentPane().add(tfUsername);
         tfUsername.setBounds(440, 390, 320, 50);
 
         tfPassword.setText("suprax125");
         tfPassword.setBorder(null);
+        tfPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfPasswordKeyPressed(evt);
+            }
+        });
         getContentPane().add(tfPassword);
         tfPassword.setBounds(440, 460, 320, 50);
 
@@ -74,8 +88,7 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-
+    private void login(){
         try {
             Statement statement = AppDatabase.getConnection().createStatement();
 
@@ -101,8 +114,31 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Maaf Password atau Username Anda Salah", "Informasi", JOptionPane.INFORMATION_MESSAGE);
 
         }
+    }
+    
+    
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+         
 
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void tfUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfUsernameKeyTyped
+      
+    }//GEN-LAST:event_tfUsernameKeyTyped
+
+    private void tfUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfUsernameKeyPressed
+      if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+           tfPassword.requestFocus();
+          
+      }
+    }//GEN-LAST:event_tfUsernameKeyPressed
+
+    private void tfPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPasswordKeyPressed
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+           btnLogin.requestFocus();
+             login();
+         }
+    }//GEN-LAST:event_tfPasswordKeyPressed
 
     public void date() {
         Date data = new Date();

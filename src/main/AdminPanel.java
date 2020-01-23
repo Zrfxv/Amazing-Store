@@ -510,9 +510,9 @@ public class AdminPanel extends javax.swing.JFrame {
         CashierPanel.add(cbGenderKaisr);
         cbGenderKaisr.setBounds(300, 280, 210, 30);
 
-        tfPasswordKasir.setText("jPasswordField1");
+        tfPasswordKasir.setBorder(null);
         CashierPanel.add(tfPasswordKasir);
-        tfPasswordKasir.setBounds(300, 160, 240, 40);
+        tfPasswordKasir.setBounds(300, 160, 240, 30);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
         CashierPanel.add(jLabel5);

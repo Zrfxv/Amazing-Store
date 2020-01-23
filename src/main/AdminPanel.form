@@ -687,11 +687,13 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="tfPasswordKasir">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="300" y="160" width="240" height="40"/>
+                  <AbsoluteConstraints x="300" y="160" width="240" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>

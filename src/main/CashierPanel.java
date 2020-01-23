@@ -372,6 +372,11 @@ public class CashierPanel extends javax.swing.JFrame {
         transaksiPanel.setBackground(new java.awt.Color(255, 255, 0));
         transaksiPanel.setLayout(null);
 
+        tfJumlah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfJumlahActionPerformed(evt);
+            }
+        });
         tfJumlah.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfJumlahKeyPressed(evt);
@@ -466,8 +471,13 @@ public class CashierPanel extends javax.swing.JFrame {
 
         tvTotalHarga.setText("jLabel21");
         transaksiPanel.add(tvTotalHarga);
-        tvTotalHarga.setBounds(890, 480, 70, 14);
+        tvTotalHarga.setBounds(890, 490, 70, 14);
 
+        tfBayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfBayarActionPerformed(evt);
+            }
+        });
         tfBayar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfBayarKeyPressed(evt);
@@ -487,7 +497,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(btntransaksiBatal);
-        btntransaksiBatal.setBounds(221, 527, 105, 23);
+        btntransaksiBatal.setBounds(221, 527, 105, 40);
 
         jButton4.setText("Transaksi Selesai");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -496,7 +506,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(jButton4);
-        jButton4.setBounds(358, 527, 113, 23);
+        jButton4.setBounds(358, 527, 113, 40);
 
         tvData.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         transaksiPanel.add(tvData);
@@ -992,6 +1002,7 @@ public class CashierPanel extends javax.swing.JFrame {
             evt.consume();
 
             JOptionPane.showMessageDialog(this, "Invoice Number Melebihi 10 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+            tfCustomerId.requestFocus();
         }
 
     }//GEN-LAST:event_tfInvoiceNumberKeyTyped
@@ -1008,9 +1019,10 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
 
-        if (tfCustomerId.getText().length() == 6) {
+        if (tfCustomerId.getText().length() == 5) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Customer Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+            tfProductId.requestFocus();
         }
 
     }//GEN-LAST:event_tfCustomerIdKeyTyped
@@ -1239,6 +1251,7 @@ public class CashierPanel extends javax.swing.JFrame {
         if (tfProductidProduct.getText().length() == 5) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Product Id Melebihi 5 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+            tfNamaProduct.requestFocus();
 
         }
     }//GEN-LAST:event_tfProductidProductKeyTyped
@@ -1306,7 +1319,8 @@ public class CashierPanel extends javax.swing.JFrame {
                 tvHarga.setText("Rp." + hasil.getString("price"));
                 tvStok.setText(hasil.getString("stok"));
             } catch (SQLException e) {
-                System.err.println("Produk Tidak Ditemukan");
+                 JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
+                tfProductId.setText("");
             }
             tfJumlah.requestFocus();
             tfJumlah.setEditable(true);
@@ -1326,7 +1340,7 @@ public class CashierPanel extends javax.swing.JFrame {
             } catch (SQLException e) {
 //               JOptionPane.showInputDialog(this,"Customer Id Tidak Ditemukan" , "Informasi",JOptionPane.ERROR_MESSAGE);
                 JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
-                tfCustomerId.setText("");
+                tfProductId.requestFocus();
             }
 
         }
@@ -1386,6 +1400,7 @@ public class CashierPanel extends javax.swing.JFrame {
         }
         transactionTable.getDataVector().removeAllElements();
         transactionTable.fireTableDataChanged();
+        
         bersihkan();
     }//GEN-LAST:event_btntransaksiBatalActionPerformed
 
@@ -1458,6 +1473,14 @@ public class CashierPanel extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_tfHargaProductKeyTyped
+
+    private void tfBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfBayarActionPerformed
+
+    private void tfJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfJumlahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfJumlahActionPerformed
 
     private void bersihkan() {
 
