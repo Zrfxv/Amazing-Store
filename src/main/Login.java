@@ -46,8 +46,13 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        tfUsername.setText("heathcliff");
+        tfUsername.setText("fandi123");
         tfUsername.setBorder(null);
+        tfUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfUsernameActionPerformed(evt);
+            }
+        });
         tfUsername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfUsernameKeyPressed(evt);
@@ -59,8 +64,13 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(tfUsername);
         tfUsername.setBounds(440, 390, 320, 50);
 
-        tfPassword.setText("suprax125");
+        tfPassword.setText("fandi123");
         tfPassword.setBorder(null);
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPasswordActionPerformed(evt);
+            }
+        });
         tfPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfPasswordKeyPressed(evt);
@@ -118,7 +128,7 @@ public class Login extends javax.swing.JFrame {
     
     
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-         
+         login();
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -139,6 +149,14 @@ public class Login extends javax.swing.JFrame {
              login();
          }
     }//GEN-LAST:event_tfPasswordKeyPressed
+
+    private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfUsernameActionPerformed
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     public void date() {
         Date data = new Date();

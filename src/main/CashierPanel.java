@@ -532,6 +532,11 @@ public class CashierPanel extends javax.swing.JFrame {
         jScrollPane3.setBounds(290, 290, 220, 140);
 
         tfNoTelpMember.setBorder(null);
+        tfNoTelpMember.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tfNoTelpMemberKeyTyped(evt);
+            }
+        });
         memberRegisterPanel.add(tfNoTelpMember);
         tfNoTelpMember.setBounds(300, 450, 210, 40);
 
@@ -1216,6 +1221,11 @@ public class CashierPanel extends javax.swing.JFrame {
         cbKelaminMember.setSelectedItem(memberTable.getValueAt(TableMember.getSelectedRow(), 2).toString());
         taAlamatMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 3).toString());
         tfNoTelpMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 4).toString());
+        
+        
+        
+        
+        
     }//GEN-LAST:event_TableMemberMouseClicked
 
     private void btnSimpanProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanProfileActionPerformed
@@ -1342,7 +1352,7 @@ public class CashierPanel extends javax.swing.JFrame {
             } catch (SQLException e) {
 //               JOptionPane.showInputDialog(this,"Customer Id Tidak Ditemukan" , "Informasi",JOptionPane.ERROR_MESSAGE);
                 JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
-                tfProductId.requestFocus();
+                tfCustomerId.requestFocus();
             }
 
         }
@@ -1403,6 +1413,12 @@ public class CashierPanel extends javax.swing.JFrame {
         transactionTable.getDataVector().removeAllElements();
         transactionTable.fireTableDataChanged();
         
+         tfProductId.setEditable(true);
+        tfJumlah.setEditable(true);
+        
+        tfInvoiceNumber.setEditable(false);
+        tfCustomerId.setEditable(false);
+                    
         bersihkan();
     }//GEN-LAST:event_btntransaksiBatalActionPerformed
 
@@ -1414,6 +1430,14 @@ public class CashierPanel extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         updateStok();
         kasir();
+        tfProductId.setEditable(false);
+        tfJumlah.setEditable(false);
+        
+        tfInvoiceNumber.setEditable(true);
+        tfCustomerId.setEditable(true);
+        
+        
+        
 
         
         bersihkan();
@@ -1483,6 +1507,24 @@ public class CashierPanel extends javax.swing.JFrame {
     private void tfJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfJumlahActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfJumlahActionPerformed
+
+    private void tfNoTelpMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNoTelpMemberKeyTyped
+       
+             char angka = evt.getKeyChar();
+        
+        if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
+
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(this, "Inputan Harus Berbentuk Angka", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+
+        if (tfNoTelpMember.getText().length() == 13) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "No Telpon Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_tfNoTelpMemberKeyTyped
 
     private void bersihkan() {
 

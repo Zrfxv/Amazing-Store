@@ -424,14 +424,14 @@ public class AdminPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Username", "Nama", "Jens Kelamin", "Alamat", "No Telpon"
+                "Username", "Password", "Nama", "Jenis Kelamin", "Alamat", "No Telpon"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -581,7 +581,15 @@ public class AdminPanel extends javax.swing.JFrame {
             new String [] {
                 "Number ID", "Nama", "Jenis Kelamin", "Alamat", "No Telpon"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         MemberTable.setFocusable(false);
         MemberTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
         MemberTable.setShowVerticalLines(false);
@@ -992,11 +1000,17 @@ public class AdminPanel extends javax.swing.JFrame {
         btnSimpanMember.requestFocus();
         refreshData(4);
         EnableMember(1);
-        bersihkan();
+  
 
     }//GEN-LAST:event_btnSimpanMemberActionPerformed
 
     private void MemberTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MemberTableMouseClicked
+       
+        tfMemberID.setText(memberTable.getValueAt(MemberTable.getSelectedRow(),0).toString());
+        tfNamaMember.setText(memberTable.getValueAt(MemberTable.getSelectedRow(),1).toString());
+        cbJenisKleaminMember.setSelectedItem(memberTable.getValueAt(MemberTable.getSelectedRow(),2).toString());
+        taAlamatMember.setText(memberTable.getValueAt(MemberTable.getSelectedRow(),3).toString());
+        tfNoTelpMember.setText(memberTable.getValueAt(MemberTable.getSelectedRow(),4).toString());
         EnableMember(4);
     }//GEN-LAST:event_MemberTableMouseClicked
 
@@ -1062,7 +1076,7 @@ public class AdminPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, " No Telpon Tidak Boleh Kosong", "Informasi", JOptionPane.WARNING_MESSAGE);
             tfNoTelpMember.requestFocus();
         } else {
-
+                
         }
 
         // Query Simpan Kasir
@@ -1076,6 +1090,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         + "'" + cbGenderKaisr.getSelectedItem() + "',"
                         + "'" + taAlamatKasir.getText() + "', "
                         + "'" + tfNoTelpKasir.getText() + "');");
+                     
                 System.out.println("Query insert cashier berhasil");
             } else {
                 AppDatabase.perintah.executeUpdate("update employee set "
@@ -1086,26 +1101,49 @@ public class AdminPanel extends javax.swing.JFrame {
                         + "address = '" + taAlamatKasir.getText() + "' ,"
                         + "telp = '" + tfNoTelpProfile.getText() + "' "
                         + "where username = '" + tfUsernameProfile.getText() + "';");
+                
             }
         } catch (SQLException e) {
             System.err.println("Query Simpan Gagal " + e);
+           
+          
         }
-
-        EnableKasir(1);
+    
+         refreshData(3);
+         EnableKasir(1);
 
 
     }//GEN-LAST:event_btnSimpanKasirActionPerformed
 
     private void CashierTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CashierTableMouseClicked
+     
         EnableKasir(4);
+        tfUsernameKasir.setText(cashierTable.getValueAt(CashierTable.getSelectedRow(),0).toString());
+        tfPasswordKasir.setText(cashierTable.getValueAt(CashierTable.getSelectedRow(),1).toString());
+        tfNamaKasir.setText(cashierTable.getValueAt(CashierTable.getSelectedRow(), 2).toString());
+        cbGenderKaisr.setSelectedItem(cashierTable.getValueAt(CashierTable.getSelectedRow(), 3).toString());
+        taAlamatKasir.setText(cashierTable.getValueAt(CashierTable.getSelectedRow(),4).toString());
+        tfNoTelpKasir.setText(cashierTable.getValueAt(CashierTable.getSelectedRow(), 5).toString());
+     
+        
+        
+       
+        
     }//GEN-LAST:event_CashierTableMouseClicked
 
     private void btnUbahKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahKasirActionPerformed
+         saveMode = false;
         EnableKasir(5);
-        saveMode = false;
+       
     }//GEN-LAST:event_btnUbahKasirActionPerformed
 
     private void btnHapusKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusKasirActionPerformed
+     int konfirmasi = JOptionPane.showConfirmDialog(this,
+                "Apakah Anda Yakin?\n Dengan Menghapus Kasir akan Menghilangkan\n Seluruh Data Kasir yang ada",
+                "Konfirmasi",JOptionPane.YES_NO_OPTION);
+          
+       if (konfirmasi == 0){
+   
         try {
             AppDatabase.perintah.executeUpdate("delete from employee "
                     + "where username='" + tfUsernameKasir.getText() + "';");
@@ -1114,7 +1152,11 @@ public class AdminPanel extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.err.println("Query delete cashier gagal " + e);
         }
-        EnableKasir(6);
+          EnableKasir(6);
+           refreshData(3);
+          
+       }
+       
     }//GEN-LAST:event_btnHapusKasirActionPerformed
 
     private void btnBatalKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalKasirActionPerformed
@@ -1318,6 +1360,7 @@ public class AdminPanel extends javax.swing.JFrame {
             btnHapusKasir.setEnabled(false);
             btnBatalKasir.setEnabled(false);
             btnBatalKasir.requestFocus();
+            bersihkan();
 
         } else if (mode == 7) {
 
@@ -1398,10 +1441,10 @@ public class AdminPanel extends javax.swing.JFrame {
         } else if (mode == 4) {
             //klik di tabel
             tfMemberID.setEditable(false);
-            tfNamaMember.setEditable(true);
-            cbJenisKleaminMember.setEnabled(true);
-            taAlamatMember.setEnabled(true);
-            tfNoTelpMember.setEditable(true);
+            tfNamaMember.setEditable(false);
+            cbJenisKleaminMember.setEnabled(false);
+            taAlamatMember.setEnabled(false);
+            tfNoTelpMember.setEditable(false);
 
             btnBaruMember.setEnabled(false);
             btnSimpanMember.setEnabled(false);
@@ -1441,6 +1484,7 @@ public class AdminPanel extends javax.swing.JFrame {
             btnHapusMember.setEnabled(false);
             btnBatalMember.setEnabled(false);
             btnBaruMember.requestFocus();
+            bersihkan();
 
         } else if (mode == 7) {
 
@@ -1572,10 +1616,11 @@ public class AdminPanel extends javax.swing.JFrame {
             cashierTable.getDataVector().removeAllElements();
             cashierTable.fireTableDataChanged();
             try {
-                hasil = AppDatabase.perintah.executeQuery("select username, name, gender, address, telp from employee where level ='cashier';");
+                hasil = AppDatabase.perintah.executeQuery("select username, name, password, gender, address, telp from employee where level ='cashier';");
                 while (hasil.next()) {
                     cashierTable.addRow(new Object[]{
                         hasil.getString("username"),
+                        hasil.getString("password"), //memperbaiki 
                         hasil.getString("name"),
                         hasil.getString("gender"),
                         hasil.getString("address"),
