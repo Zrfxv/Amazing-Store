@@ -289,7 +289,7 @@ public class AdminPanel extends javax.swing.JFrame {
         ProductTablePanel.setBackground(new java.awt.Color(255, 51, 0));
         ProductTablePanel.setOpaque(false);
 
-        DataProductTable.setForeground(new java.awt.Color(255, 255, 255));
+        DataProductTable.setForeground(new java.awt.Color(255, 102, 51));
         DataProductTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -328,7 +328,7 @@ public class AdminPanel extends javax.swing.JFrame {
         TransactionTablePanel.setBackground(new java.awt.Color(204, 204, 0));
         TransactionTablePanel.setOpaque(false);
 
-        DataTransactionTable.setForeground(new java.awt.Color(255, 255, 255));
+        DataTransactionTable.setForeground(new java.awt.Color(255, 102, 51));
         DataTransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
