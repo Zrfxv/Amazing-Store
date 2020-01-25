@@ -56,6 +56,19 @@ public class CashierPanel extends javax.swing.JFrame {
         TableTransaction.setBackground(Color.WHITE);
         TableTransaction.getTableHeader().setForeground(Color.PINK);
         TableTransaction.setRowHeight(25);
+        
+        TableMember.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        TableMember.getTableHeader().setOpaque(false);
+        TableMember.setBackground(Color.WHITE);
+        TableMember.getTableHeader().setForeground(Color.PINK);
+        TableMember.setRowHeight(25);
+        
+        TableProduct.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        TableProduct.getTableHeader().setOpaque(false);
+        TableProduct.setBackground(Color.WHITE);
+        TableProduct.getTableHeader().setForeground(Color.PINK);
+        TableProduct.setRowHeight(25);
+        
 
     }
 
@@ -381,6 +394,7 @@ public class CashierPanel extends javax.swing.JFrame {
         transaksiPanel.setBackground(new java.awt.Color(255, 255, 0));
         transaksiPanel.setLayout(null);
 
+        tfJumlah.setBorder(null);
         tfJumlah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfJumlahActionPerformed(evt);
@@ -501,6 +515,7 @@ public class CashierPanel extends javax.swing.JFrame {
         transaksiPanel.add(tvTotalHarga);
         tvTotalHarga.setBounds(910, 516, 180, 30);
 
+        tfBayar.setBorder(null);
         tfBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfBayarActionPerformed(evt);
@@ -602,9 +617,20 @@ public class CashierPanel extends javax.swing.JFrame {
             new String [] {
                 "Member Id", "Nama", "Jenis Kelamin", "Alamat", "No Telpon"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TableMember.setFocusable(false);
         TableMember.setGridColor(new java.awt.Color(0, 102, 255));
         TableMember.setOpaque(false);
+        TableMember.setShowVerticalLines(false);
+        TableMember.getTableHeader().setReorderingAllowed(false);
         TableMember.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TableMemberMouseClicked(evt);
@@ -732,6 +758,9 @@ public class CashierPanel extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        TableProduct.setFocusable(false);
+        TableProduct.setShowVerticalLines(false);
+        TableProduct.getTableHeader().setReorderingAllowed(false);
         TableProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TableProductMouseClicked(evt);
