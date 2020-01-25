@@ -992,6 +992,8 @@ public class AdminPanel extends javax.swing.JFrame {
                 System.out.println("Query update berhasil");
             }
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this,"Member Id Tidak Boleh Sama\nMohon Ganti Yang Lain", "Konfirmasi" , 
+                    JOptionPane.ERROR_MESSAGE);
         }
 
         btnSimpanMember.requestFocus();

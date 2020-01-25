@@ -12,6 +12,8 @@ import AppPackage.AnimationClass;
  * @author muham
  */
 public class AboutPanel extends javax.swing.JFrame {
+    
+    AnimationClass animasi = new AnimationClass();
 
     /**
      * Creates new form AboutPanel
@@ -42,19 +44,37 @@ public class AboutPanel extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         popupAzma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/azma3.png"))); // NOI18N
+        popupAzma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                popupAzmaMouseClicked(evt);
+            }
+        });
         getContentPane().add(popupAzma);
-        popupAzma.setBounds(40, 60, 230, 250);
+        popupAzma.setBounds(35, -250, 230, 250);
 
         popupRizal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/rizal3.png"))); // NOI18N
+        popupRizal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                popupRizalMouseClicked(evt);
+            }
+        });
         getContentPane().add(popupRizal);
-        popupRizal.setBounds(290, 60, 230, 250);
+        popupRizal.setBounds(290, -250, 230, 250);
 
         popupFandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi3.png"))); // NOI18N
+        popupFandi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                popupFandiMouseClicked(evt);
+            }
+        });
         getContentPane().add(popupFandi);
-        popupFandi.setBounds(550, 60, 230, 250);
+        popupFandi.setBounds(550, -250, 230, 250);
 
         Azma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/azma1.png"))); // NOI18N
         Azma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AzmaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 AzmaMouseEntered(evt);
             }
@@ -67,6 +87,9 @@ public class AboutPanel extends javax.swing.JFrame {
 
         Rizal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/rizal1.png"))); // NOI18N
         Rizal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RizalMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 RizalMouseEntered(evt);
             }
@@ -79,6 +102,9 @@ public class AboutPanel extends javax.swing.JFrame {
 
         Fandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi1.png"))); // NOI18N
         Fandi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FandiMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 FandiMouseEntered(evt);
             }
@@ -119,6 +145,32 @@ public class AboutPanel extends javax.swing.JFrame {
     private void FandiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FandiMouseExited
         Fandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi1.png")));
     }//GEN-LAST:event_FandiMouseExited
+
+    private void AzmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AzmaMouseClicked
+       animasi.jLabelYDown(-250, 60, 15, 10,popupAzma);
+       
+       
+    }//GEN-LAST:event_AzmaMouseClicked
+
+    private void RizalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RizalMouseClicked
+        animasi.jLabelYDown(-250, 60, 15, 10, popupRizal);
+    }//GEN-LAST:event_RizalMouseClicked
+
+    private void popupRizalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_popupRizalMouseClicked
+        animasi.jLabelYUp(60, -250, 15, 10, popupRizal);
+    }//GEN-LAST:event_popupRizalMouseClicked
+
+    private void FandiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FandiMouseClicked
+      animasi.jLabelYDown(-250, 60, 15, 10, popupFandi);
+    }//GEN-LAST:event_FandiMouseClicked
+
+    private void popupFandiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_popupFandiMouseClicked
+      animasi.jLabelYUp(60, -250, 15, 10, popupFandi);
+    }//GEN-LAST:event_popupFandiMouseClicked
+
+    private void popupAzmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_popupAzmaMouseClicked
+      animasi.jLabelYUp(60, -250, 15, 10, popupAzma);
+    }//GEN-LAST:event_popupAzmaMouseClicked
 
     public static void summonAboutPanel() {
         AboutPanel aboutPanel = new AboutPanel();
