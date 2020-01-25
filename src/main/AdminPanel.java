@@ -59,7 +59,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         MainPanel = new javax.swing.JPanel();
         WelcomePanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        tvHello = new javax.swing.JLabel();
         imgWelcome = new javax.swing.JLabel();
         DataPanel = new javax.swing.JPanel();
         tvDataProduct = new javax.swing.JLabel();
@@ -87,7 +87,7 @@ public class AdminPanel extends javax.swing.JFrame {
         btnBatalKasir = new javax.swing.JButton();
         cbGenderKaisr = new javax.swing.JComboBox<>();
         tfPasswordKasir = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         MemberPanel = new javax.swing.JPanel();
         tfNoTelpMember = new javax.swing.JTextField();
         tfMemberID = new javax.swing.JTextField();
@@ -246,10 +246,11 @@ public class AdminPanel extends javax.swing.JFrame {
         WelcomePanel.setBackground(new java.awt.Color(153, 153, 255));
         WelcomePanel.setLayout(null);
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("jLabel2");
-        WelcomePanel.add(jLabel2);
-        jLabel2.setBounds(40, 300, 150, 30);
+        tvHello.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        tvHello.setForeground(new java.awt.Color(255, 255, 255));
+        tvHello.setText("jLabel2");
+        WelcomePanel.add(tvHello);
+        tvHello.setBounds(40, 300, 500, 30);
 
         imgWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/WelcomeAdmin.png"))); // NOI18N
         imgWelcome.setText("jLabel1");
@@ -261,7 +262,8 @@ public class AdminPanel extends javax.swing.JFrame {
         DataPanel.setBackground(new java.awt.Color(0, 102, 153));
         DataPanel.setLayout(null);
 
-        tvDataProduct.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tvDataProduct.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tvDataProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tvDataProduct.setText("Data Product");
         tvDataProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -269,9 +271,10 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         DataPanel.add(tvDataProduct);
-        tvDataProduct.setBounds(870, 50, 90, 17);
+        tvDataProduct.setBounds(850, 32, 150, 30);
 
-        tvDataTransaction.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tvDataTransaction.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tvDataTransaction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tvDataTransaction.setText("Data Transaksi");
         tvDataTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -279,13 +282,14 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         DataPanel.add(tvDataTransaction);
-        tvDataTransaction.setBounds(200, 50, 120, 17);
+        tvDataTransaction.setBounds(140, 30, 160, 30);
 
         MainPanelAdmin.setLayout(new java.awt.CardLayout());
 
         ProductTablePanel.setBackground(new java.awt.Color(255, 51, 0));
         ProductTablePanel.setOpaque(false);
 
+        DataProductTable.setForeground(new java.awt.Color(255, 255, 255));
         DataProductTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -316,9 +320,7 @@ public class AdminPanel extends javax.swing.JFrame {
         );
         ProductTablePanelLayout.setVerticalGroup(
             ProductTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProductTablePanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
 
         MainPanelAdmin.add(ProductTablePanel, "card2");
@@ -326,6 +328,7 @@ public class AdminPanel extends javax.swing.JFrame {
         TransactionTablePanel.setBackground(new java.awt.Color(204, 204, 0));
         TransactionTablePanel.setOpaque(false);
 
+        DataTransactionTable.setForeground(new java.awt.Color(255, 255, 255));
         DataTransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -356,18 +359,15 @@ public class AdminPanel extends javax.swing.JFrame {
         );
         TransactionTablePanelLayout.setVerticalGroup(
             TransactionTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TransactionTablePanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
 
         MainPanelAdmin.add(TransactionTablePanel, "card3");
 
         DataPanel.add(MainPanelAdmin);
-        MainPanelAdmin.setBounds(50, 120, 1040, 390);
+        MainPanelAdmin.setBounds(50, 80, 1040, 470);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/BlankPanel.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
         DataPanel.add(jLabel1);
         jLabel1.setBounds(0, 0, 1150, 640);
 
@@ -383,7 +383,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(tfUsernameKasir);
-        tfUsernameKasir.setBounds(300, 100, 240, 30);
+        tfUsernameKasir.setBounds(300, 100, 240, 40);
 
         tfNamaKasir.setBorder(null);
         tfNamaKasir.addActionListener(new java.awt.event.ActionListener() {
@@ -392,7 +392,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(tfNamaKasir);
-        tfNamaKasir.setBounds(300, 220, 230, 30);
+        tfNamaKasir.setBounds(300, 240, 240, 40);
 
         tfNoTelpKasir.setBorder(null);
         tfNoTelpKasir.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -401,7 +401,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(tfNoTelpKasir);
-        tfNoTelpKasir.setBounds(310, 500, 220, 30);
+        tfNoTelpKasir.setBounds(300, 570, 240, 40);
 
         taAlamatKasir.setColumns(20);
         taAlamatKasir.setRows(5);
@@ -414,7 +414,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane3.setViewportView(taAlamatKasir);
 
         CashierPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(310, 336, 200, 140);
+        jScrollPane3.setBounds(300, 390, 240, 150);
 
         CashierTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -451,7 +451,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane7.setViewportView(CashierTable);
 
         CashierPanel.add(jScrollPane7);
-        jScrollPane7.setBounds(580, 90, 530, 370);
+        jScrollPane7.setBounds(580, 90, 530, 420);
 
         btnBaruKasir.setText("Baru");
         btnBaruKasir.addActionListener(new java.awt.event.ActionListener() {
@@ -460,7 +460,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(btnBaruKasir);
-        btnBaruKasir.setBounds(590, 480, 90, 40);
+        btnBaruKasir.setBounds(610, 530, 90, 40);
 
         btnSimpanKasir.setText("Simpan");
         btnSimpanKasir.addActionListener(new java.awt.event.ActionListener() {
@@ -469,7 +469,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(btnSimpanKasir);
-        btnSimpanKasir.setBounds(700, 480, 90, 40);
+        btnSimpanKasir.setBounds(720, 530, 90, 40);
 
         btnUbahKasir.setText("Ubah");
         btnUbahKasir.addActionListener(new java.awt.event.ActionListener() {
@@ -478,7 +478,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(btnUbahKasir);
-        btnUbahKasir.setBounds(810, 480, 80, 40);
+        btnUbahKasir.setBounds(830, 530, 80, 40);
 
         btnHapusKasir.setText("Hapus");
         btnHapusKasir.addActionListener(new java.awt.event.ActionListener() {
@@ -487,7 +487,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(btnHapusKasir);
-        btnHapusKasir.setBounds(920, 480, 80, 40);
+        btnHapusKasir.setBounds(930, 530, 80, 40);
 
         btnBatalKasir.setText("Batal");
         btnBatalKasir.addActionListener(new java.awt.event.ActionListener() {
@@ -496,7 +496,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(btnBatalKasir);
-        btnBatalKasir.setBounds(1030, 480, 80, 40);
+        btnBatalKasir.setBounds(1030, 530, 80, 40);
 
         cbGenderKaisr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan", " " }));
         cbGenderKaisr.addActionListener(new java.awt.event.ActionListener() {
@@ -505,15 +505,15 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         CashierPanel.add(cbGenderKaisr);
-        cbGenderKaisr.setBounds(300, 280, 210, 30);
+        cbGenderKaisr.setBounds(300, 320, 240, 30);
 
         tfPasswordKasir.setBorder(null);
         CashierPanel.add(tfPasswordKasir);
-        tfPasswordKasir.setBounds(300, 160, 240, 30);
+        tfPasswordKasir.setBounds(300, 170, 240, 40);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
-        CashierPanel.add(jLabel5);
-        jLabel5.setBounds(0, 0, 1155, 651);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/ProfilePanel.png"))); // NOI18N
+        CashierPanel.add(jLabel6);
+        jLabel6.setBounds(0, 0, 1150, 650);
 
         MainPanel.add(CashierPanel, "card4");
 
@@ -532,7 +532,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(tfNoTelpMember);
-        tfNoTelpMember.setBounds(290, 460, 220, 30);
+        tfNoTelpMember.setBounds(290, 520, 240, 40);
 
         tfMemberID.setBorder(null);
         tfMemberID.addActionListener(new java.awt.event.ActionListener() {
@@ -546,7 +546,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(tfMemberID);
-        tfMemberID.setBounds(290, 110, 220, 40);
+        tfMemberID.setBounds(290, 120, 240, 40);
 
         tfNamaMember.setBorder(null);
         tfNamaMember.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -555,25 +555,22 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(tfNamaMember);
-        tfNamaMember.setBounds(290, 170, 220, 30);
+        tfNamaMember.setBounds(290, 190, 240, 40);
 
         taAlamatMember.setColumns(20);
         taAlamatMember.setRows(5);
         jScrollPane4.setViewportView(taAlamatMember);
 
         MemberPanel.add(jScrollPane4);
-        jScrollPane4.setBounds(290, 286, 210, 140);
+        jScrollPane4.setBounds(290, 340, 240, 150);
 
         cbJenisKleaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
         MemberPanel.add(cbJenisKleaminMember);
-        cbJenisKleaminMember.setBounds(290, 230, 220, 30);
+        cbJenisKleaminMember.setBounds(290, 270, 240, 30);
 
         MemberTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Number ID", "Nama", "Jenis Kelamin", "Alamat", "No Telpon"
@@ -599,7 +596,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane5.setViewportView(MemberTable);
 
         MemberPanel.add(jScrollPane5);
-        jScrollPane5.setBounds(600, 100, 510, 340);
+        jScrollPane5.setBounds(600, 110, 520, 400);
 
         btnBaruMember.setText("Baru");
         btnBaruMember.addActionListener(new java.awt.event.ActionListener() {
@@ -608,7 +605,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(btnBaruMember);
-        btnBaruMember.setBounds(590, 460, 90, 40);
+        btnBaruMember.setBounds(600, 530, 90, 40);
 
         btnSimpanMember.setText("Simpan");
         btnSimpanMember.addActionListener(new java.awt.event.ActionListener() {
@@ -617,7 +614,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(btnSimpanMember);
-        btnSimpanMember.setBounds(700, 460, 90, 40);
+        btnSimpanMember.setBounds(710, 530, 90, 40);
 
         btnUbahMember.setText("Ubah");
         btnUbahMember.addActionListener(new java.awt.event.ActionListener() {
@@ -626,7 +623,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(btnUbahMember);
-        btnUbahMember.setBounds(810, 460, 90, 40);
+        btnUbahMember.setBounds(820, 530, 90, 40);
 
         btnHapusMember.setText("Hapus");
         btnHapusMember.addActionListener(new java.awt.event.ActionListener() {
@@ -635,7 +632,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(btnHapusMember);
-        btnHapusMember.setBounds(920, 460, 80, 40);
+        btnHapusMember.setBounds(930, 530, 80, 40);
 
         btnBatalMember.setText("Batal");
         btnBatalMember.addActionListener(new java.awt.event.ActionListener() {
@@ -644,7 +641,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         MemberPanel.add(btnBatalMember);
-        btnBatalMember.setBounds(1020, 460, 90, 40);
+        btnBatalMember.setBounds(1030, 530, 90, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/MemberPanel.png"))); // NOI18N
         MemberPanel.add(jLabel4);
@@ -661,7 +658,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnSimpanProfile);
-        btnSimpanProfile.setBounds(720, 470, 90, 40);
+        btnSimpanProfile.setBounds(730, 540, 90, 40);
 
         btnUbahProfile.setText("Ubah");
         btnUbahProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -670,7 +667,7 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnUbahProfile);
-        btnUbahProfile.setBounds(610, 470, 90, 40);
+        btnUbahProfile.setBounds(610, 540, 90, 40);
 
         btnBatalProfile.setText("Batal");
         btnBatalProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -679,19 +676,19 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnBatalProfile);
-        btnBatalProfile.setBounds(830, 470, 80, 40);
+        btnBatalProfile.setBounds(850, 540, 80, 40);
 
         tfUsernameProfile.setBorder(null);
         ProfilePanel.add(tfUsernameProfile);
-        tfUsernameProfile.setBounds(300, 100, 230, 30);
+        tfUsernameProfile.setBounds(300, 100, 240, 40);
 
         tfNamaProfile.setBorder(null);
         ProfilePanel.add(tfNamaProfile);
-        tfNamaProfile.setBounds(300, 220, 230, 30);
+        tfNamaProfile.setBounds(300, 240, 240, 40);
 
         cbGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
         ProfilePanel.add(cbGenderProfile);
-        cbGenderProfile.setBounds(300, 280, 230, 30);
+        cbGenderProfile.setBounds(300, 320, 240, 30);
 
         taAlamatProfile.setColumns(20);
         taAlamatProfile.setRows(5);
@@ -699,7 +696,7 @@ public class AdminPanel extends javax.swing.JFrame {
         jScrollPane8.setViewportView(taAlamatProfile);
 
         ProfilePanel.add(jScrollPane8);
-        jScrollPane8.setBounds(300, 330, 210, 150);
+        jScrollPane8.setBounds(300, 390, 240, 150);
 
         tfNoTelpProfile.setBorder(null);
         tfNoTelpProfile.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -708,20 +705,20 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(tfNoTelpProfile);
-        tfNoTelpProfile.setBounds(300, 500, 230, 30);
+        tfNoTelpProfile.setBounds(300, 570, 240, 40);
 
         tfPasswordProfile.setBorder(null);
         ProfilePanel.add(tfPasswordProfile);
-        tfPasswordProfile.setBounds(300, 160, 230, 30);
+        tfPasswordProfile.setBounds(300, 170, 240, 40);
 
         taProfile.setColumns(20);
         taProfile.setRows(5);
         jScrollPane1.setViewportView(taProfile);
 
         ProfilePanel.add(jScrollPane1);
-        jScrollPane1.setBounds(610, 90, 490, 350);
+        jScrollPane1.setBounds(610, 90, 490, 430);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/ProfilePanel.png"))); // NOI18N
         ProfilePanel.add(jLabel3);
         jLabel3.setBounds(0, 0, 1150, 650);
 
@@ -766,7 +763,8 @@ public class AdminPanel extends javax.swing.JFrame {
 
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-//        jLabel1.setText("Hi, " + Encapsulation.getName());
+        tvHello.setText(Encapsulation.getName());
+        tvUser.setText("Hi, "+ Encapsulation.getUsername());
         MainPanelAdmin.removeAll();
         MainPanelAdmin.repaint();
         MainPanelAdmin.revalidate();
@@ -777,8 +775,6 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tvDataTransaction.setForeground(utama);
         tvDataProduct.setForeground(klik);
-
-       
 
         EnableMember(1);
         EnableKasir(1);
@@ -1764,10 +1760,9 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel imgWelcome;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1796,6 +1791,7 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel tvData;
     private javax.swing.JLabel tvDataProduct;
     private javax.swing.JLabel tvDataTransaction;
+    private javax.swing.JLabel tvHello;
     private javax.swing.JLabel tvMember;
     private javax.swing.JLabel tvUser;
     // End of variables declaration//GEN-END:variables

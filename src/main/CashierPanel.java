@@ -281,7 +281,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(tfNamaProfile);
-        tfNamaProfile.setBounds(300, 220, 240, 33);
+        tfNamaProfile.setBounds(300, 243, 240, 40);
 
         tfPasswordProfile.setBorder(null);
         tfPasswordProfile.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -290,7 +290,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(tfPasswordProfile);
-        tfPasswordProfile.setBounds(300, 160, 240, 33);
+        tfPasswordProfile.setBounds(300, 170, 240, 40);
 
         tfUsernameProfile.setBorder(null);
         tfUsernameProfile.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -299,12 +299,12 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(tfUsernameProfile);
-        tfUsernameProfile.setBounds(300, 100, 240, 33);
+        tfUsernameProfile.setBounds(300, 100, 240, 40);
 
         cbGenderProfile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
         cbGenderProfile.setEnabled(false);
         ProfilePanel.add(cbGenderProfile);
-        cbGenderProfile.setBounds(300, 280, 230, 30);
+        cbGenderProfile.setBounds(300, 320, 230, 30);
 
         taAlamatprofile.setColumns(20);
         taAlamatprofile.setRows(5);
@@ -317,7 +317,7 @@ public class CashierPanel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(taAlamatprofile);
 
         ProfilePanel.add(jScrollPane1);
-        jScrollPane1.setBounds(300, 330, 220, 150);
+        jScrollPane1.setBounds(310, 390, 230, 140);
 
         tfNoTelpProfile.setBorder(null);
         tfNoTelpProfile.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -326,7 +326,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(tfNoTelpProfile);
-        tfNoTelpProfile.setBounds(300, 500, 230, 33);
+        tfNoTelpProfile.setBounds(300, 570, 230, 40);
 
         btnSimpanProfile.setText("Simpan");
         btnSimpanProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +335,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnSimpanProfile);
-        btnSimpanProfile.setBounds(710, 470, 90, 40);
+        btnSimpanProfile.setBounds(720, 540, 90, 40);
 
         btnUbahProfile.setText("Ubah");
         btnUbahProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -344,7 +344,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnUbahProfile);
-        btnUbahProfile.setBounds(590, 470, 90, 40);
+        btnUbahProfile.setBounds(600, 540, 90, 40);
 
         btnBatalProfile.setText("Batal");
         btnBatalProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -353,7 +353,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         ProfilePanel.add(btnBatalProfile);
-        btnBatalProfile.setBounds(820, 470, 90, 40);
+        btnBatalProfile.setBounds(830, 540, 90, 40);
 
         taProfile.setEditable(false);
         taProfile.setColumns(20);
@@ -361,10 +361,10 @@ public class CashierPanel extends javax.swing.JFrame {
         jScrollPane7.setViewportView(taProfile);
 
         ProfilePanel.add(jScrollPane7);
-        jScrollPane7.setBounds(590, 100, 480, 350);
+        jScrollPane7.setBounds(600, 100, 490, 420);
 
         imgTransaction.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        imgTransaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/Profile.png"))); // NOI18N
+        imgTransaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/ProfilePanel.png"))); // NOI18N
         ProfilePanel.add(imgTransaction);
         imgTransaction.setBounds(0, 0, 1155, 650);
 
@@ -384,7 +384,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(tfJumlah);
-        tfJumlah.setBounds(890, 120, 129, 30);
+        tfJumlah.setBounds(920, 130, 70, 30);
 
         tfCustomerId.setBorder(null);
         tfCustomerId.addActionListener(new java.awt.event.ActionListener() {
@@ -413,7 +413,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(tfInvoiceNumber);
-        tfInvoiceNumber.setBounds(280, 20, 170, 30);
+        tfInvoiceNumber.setBounds(290, 20, 170, 30);
 
         tvNamaProduk.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         tvNamaProduk.setForeground(new java.awt.Color(255, 255, 255));
@@ -446,7 +446,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(tfProductId);
-        tfProductId.setBounds(50, 130, 160, 30);
+        tfProductId.setBounds(50, 130, 190, 30);
 
         TableTransaction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -468,11 +468,13 @@ public class CashierPanel extends javax.swing.JFrame {
         jScrollPane2.setViewportView(TableTransaction);
 
         transaksiPanel.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 190, 1070, 280);
+        jScrollPane2.setBounds(20, 190, 1090, 280);
 
+        tvTotalHarga.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tvTotalHarga.setForeground(new java.awt.Color(255, 255, 255));
         tvTotalHarga.setText("jLabel21");
         transaksiPanel.add(tvTotalHarga);
-        tvTotalHarga.setBounds(890, 490, 70, 14);
+        tvTotalHarga.setBounds(910, 516, 180, 30);
 
         tfBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,11 +487,13 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(tfBayar);
-        tfBayar.setBounds(890, 560, 170, 20);
+        tfBayar.setBounds(910, 560, 180, 30);
 
+        tvKembalian.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tvKembalian.setForeground(new java.awt.Color(255, 255, 255));
         tvKembalian.setText("label");
         transaksiPanel.add(tvKembalian);
-        tvKembalian.setBounds(890, 610, 230, 14);
+        tvKembalian.setBounds(910, 606, 180, 30);
 
         btntransaksiBatal.setText("Transaksi Batal");
         btntransaksiBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -498,7 +502,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(btntransaksiBatal);
-        btntransaksiBatal.setBounds(221, 527, 105, 40);
+        btntransaksiBatal.setBounds(80, 500, 220, 50);
 
         jButton4.setText("Transaksi Selesai");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -507,11 +511,14 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         transaksiPanel.add(jButton4);
-        jButton4.setBounds(358, 527, 113, 40);
+        jButton4.setBounds(330, 500, 220, 50);
 
-        tvData.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tvData.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tvData.setForeground(new java.awt.Color(255, 255, 255));
+        tvData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tvData.setText("TIME");
         transaksiPanel.add(tvData);
-        tvData.setBounds(160, 600, 240, 30);
+        tvData.setBounds(930, 20, 200, 40);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/TransactionPanel.png"))); // NOI18N
         transaksiPanel.add(jLabel9);
@@ -529,7 +536,7 @@ public class CashierPanel extends javax.swing.JFrame {
         jScrollPane3.setViewportView(taAlamatMember);
 
         memberRegisterPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(290, 290, 220, 140);
+        jScrollPane3.setBounds(290, 340, 230, 150);
 
         tfNoTelpMember.setBorder(null);
         tfNoTelpMember.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -538,7 +545,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(tfNoTelpMember);
-        tfNoTelpMember.setBounds(300, 450, 210, 40);
+        tfNoTelpMember.setBounds(290, 520, 240, 40);
 
         tfMemberID.setBorder(null);
         tfMemberID.addActionListener(new java.awt.event.ActionListener() {
@@ -552,7 +559,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(tfMemberID);
-        tfMemberID.setBounds(290, 110, 230, 40);
+        tfMemberID.setBounds(290, 120, 240, 40);
 
         tfNamaMember.setBorder(null);
         tfNamaMember.addActionListener(new java.awt.event.ActionListener() {
@@ -561,7 +568,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(tfNamaMember);
-        tfNamaMember.setBounds(290, 170, 234, 40);
+        tfNamaMember.setBounds(290, 190, 240, 40);
 
         TableMember.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -581,7 +588,7 @@ public class CashierPanel extends javax.swing.JFrame {
         jScrollPane4.setViewportView(TableMember);
 
         memberRegisterPanel.add(jScrollPane4);
-        jScrollPane4.setBounds(592, 110, 500, 230);
+        jScrollPane4.setBounds(582, 110, 530, 400);
 
         btnBaruMemeber.setText("Baru");
         btnBaruMemeber.addActionListener(new java.awt.event.ActionListener() {
@@ -590,7 +597,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(btnBaruMemeber);
-        btnBaruMemeber.setBounds(590, 360, 90, 40);
+        btnBaruMemeber.setBounds(580, 530, 90, 40);
 
         btnSimpanMember.setText("Simpan");
         btnSimpanMember.addActionListener(new java.awt.event.ActionListener() {
@@ -599,14 +606,14 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(btnSimpanMember);
-        btnSimpanMember.setBounds(690, 360, 90, 40);
+        btnSimpanMember.setBounds(690, 530, 90, 40);
 
         cbKelaminMember.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Jenis Kelamin", "Laki-Laki", "Perempuan" }));
         cbKelaminMember.setBorder(null);
         cbKelaminMember.setEnabled(false);
         cbKelaminMember.setOpaque(false);
         memberRegisterPanel.add(cbKelaminMember);
-        cbKelaminMember.setBounds(290, 230, 230, 30);
+        cbKelaminMember.setBounds(290, 270, 240, 30);
 
         btnUbahMember.setText("Ubah");
         btnUbahMember.addActionListener(new java.awt.event.ActionListener() {
@@ -615,7 +622,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(btnUbahMember);
-        btnUbahMember.setBounds(790, 360, 90, 40);
+        btnUbahMember.setBounds(800, 530, 90, 40);
 
         btnHapusMember.setText("Hapus");
         btnHapusMember.addActionListener(new java.awt.event.ActionListener() {
@@ -624,7 +631,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(btnHapusMember);
-        btnHapusMember.setBounds(890, 360, 90, 40);
+        btnHapusMember.setBounds(910, 530, 90, 40);
 
         btnBatalMember.setText("Batal");
         btnBatalMember.addActionListener(new java.awt.event.ActionListener() {
@@ -633,7 +640,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         memberRegisterPanel.add(btnBatalMember);
-        btnBatalMember.setBounds(990, 360, 90, 40);
+        btnBatalMember.setBounds(1020, 530, 90, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/MemberPanel.png"))); // NOI18N
         jLabel1.setText("Member id");
@@ -652,19 +659,19 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         InputPanel.add(tfProductidProduct);
-        tfProductidProduct.setBounds(280, 117, 202, 30);
+        tfProductidProduct.setBounds(290, 110, 240, 40);
 
         tfJenisProduct.setBorder(null);
         InputPanel.add(tfJenisProduct);
-        tfJenisProduct.setBounds(280, 280, 202, 40);
+        tfJenisProduct.setBounds(290, 350, 240, 40);
 
         tfNamaProduct.setBorder(null);
         InputPanel.add(tfNamaProduct);
-        tfNamaProduct.setBounds(280, 170, 202, 30);
+        tfNamaProduct.setBounds(290, 190, 240, 40);
 
         tfMerekProduct.setBorder(null);
         InputPanel.add(tfMerekProduct);
-        tfMerekProduct.setBounds(280, 230, 202, 30);
+        tfMerekProduct.setBounds(290, 270, 240, 40);
 
         tfStockProduct.setBorder(null);
         tfStockProduct.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -673,7 +680,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         InputPanel.add(tfStockProduct);
-        tfStockProduct.setBounds(280, 340, 202, 30);
+        tfStockProduct.setBounds(290, 420, 240, 40);
 
         tfHargaProduct.setBorder(null);
         tfHargaProduct.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -682,7 +689,7 @@ public class CashierPanel extends javax.swing.JFrame {
             }
         });
         InputPanel.add(tfHargaProduct);
-        tfHargaProduct.setBounds(280, 400, 202, 30);
+        tfHargaProduct.setBounds(290, 500, 240, 40);
 
         TableProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
