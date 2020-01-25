@@ -29,38 +29,100 @@ public class AboutPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        popupAzma = new javax.swing.JLabel();
+        popupRizal = new javax.swing.JLabel();
+        popupFandi = new javax.swing.JLabel();
+        Azma = new javax.swing.JLabel();
+        Rizal = new javax.swing.JLabel();
+        Fandi = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
-        );
+        popupAzma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/azma3.png"))); // NOI18N
+        getContentPane().add(popupAzma);
+        popupAzma.setBounds(40, 60, 230, 250);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        popupRizal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/rizal3.png"))); // NOI18N
+        getContentPane().add(popupRizal);
+        popupRizal.setBounds(290, 60, 230, 250);
+
+        popupFandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi3.png"))); // NOI18N
+        getContentPane().add(popupFandi);
+        popupFandi.setBounds(550, 60, 230, 250);
+
+        Azma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/azma1.png"))); // NOI18N
+        Azma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AzmaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AzmaMouseExited(evt);
+            }
+        });
+        getContentPane().add(Azma);
+        Azma.setBounds(80, 70, 136, 194);
+
+        Rizal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/rizal1.png"))); // NOI18N
+        Rizal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RizalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RizalMouseExited(evt);
+            }
+        });
+        getContentPane().add(Rizal);
+        Rizal.setBounds(330, 70, 130, 194);
+
+        Fandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi1.png"))); // NOI18N
+        Fandi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                FandiMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                FandiMouseExited(evt);
+            }
+        });
+        getContentPane().add(Fandi);
+        Fandi.setBounds(600, 70, 120, 194);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/AboutPanel.png"))); // NOI18N
+        getContentPane().add(background);
+        background.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AzmaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AzmaMouseEntered
+        Azma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/azma2.png")));
+    }//GEN-LAST:event_AzmaMouseEntered
+
+    private void AzmaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AzmaMouseExited
+        Azma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/azma1.png")));
+    }//GEN-LAST:event_AzmaMouseExited
+
+    private void RizalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RizalMouseEntered
+        Rizal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/rizal2.png")));
+    }//GEN-LAST:event_RizalMouseEntered
+
+    private void RizalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RizalMouseExited
+        Rizal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/rizal1.png")));
+    }//GEN-LAST:event_RizalMouseExited
+
+    private void FandiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FandiMouseEntered
+        Fandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi2.png")));
+    }//GEN-LAST:event_FandiMouseEntered
+
+    private void FandiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FandiMouseExited
+        Fandi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/picture/fandi1.png")));
+    }//GEN-LAST:event_FandiMouseExited
+
     public static void summonAboutPanel() {
         AboutPanel aboutPanel = new AboutPanel();
-        aboutPanel.setSize(1150, 695);
+        aboutPanel.setSize(800, 625);
         aboutPanel.setLocationRelativeTo(null);
         aboutPanel.setVisible(true);
 
@@ -102,6 +164,12 @@ public class AboutPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel Azma;
+    private javax.swing.JLabel Fandi;
+    private javax.swing.JLabel Rizal;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel popupAzma;
+    private javax.swing.JLabel popupFandi;
+    private javax.swing.JLabel popupRizal;
     // End of variables declaration//GEN-END:variables
 }
