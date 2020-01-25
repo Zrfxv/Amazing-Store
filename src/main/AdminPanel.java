@@ -71,7 +71,6 @@ public class AdminPanel extends javax.swing.JFrame {
         TransactionTablePanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DataTransactionTable = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         CashierPanel = new javax.swing.JPanel();
         tfUsernameKasir = new javax.swing.JTextField();
@@ -366,8 +365,6 @@ public class AdminPanel extends javax.swing.JFrame {
 
         DataPanel.add(MainPanelAdmin);
         MainPanelAdmin.setBounds(50, 120, 1040, 390);
-        DataPanel.add(jLabel6);
-        jLabel6.setBounds(340, 540, 150, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/BlankPanel.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -781,7 +778,7 @@ public class AdminPanel extends javax.swing.JFrame {
         tvDataTransaction.setForeground(utama);
         tvDataProduct.setForeground(klik);
 
-        Date();
+       
 
         EnableMember(1);
         EnableKasir(1);
@@ -1686,14 +1683,7 @@ public class AdminPanel extends javax.swing.JFrame {
         }
     }
 
-    private void Date() {
-        Date data = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-H:m:s");
-        String tgl_jam = sdf.format(data);
-
-        jLabel6.setText(tgl_jam);
-
-    }
+   
 
     public static void summonAdminPanel() {
         AdminPanel adminPanel = new AdminPanel();
@@ -1776,7 +1766,6 @@ public class AdminPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
