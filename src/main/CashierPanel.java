@@ -1114,6 +1114,8 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "'" + cbKelaminMember.getSelectedItem() + " ',"
                         + "'" + taAlamatMember.getText() + " ',"
                         + "'" + tfNoTelpMember.getText() + "')");
+                 refreshData(1);
+         enableMember(3);
             } else {
                 AppDatabase.perintah.executeUpdate("update customer set "
                         + "name = '" + tfNamaMember.getText() + "',"
@@ -1121,13 +1123,24 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "address = '" + taAlamatMember.getText() + "' ,"
                         + "telp = '" + tfNoTelpMember.getText() + "' "
                         + "where customer_id = '" + tfMemberID.getText() + "';");
+                 refreshData(1);
+         enableMember(3);
+            
                 System.out.println("Query update berhasil");
+                    
+           
             }
         } catch (SQLException e) {
+               JOptionPane.showMessageDialog(this,
+                    "Member Id Sudah Ada , Mohon Di Ganti", "Konfirmasi",
+                    JOptionPane.ERROR_MESSAGE);
+                 tfMemberID.requestFocus();
+                 tfMemberID.setText("");
+                    
+           
         }
 
-        refreshData(1);
-        enableMember(3);
+        
 
 
     }//GEN-LAST:event_btnSimpanMemberActionPerformed
@@ -1203,6 +1216,15 @@ public class CashierPanel extends javax.swing.JFrame {
                 bersihkan();
             }
         } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Produc Id Sudah Ada , Mohon Di Ganti", "Konfirmasi",
+                    JOptionPane.ERROR_MESSAGE);
+            tfProductidProduct.setText("");
+            tfProductidProduct.requestFocus();
+
+
+            
         }
 
 
@@ -1239,7 +1261,11 @@ public class CashierPanel extends javax.swing.JFrame {
                     + "address = '" + taAlamatprofile.getText() + "' ,"
                     + "telp = '" + tfNoTelpProfile.getText() + "' "
                     + "where username = '" + tfUsernameProfile.getText() + "';");
+             JOptionPane.showMessageDialog(this, "Akun Sudah Di Perbaruhi" ,"Konfirmasi", JOptionPane.INFORMATION_MESSAGE);
+               
         } catch (SQLException e) {
+            
+            
         }
 
         enableProfile(3);
@@ -1353,6 +1379,7 @@ public class CashierPanel extends javax.swing.JFrame {
 //               JOptionPane.showInputDialog(this,"Customer Id Tidak Ditemukan" , "Informasi",JOptionPane.ERROR_MESSAGE);
                 JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
                 tfCustomerId.requestFocus();
+                bersihkan();
             }
 
         }
@@ -1907,6 +1934,7 @@ public class CashierPanel extends javax.swing.JFrame {
             btnHapusMember.setEnabled(false);
             btnUbahMember.setEnabled(false);
             bersihkan();
+         
 
         } else if (model == 4) {
             //btn Ubah
