@@ -46,7 +46,7 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        tfUsername.setText("fandi123");
+        tfUsername.setText("heathcliff");
         tfUsername.setBorder(null);
         tfUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +64,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(tfUsername);
         tfUsername.setBounds(440, 390, 320, 50);
 
-        tfPassword.setText("fandi123");
+        tfPassword.setText("suprax125");
         tfPassword.setBorder(null);
         tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

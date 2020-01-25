@@ -1114,8 +1114,8 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "'" + cbKelaminMember.getSelectedItem() + " ',"
                         + "'" + taAlamatMember.getText() + " ',"
                         + "'" + tfNoTelpMember.getText() + "')");
-                 refreshData(1);
-         enableMember(3);
+                refreshData(1);
+                enableMember(3);
             } else {
                 AppDatabase.perintah.executeUpdate("update customer set "
                         + "name = '" + tfNamaMember.getText() + "',"
@@ -1123,24 +1123,20 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "address = '" + taAlamatMember.getText() + "' ,"
                         + "telp = '" + tfNoTelpMember.getText() + "' "
                         + "where customer_id = '" + tfMemberID.getText() + "';");
-                 refreshData(1);
-         enableMember(3);
-            
+                refreshData(1);
+                enableMember(3);
+
                 System.out.println("Query update berhasil");
-                    
-           
+
             }
         } catch (SQLException e) {
-               JOptionPane.showMessageDialog(this,
+            JOptionPane.showMessageDialog(this,
                     "Member Id Sudah Ada , Mohon Di Ganti", "Konfirmasi",
                     JOptionPane.ERROR_MESSAGE);
-                 tfMemberID.requestFocus();
-                 tfMemberID.setText("");
-                    
-           
-        }
+            tfMemberID.requestFocus();
+            tfMemberID.setText("");
 
-        
+        }
 
 
     }//GEN-LAST:event_btnSimpanMemberActionPerformed
@@ -1223,8 +1219,6 @@ public class CashierPanel extends javax.swing.JFrame {
             tfProductidProduct.setText("");
             tfProductidProduct.requestFocus();
 
-
-            
         }
 
 
@@ -1243,11 +1237,8 @@ public class CashierPanel extends javax.swing.JFrame {
         cbKelaminMember.setSelectedItem(memberTable.getValueAt(TableMember.getSelectedRow(), 2).toString());
         taAlamatMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 3).toString());
         tfNoTelpMember.setText(memberTable.getValueAt(TableMember.getSelectedRow(), 4).toString());
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_TableMemberMouseClicked
 
     private void btnSimpanProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanProfileActionPerformed
@@ -1261,11 +1252,10 @@ public class CashierPanel extends javax.swing.JFrame {
                     + "address = '" + taAlamatprofile.getText() + "' ,"
                     + "telp = '" + tfNoTelpProfile.getText() + "' "
                     + "where username = '" + tfUsernameProfile.getText() + "';");
-             JOptionPane.showMessageDialog(this, "Akun Sudah Di Perbaruhi" ,"Konfirmasi", JOptionPane.INFORMATION_MESSAGE);
-               
+            JOptionPane.showMessageDialog(this, "Akun Sudah Di Perbaruhi", "Konfirmasi", JOptionPane.INFORMATION_MESSAGE);
+
         } catch (SQLException e) {
-            
-            
+
         }
 
         enableProfile(3);
@@ -1327,7 +1317,7 @@ public class CashierPanel extends javax.swing.JFrame {
                         + "where product_id ='" + tfProductidProduct.getText() + "';");
                 refreshData(2);
                 bersihkan();
-               
+
             } catch (SQLException e) {
                 System.err.println("Query delete Member gagal");
             }
@@ -1357,7 +1347,7 @@ public class CashierPanel extends javax.swing.JFrame {
                 tvHarga.setText("Rp." + hasil.getString("price"));
                 tvStok.setText(hasil.getString("stok"));
             } catch (SQLException e) {
-                 JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
                 tfProductId.setText("");
             }
             tfJumlah.requestFocus();
@@ -1439,13 +1429,13 @@ public class CashierPanel extends javax.swing.JFrame {
         }
         transactionTable.getDataVector().removeAllElements();
         transactionTable.fireTableDataChanged();
-        
-         tfProductId.setEditable(true);
+
+        tfProductId.setEditable(true);
         tfJumlah.setEditable(true);
-        
+
         tfInvoiceNumber.setEditable(false);
         tfCustomerId.setEditable(false);
-                    
+
         bersihkan();
     }//GEN-LAST:event_btntransaksiBatalActionPerformed
 
@@ -1459,22 +1449,18 @@ public class CashierPanel extends javax.swing.JFrame {
         kasir();
         tfProductId.setEditable(false);
         tfJumlah.setEditable(false);
-        
+
         tfInvoiceNumber.setEditable(true);
         tfCustomerId.setEditable(true);
-        
-        
-        
 
-        
         bersihkan();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tfBayarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfBayarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println(tvTotalHarga.getText() + "   " + tfBayar.getText());
-            Double totalHarga = Double.parseDouble(tvTotalHarga.getText()), jumlahBayar = Double.parseDouble(tfBayar.getText());
-            Double kembalian = jumlahBayar - totalHarga;
+            Integer totalHarga = Integer.parseUnsignedInt(tvTotalHarga.getText()), jumlahBayar = Integer.parseUnsignedInt(tfBayar.getText());
+            Integer kembalian = jumlahBayar - totalHarga;
 //            System.out.println("Kembalianya "+ (Integer.valueOf(tvTotalHarga.getText()) - Integer.valueOf(tfBayar.getText())));
             tfJumlah.setEditable(false);
             tvKembalian.setText("" + kembalian);
@@ -1490,7 +1476,7 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tfCustomerIdActionPerformed
 
     private void tfStockProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfStockProductKeyTyped
-       char angka = evt.getKeyChar();
+        char angka = evt.getKeyChar();
 
         if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
 
@@ -1509,7 +1495,7 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tfStockProductKeyTyped
 
     private void tfHargaProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHargaProductKeyTyped
-          char angka = evt.getKeyChar();
+        char angka = evt.getKeyChar();
 
         if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
 
@@ -1536,9 +1522,9 @@ public class CashierPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_tfJumlahActionPerformed
 
     private void tfNoTelpMemberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNoTelpMemberKeyTyped
-       
-             char angka = evt.getKeyChar();
-        
+
+        char angka = evt.getKeyChar();
+
         if (!(Character.isDigit(angka) || angka == KeyEvent.VK_BACK_SPACE || angka == KeyEvent.VK_DELETE || angka == KeyEvent.VK_ENTER)) {
 
             getToolkit().beep();
@@ -1747,7 +1733,7 @@ public class CashierPanel extends javax.swing.JFrame {
             tfNamaProduct.setEditable(true);
 
             btnBaruPrduct.setEnabled(false);
-            btnBatalProduct.setEnabled(false);
+            btnBatalProduct.setEnabled(true);
             btnSimpanProduct.setEnabled(true);
             btnUbahProduct.setEnabled(false);
             btnHapusProduct.setEnabled(false);
@@ -1934,7 +1920,6 @@ public class CashierPanel extends javax.swing.JFrame {
             btnHapusMember.setEnabled(false);
             btnUbahMember.setEnabled(false);
             bersihkan();
-         
 
         } else if (model == 4) {
             //btn Ubah

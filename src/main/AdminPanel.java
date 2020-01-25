@@ -1089,15 +1089,15 @@ public class AdminPanel extends javax.swing.JFrame {
                         + "'" + tfNoTelpKasir.getText() + "');");
                      
                 System.out.println("Query insert cashier berhasil");
-            } else {
+            } else if(saveMode == false){
                 AppDatabase.perintah.executeUpdate("update employee set "
                         + "password = '" + String.valueOf(tfPasswordKasir.getPassword()) + "',"
-                        + "level ='cashier' ,"
+                        + "level = 'cashier' ,"
                         + "name = '" + tfNamaKasir.getText() + "' ,"
                         + "gender = '" + cbGenderKaisr.getSelectedItem() + "' ,"
                         + "address = '" + taAlamatKasir.getText() + "' ,"
-                        + "telp = '" + tfNoTelpProfile.getText() + "' "
-                        + "where username = '" + tfUsernameProfile.getText() + "';");
+                        + "telp = '" + tfNoTelpKasir.getText() + "' "
+                        + "where username = '" + tfUsernameKasir.getText() + "';");
                 
             }
         } catch (SQLException e) {
