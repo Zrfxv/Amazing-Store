@@ -6,6 +6,7 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.color.ColorSpace;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -48,6 +49,13 @@ public class CashierPanel extends javax.swing.JFrame {
         memberTable = (DefaultTableModel) TableMember.getModel();
         productTable = (DefaultTableModel) TableProduct.getModel();
         transactionTable = (DefaultTableModel) TableTransaction.getModel();
+        
+        
+        TableTransaction.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
+        TableTransaction.getTableHeader().setOpaque(false);
+        TableTransaction.setBackground(Color.WHITE);
+        TableTransaction.getTableHeader().setForeground(Color.PINK);
+        TableTransaction.setRowHeight(25);
 
     }
 
@@ -437,6 +445,11 @@ public class CashierPanel extends javax.swing.JFrame {
         tvStok.setBounds(780, 120, 60, 40);
 
         tfProductId.setBorder(null);
+        tfProductId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfProductIdActionPerformed(evt);
+            }
+        });
         tfProductId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfProductIdKeyPressed(evt);
@@ -459,13 +472,25 @@ public class CashierPanel extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
+        TableTransaction.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TableTransaction.setFocusable(false);
         TableTransaction.setOpaque(false);
+        TableTransaction.setShowVerticalLines(false);
+        TableTransaction.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(TableTransaction);
+        TableTransaction.getAccessibleContext().setAccessibleDescription("");
 
         transaksiPanel.add(jScrollPane2);
         jScrollPane2.setBounds(20, 190, 1090, 280);
@@ -1353,11 +1378,14 @@ public class CashierPanel extends javax.swing.JFrame {
                 tvNamaProduk.setText(hasil.getString("brand") + hasil.getString("name"));
                 tvHarga.setText("Rp." + hasil.getString("price"));
                 tvStok.setText(hasil.getString("stok"));
+                
+                tfJumlah.requestFocus();
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(this, "Customer Id Tidak Ditemukan", "Informasi", JOptionPane.ERROR_MESSAGE);
                 tfProductId.setText("");
+                  tfProductId.requestFocus();
             }
-            tfJumlah.requestFocus();
+            
             tfJumlah.setEditable(true);
         }
     }//GEN-LAST:event_tfProductIdKeyPressed
@@ -1407,6 +1435,8 @@ public class CashierPanel extends javax.swing.JFrame {
 
     private void tfJumlahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfJumlahKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            tfBayar.requestFocus();
+             
 
             try {
                 AppDatabase.perintah.executeUpdate("insert into transaction values "
@@ -1545,6 +1575,10 @@ public class CashierPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No Telpon Melebihi 13 karakter", "Informasi", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_tfNoTelpMemberKeyTyped
+
+    private void tfProductIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfProductIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfProductIdActionPerformed
 
     private void bersihkan() {
 
@@ -2033,6 +2067,10 @@ public class CashierPanel extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+       
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
