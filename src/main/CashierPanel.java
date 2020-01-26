@@ -123,7 +123,7 @@ public class CashierPanel extends javax.swing.JFrame {
         tvKembalian = new javax.swing.JLabel();
         btntransaksiBatal = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        tvData = new javax.swing.JLabel();
+        tvTime = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         memberRegisterPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -553,12 +553,12 @@ public class CashierPanel extends javax.swing.JFrame {
         transaksiPanel.add(jButton4);
         jButton4.setBounds(330, 500, 220, 50);
 
-        tvData.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        tvData.setForeground(new java.awt.Color(255, 255, 255));
-        tvData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tvData.setText("TIME");
-        transaksiPanel.add(tvData);
-        tvData.setBounds(930, 20, 200, 40);
+        tvTime.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tvTime.setForeground(new java.awt.Color(255, 255, 255));
+        tvTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tvTime.setText("TIME");
+        transaksiPanel.add(tvTime);
+        tvTime.setBounds(930, 20, 200, 40);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/TransactionPanel.png"))); // NOI18N
         transaksiPanel.add(jLabel9);
@@ -1009,9 +1009,9 @@ public class CashierPanel extends javax.swing.JFrame {
     }
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        tvUser.setText("Hi, " + Encapsulation.getUsername());
+        tvUser.setText("Hi, " + Login.username);
 
-        tvWelcome.setText(Encapsulation.getName());
+        tvWelcome.setText(Login.name);
         enableMember(1);
         enableInputPanel(1);
         enableProfile(2);
@@ -1424,7 +1424,7 @@ public class CashierPanel extends javax.swing.JFrame {
             try {
                 AppDatabase.perintah.executeUpdate("insert into invoice values "
                         + "('" + tfInvoiceNumber.getText() + "', '"
-                        + Encapsulation.getUsername() + "' ,'"
+                        + Login.username + "' ,'"
                         + tfCustomerId.getText() + "');");
                 tfInvoiceNumber.setEditable(false);
                 tfCustomerId.setEditable(false);
@@ -1470,7 +1470,7 @@ public class CashierPanel extends javax.swing.JFrame {
             try {
                 AppDatabase.perintah.executeUpdate("insert into transaction values "
                         + "('" + tfInvoiceNumber.getText() + "', "
-                        + "'2020-01-19 10:35:15', "
+                        + "'"+ tvTime.getText() +"', "
                         + "'" + tfProductId.getText() + "', "
                         + "'" + tfJumlah.getText() + "');");
                 refreshData(5);
@@ -1698,7 +1698,7 @@ public class CashierPanel extends javax.swing.JFrame {
             taProfile.setText("");
             try {
                 hasil = AppDatabase.perintah.executeQuery("select * from employee "
-                        + "where username='" + Encapsulation.getUsername() + "';");
+                        + "where username='" + Login.username + "';");
                 hasil.next();
                 taProfile.setText("Username\n\n"
                         + hasil.getString("username")
@@ -1718,7 +1718,7 @@ public class CashierPanel extends javax.swing.JFrame {
             taProfile.setText("");
             try {
                 hasil = AppDatabase.perintah.executeQuery("select * from employee "
-                        + "where username='" + Encapsulation.getUsername() + "';");
+                        + "where username='" + Login.username + "';");
                 hasil.next();
                 tfUsernameProfile.setText(hasil.getString("username"));
                 tfPasswordProfile.setText(hasil.getString("password"));
@@ -2063,9 +2063,9 @@ public class CashierPanel extends javax.swing.JFrame {
                     int menit = kalender.get(Calendar.MINUTE);
                     int detik = kalender.get(Calendar.SECOND);
 
-                    String date = hari + "-" + bulan + "-" + tahun + " " + jam + ":" + menit + ":" + detik;
+                    String date = tahun + "-" + bulan + "-" + hari + " " + jam + ":" + menit + ":" + detik;
 
-                    tvData.setText(date);
+                    tvTime.setText(date);
 
                 }
 
@@ -2196,13 +2196,13 @@ public class CashierPanel extends javax.swing.JFrame {
     private javax.swing.JTextField tfUsernameProfile;
     private javax.swing.JPanel transaksiPanel;
     private javax.swing.JLabel tvAbout;
-    private javax.swing.JLabel tvData;
     private javax.swing.JLabel tvHarga;
     private javax.swing.JLabel tvKembalian;
     private javax.swing.JLabel tvMember;
     private javax.swing.JLabel tvNamaProduk;
     private javax.swing.JLabel tvProduct;
     private javax.swing.JLabel tvStok;
+    private javax.swing.JLabel tvTime;
     private javax.swing.JLabel tvTotalHarga;
     private javax.swing.JLabel tvTransaction;
     private javax.swing.JLabel tvUser;

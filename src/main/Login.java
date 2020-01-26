@@ -20,7 +20,7 @@ import java.util.Date;
  * @author muham
  */
 public class Login extends javax.swing.JFrame {
-
+    public static String username, name;
     /**
      * Creates new form Login
      */
@@ -115,9 +115,8 @@ public class Login extends javax.swing.JFrame {
                 CashierPanel.summonCashierPanel();
             }
 
-            Encapsulation.setUsername(resultSet.getString("username"));
-            Encapsulation.setName(resultSet.getString("name"));
-            System.out.println(Encapsulation.getUsername());
+            username = (resultSet.getString("username"));
+            name = (resultSet.getString("name"));
 
         } catch (SQLException e) {
             System.err.println("Query login gagal");
@@ -157,13 +156,6 @@ public class Login extends javax.swing.JFrame {
     private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPasswordActionPerformed
-
-    public void date() {
-        Date data = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggal = sdf.format(data);
-
-    }
 
     public static void summonLoginPanel() {
         Login loginPanel = new Login();
