@@ -13,7 +13,7 @@ import AppPackage.AnimationClass;
  */
 public class AboutPanel extends javax.swing.JFrame {
     
-    AnimationClass animasi = new AnimationClass();
+    AnimationClass animasi = new AnimationClass(); //pembuatan class
 
     /**
      * Creates new form AboutPanel

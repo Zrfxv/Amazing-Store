@@ -263,6 +263,7 @@ public class AdminPanel extends javax.swing.JFrame {
         DataPanel.setLayout(null);
 
         tvDataProduct.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tvDataProduct.setForeground(new java.awt.Color(255, 255, 255));
         tvDataProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tvDataProduct.setText("Data Product");
         tvDataProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -274,6 +275,7 @@ public class AdminPanel extends javax.swing.JFrame {
         tvDataProduct.setBounds(850, 32, 150, 30);
 
         tvDataTransaction.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        tvDataTransaction.setForeground(new java.awt.Color(255, 255, 255));
         tvDataTransaction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tvDataTransaction.setText("Data Transaksi");
         tvDataTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -775,6 +777,8 @@ public class AdminPanel extends javax.swing.JFrame {
 
         tvDataTransaction.setForeground(utama);
         tvDataProduct.setForeground(klik);
+        tvDataTransaction.setForeground(Color.WHITE);
+        tvDataProduct.setForeground(Color.WHITE);
 
         EnableMember(1);
         EnableKasir(1);
